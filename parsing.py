@@ -2,6 +2,30 @@ import re
 from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString
+from bs4.element import Tag
+
+
+def join_hyphenated_words(words):
+    HYPHEN = "-"
+    i = 0
+    while i < len(words) - 1:
+        if words[i].endswith(HYPHEN):
+            words[i] = words[i].rstrip(HYPHEN) + words[i + 1]
+            del words[i + 1]
+        else:
+            i += 1
+    return words
+
+
+def convert_raw_content_to_paragraphs(raw_content: Tag):
+    content = []
+    for child in raw_content.find_all("ab", attrs={"type": "Body"}):
+        for grandchild in child.children:
+            if not grandchild.text.strip():
+                continue
+            if grandchild.name == "w":
+                content += [text.strip() for text in grandchild.stripped_strings]
+    return " ".join(join_hyphenated_words(content))
 
 
 def parse_file(path: Path) -> dict:
@@ -26,7 +50,11 @@ def parse_file(path: Path) -> dict:
         else:
             section_number = None
         entry_id = entry.find("ref").attrs["target"]
-        content = body.find("div", attrs={"xml:id": entry_id})
+        raw_content = body.find("div", attrs={"xml:id": entry_id})
+        if raw_content is not None:
+            content = convert_raw_content_to_paragraphs(raw_content)
+        else:
+            content = None
         toc_entries.append(
             {
                 "id": entry_id,
@@ -37,8 +65,3 @@ def parse_file(path: Path) -> dict:
             }
         )
     return toc_entries
-
-
-if __name__ == "__main__":
-    for file in Path("textbooks").glob("*.xml"):
-        parse_file(file)
