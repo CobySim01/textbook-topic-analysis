@@ -22,15 +22,6 @@ class Textbook:
         self.subsections.append(section)
         section.textbook = self
 
-    def print_toc(self, matches=None):
-        """Prints a textual representation of the Textbook's table of contents."""
-        for section in self.subsections:
-            section.print_entry()
-            if matches is not None:
-                for match in matches[section]:
-                    print(f"-\t{match}")
-            section.print_subsections(matches=matches, indent="\t")
-
     @property
     def all_subsections(self) -> list["Section"]:
         """Flattens all sections into a single list."""
@@ -130,15 +121,6 @@ class Section:  # pylint: disable=too-many-instance-attributes
         section_number_string = ".".join(str(s) for s in self.section_number)
         print(f"{indent}{section_number_string}: {self.header}")
 
-    def print_subsections(self, matches=None, indent=""):
-        """Prints the subsections for a textbook"""
-        for section in self.subsections:
-            section.print_entry(indent)
-            if matches is not None:
-                for match in matches[self]:
-                    print(f"{indent}-\t{match}")
-            section.print_subsections(matches, indent + "\t")
-
     def __hash__(self) -> int:
         return hash((self.textbook, self.section_id, self.header, self.content_string))
 
@@ -201,7 +183,7 @@ class IntegratedTextbook:
     def print_matches(self):
         """Prints a textual representation of the base textbook
         with semantic matches from other sections."""
-        self.base_textbook.print_toc(self.base_to_other_map)
+        print_toc(self.base_textbook, self.base_to_other_map)
         print("------------------------------------")
         unmatched_sections = self.base_to_other_map[None]
         if len(unmatched_sections) > 20:
@@ -210,3 +192,15 @@ class IntegratedTextbook:
             print("Unmatched Sections:")
             for unmatched in unmatched_sections:
                 print(f"-\t{unmatched}")
+
+
+def print_toc(section: Section | Textbook, matches: dict = None, indent: str = ""):
+    """Prints a textual representation of a section's table of contents."""
+    if isinstance(section, Section):
+        section.print_entry(indent)
+        if matches is not None and section in matches:
+            for match in matches[section]:
+                print(f"{indent}-\t{match}")
+        indent += "\t"
+    for subsection in section.subsections:
+        print_toc(subsection, matches, indent)
