@@ -55,10 +55,10 @@ def convert_json_to_textbook(json_file_path: Path) -> Textbook:
         new_section = Section(
             section_id=section_id,
             header=section_data["header"],
-            content_xml=section_data["content_xml"],
+            # content_xml=section_data["content_xml"],
             content_string=section_data["content_string"],
             word_count=section_data["word_count"],
-            subsections=section_data.get("subsections", []),
+            subsections=section_data["subsections"],
             annotations=section_data["annotations"],
         )
         sections_dict[section_id] = new_section
@@ -68,9 +68,7 @@ def convert_json_to_textbook(json_file_path: Path) -> Textbook:
     # Add top-level sections to textbook
     for section_id, section in sections_dict.items():
         # Assuming top-level sections are those not listed as a subsection of any other section
-        if not any(
-            section_id in s_data.get("subsections", []) for s_data in data.values()
-        ):
+        if not any(section_id in s_data["subsections"] for s_data in data.values()):
             textbook.add_section(section)
 
     textbook.assign_section_numbers(sections_dict)

@@ -54,7 +54,7 @@ class Textbook:
             section = sections_dict[section_id]
             section.subsections = [
                 sections_dict[sub_id]
-                for sub_id in section_data.get("subsections", [])
+                for sub_id in section_data["subsections"]
                 if sub_id in sections_dict
             ]
             for s in section.subsections:
@@ -63,34 +63,40 @@ class Textbook:
     def __hash__(self) -> int:
         return hash(self.name)
 
-    def compute_section_vectors(self):
-        """Computes and aggregates section vectors."""
-        for section in self.subsections:
-            self._compute_section_vectors(section)
+    def compute_section_vectors(self, section: Optional["Section"] = None):
+        """
+        Computes and aggregates section vectors.
+        If no section is provided, computes for all top-level sections.
+        """
+        if section is None:
+            for top_level_section in self.subsections:
+                self.compute_section_vectors(top_level_section)
+            return
 
-    def _compute_section_vectors(self, section: "Section"):
-        """Computes and aggregates section vectors."""
         weights = []
         for subsection in section.subsections:
-            self._compute_section_vectors(subsection)
+            self.compute_section_vectors(subsection)
             weights.append(subsection.word_count)
+
         if not self.aggregate_subsection_vectors:
-            self.section_vectors |= {section: self.compute_vector(section)}
+            self.section_vectors[section] = self.compute_vector(section)
             return
+
         vectors = [
-            self.section_vectors[subsection] for subsection in section.subsections
+            self.section_vectors.get(subsection, 0)
+            for subsection in section.subsections
         ]
         this_section_vector = self.compute_vector(section)
         vectors.append(this_section_vector)
         this_section_weight = section.word_count
         weights.append(this_section_weight)
-        vectors_without_nulls = [v if v is not None else 0 for v in vectors]
+
         if sum(weights) > 0:
-            aggregated_vector = np.average(vectors_without_nulls, weights=weights)
+            aggregated_vector = np.average(vectors, weights=weights)
         else:
             aggregated_vector = None
-        self.section_vectors |= {section: aggregated_vector}
-        return
+
+        self.section_vectors[section] = aggregated_vector
 
 
 @dataclass()
@@ -99,7 +105,7 @@ class Section:  # pylint: disable=too-many-instance-attributes
 
     section_id: str = field(compare=False, repr=True)
     header: str = field(compare=False, repr=True)
-    content_xml: str = field(compare=False, repr=False)
+    # content_xml: str = field(compare=False, repr=False)
     content_string: str = field(compare=False, repr=False)
     word_count: int = field(compare=False, repr=False)
     subsections: list["Section"] = field(compare=False, repr=False)
@@ -144,42 +150,60 @@ class IntegratedTextbook:
     base_textbook: Textbook
     similarity_function: Callable[[str, str], float]
     similarity_threshold: float
-    section_mapping: DefaultDict[Optional[Section], set[Section]] = field(
+    base_to_other_map: DefaultDict[Optional[Section], set[Section]] = field(
         default_factory=lambda: defaultdict(set), repr=False, init=False
     )
+    other_to_base_map: dict[Section, dict[Section, float]] = field(
+        default_factory=dict, repr=False, init=False
+    )
 
-    def _integrate_sections(self, other_textbook: Textbook, other_section: Section):
-        potential_similar_sections = [
-            {
-                "section": section,
-                "similarity": self.similarity_function(
-                    self.base_textbook.section_vectors[section],
-                    other_textbook.section_vectors[other_section],
-                ),
-            }
-            for section in self.base_textbook.all_subsections
-        ]
-        best_potential_similar_section = max(
-            potential_similar_sections, key=lambda s: s["similarity"]
+    def _find_best_matching_section(
+        self, other_section_vector
+    ) -> tuple[Section | None, float]:
+        """Finds the best matching section in the base textbook for a given vector."""
+        best_match = max(
+            self.base_textbook.all_subsections,
+            key=lambda section: self.similarity_function(
+                self.base_textbook.section_vectors[section], other_section_vector
+            ),
+            default=None,
         )
-        if best_potential_similar_section["similarity"] > self.similarity_threshold:
-            section_from_this_textbook = best_potential_similar_section["section"]
-        else:
-            section_from_this_textbook = None
-        self.section_mapping[section_from_this_textbook].add(other_section)
+        similarity = self.similarity_function(
+            self.base_textbook.section_vectors.get(best_match, 0), other_section_vector
+        )
+        return {
+            "score": similarity,
+            "section": best_match if similarity > self.similarity_threshold else None,
+        }
 
     def integrate_sections(self, other_textbooks: list[Textbook]):
         """Integrates similar sections from other_textbooks into the base textbook."""
-        for textbook in other_textbooks:
-            for section in textbook.all_subsections:
-                self._integrate_sections(textbook, section)
+        for other_textbook in other_textbooks:
+            for other_section in other_textbook.all_subsections:
+                new_match = self._find_best_matching_section(
+                    other_textbook.section_vectors[other_section]
+                )
+                previous_match = self.other_to_base_map.get(
+                    other_section, {"score": -1, "section": None}
+                )
+
+                if (
+                    previous_match["section"] is not None
+                    and new_match["score"] < previous_match["score"]
+                ):
+                    continue
+                self.base_to_other_map[new_match["section"]].add(other_section)
+                previous_match_group = self.base_to_other_map[previous_match["section"]]
+                if other_section in previous_match_group:
+                    previous_match_group.remove(other_section)
+                self.other_to_base_map[other_section] = new_match
 
     def print_matches(self):
         """Prints a textual representation of the base textbook
         with semantic matches from other sections."""
-        self.base_textbook.print_toc(self.section_mapping)
+        self.base_textbook.print_toc(self.base_to_other_map)
         print("------------------------------------")
-        unmatched_sections = self.section_mapping[None]
+        unmatched_sections = self.base_to_other_map[None]
         if len(unmatched_sections) > 20:
             print(len(unmatched_sections), "unmatched sections")
         else:
