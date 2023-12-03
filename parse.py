@@ -1,8 +1,5 @@
-import json
 import re
-from concurrent.futures import ProcessPoolExecutor
 from copy import copy
-from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString
 from bs4.element import Tag
@@ -85,13 +82,16 @@ def get_annotations(index, entry_id):
     index_refs = index.find_all("ref", attrs={"target": entry_id})
     if index_refs is None:
         return []
-    index_items = " ".join(
-        gross
+    annotation_text = " ".join(
+        gross.text
         for ref in index_refs
         for gross in set(ref.parent.find_all("gross"))
         if ref.parent.get("domain-specificity") in {"core-domain", "in-domain"}
     )
-    return index_items
+    annotation_text = re.sub(r"\s+", " ", annotation_text)
+    if not annotation_text:
+        return None
+    return annotation_text
 
 
 def parse_xml(soup: BeautifulSoup) -> dict:
@@ -117,33 +117,10 @@ def parse_xml(soup: BeautifulSoup) -> dict:
             annotations = get_annotations(index, entry_id)
             toc_entries[entry_id] = {
                 "header": header,
-                "content_xml": content_xml,
+                # "content_xml": content_xml,
                 "content_string": content_string,
                 "word_count": word_count,
                 "subsections": subsection_refs,
                 "annotations": annotations,
             }
     return toc_entries
-
-
-class SoupJSONEncoder(json.JSONEncoder):
-    """Encode bs4.element.Tag as string when serialising JSON."""
-
-    def default(self, o):
-        if isinstance(o, Tag):
-            return str(o)
-        return super().default(o)
-
-
-def process_single_file(file_pair):
-    source_file, output_file = file_pair
-    with open(source_file, encoding="utf-8") as f:
-        source_xml = BeautifulSoup(f, features="xml")
-    parsed_file = parse_xml(source_xml)
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(parsed_file, f, cls=SoupJSONEncoder, indent=2)
-
-
-def process_files(file_mapping: dict[Path, Path]):
-    with ProcessPoolExecutor() as executor:
-        executor.map(process_single_file, file_mapping.items())
