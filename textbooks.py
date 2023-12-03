@@ -117,6 +117,11 @@ class TextbookWithSectionVectors:
         """Shortcut to the subsections of the nested textbook."""
         return self.textbook.subsections
 
+    @property
+    def flattened_sections(self):
+        """Shortcut to the flattened_sections of the nested textbook."""
+        return self.textbook.flattened_sections
+
     def _compute_section_vectors(self, section: Section):
         weights = []
         for subsection in section.subsections:
@@ -129,10 +134,11 @@ class TextbookWithSectionVectors:
         vectors.append(this_section_vector)
         this_section_weight = section.word_count
         weights.append(this_section_weight)
+        vectors_without_nulls = [v if v is not None else 0 for v in vectors]
         if sum(weights) > 0:
-            aggregated_vector = np.average(vectors, weights=weights)
+            aggregated_vector = np.average(vectors_without_nulls, weights=weights)
         else:
-            aggregated_vector = 0
+            aggregated_vector = None
         self.section_vectors |= {section: aggregated_vector}
 
 
@@ -140,7 +146,7 @@ class TextbookWithSectionVectors:
 class IntegratedTextbook:
     """Represents a Textbook integrated with sections from other textbooks."""
 
-    textbook: TextbookWithSectionVectors
+    base_textbook: TextbookWithSectionVectors
     similarity_function: Callable[[str, str], float]
     similarity_threshold: float
     section_mapping: DefaultDict[Optional[Section], set[Section]] = field(
@@ -154,11 +160,11 @@ class IntegratedTextbook:
             {
                 "section": section,
                 "similarity": self.similarity_function(
-                    self.textbook.section_vectors[section],
+                    self.base_textbook.section_vectors[section],
                     other_textbook.section_vectors[other_section],
                 ),
             }
-            for section in self.textbook.subsections
+            for section in self.base_textbook.flattened_sections
         ]
         best_potential_similar_section = max(
             potential_similar_sections, key=lambda s: s["similarity"]
@@ -172,7 +178,7 @@ class IntegratedTextbook:
     def integrate_sections(self, other_textbooks: list[TextbookWithSectionVectors]):
         """Integrates similar sections from other_textbooks into the base textbook."""
         for textbook in other_textbooks:
-            for section in textbook.subsections:
+            for section in textbook.flattened_sections:
                 self._integrate_sections(textbook, section)
 
 
