@@ -12,21 +12,22 @@ class Textbook:
     """Represents a Textbook document."""
 
     name: str
-    sections: dict[str, "Section"] = field(default_factory=dict, repr=False)
+    subsections: list["Section"] = field(default_factory=list, repr=False, init=False)
 
     def add_section(self, section):
         """Adds a section to this textbooks sections"""
-        self.sections[section.section_id] = section
+        self.subsections.append(section)
         section.textbook = self
 
     def print_toc(self):
         """Prints a textual representation of the Textbook's table of contents."""
-        for section in self.sections.values():
+        for section in self.subsections:
             section.print_entry()
             section.print_subsections(indent="\t")
 
     @property
-    def flattened_sections(self):
+    def flattened_sections(self) -> list["Section"]:
+        """Returns all the sections in a textbook, flattened into a single list."""
         attributes = []
 
         def recurse(subsection):
@@ -34,15 +35,35 @@ class Textbook:
             for subsub in subsection.subsections:
                 recurse(subsub)
 
-        for section in self.sections.values():
+        for section in self.subsections:
             recurse(section)
         return attributes
 
-    def __hash__(self) -> str:
+    def assign_section_numbers(self, sections_dict):
+        """Assigns section numbers to top-level sections and their subsections"""
+        section_number = 1
+        for section_id in self.subsections:
+            if section_id in sections_dict:
+                sections_dict[section_id].assign_section_number((section_number,))
+                section_number += 1
+
+    def build_hierarchy(self, sections_dict, data):
+        """Use subsection data to populate the subsections attributes"""
+        for section_id, section_data in data.items():
+            section = sections_dict[section_id]
+            section.subsections = [
+                sections_dict[sub_id]
+                for sub_id in section_data.get("subsections", [])
+                if sub_id in sections_dict
+            ]
+            for s in section.subsections:
+                s.textbook = self
+
+    def __hash__(self) -> int:
         return hash(self.name)
 
 
-@dataclass(unsafe_hash=True)
+@dataclass()
 class Section:  # pylint: disable=too-many-instance-attributes
     """Represents a section in a textbook."""
 
@@ -54,7 +75,7 @@ class Section:  # pylint: disable=too-many-instance-attributes
     subsections: list["Section"] = field(compare=False, repr=False)
     annotations: list[str] = field(compare=False, repr=False)
     section_number: Optional[tuple[int, ...]] = field(default=None, repr=True)
-    textbook: Optional[Textbook] = field(default=None, hash=False)
+    textbook: Optional[Textbook] = field(default=None)
 
     def assign_section_number(self, number):
         """Assigns a section number based on position in the textbook hierachy."""
@@ -73,6 +94,9 @@ class Section:  # pylint: disable=too-many-instance-attributes
             section.print_entry(indent)
             section.print_subsections(indent + "\t")
 
+    def __hash__(self) -> int:
+        return hash((self.textbook, self.section_id, self.header, self.content_string))
+
 
 @dataclass
 class TextbookWithSectionVectors:
@@ -85,10 +109,15 @@ class TextbookWithSectionVectors:
     )
 
     def __post_init__(self):
-        for section in self.textbook.sections.values():
+        for section in self.subsections:
             self._compute_section_vectors(section)
 
-    def _compute_section_vectors(self, section):
+    @property
+    def subsections(self):
+        """Shortcut to the subsections of the nested textbook."""
+        return self.textbook.subsections
+
+    def _compute_section_vectors(self, section: Section):
         weights = []
         for subsection in section.subsections:
             self._compute_section_vectors(subsection)
@@ -118,16 +147,18 @@ class IntegratedTextbook:
         default_factory=lambda: defaultdict(set), repr=False, init=False
     )
 
-    def _integrate_sections(self, other_section: Section):
+    def _integrate_sections(
+        self, other_textbook: TextbookWithSectionVectors, other_section: Section
+    ):
         potential_similar_sections = [
             {
                 "section": section,
                 "similarity": self.similarity_function(
                     self.textbook.section_vectors[section],
-                    self.textbook.section_vectors[other_section],
+                    other_textbook.section_vectors[other_section],
                 ),
             }
-            for section in self.textbook.textbook.sections
+            for section in self.textbook.subsections
         ]
         best_potential_similar_section = max(
             potential_similar_sections, key=lambda s: s["similarity"]
@@ -136,32 +167,13 @@ class IntegratedTextbook:
             section_from_this_textbook = best_potential_similar_section["section"]
         else:
             section_from_this_textbook = None
-        self.section_mapping[section_from_this_textbook] |= other_section
+        self.section_mapping[section_from_this_textbook].add(other_section)
 
     def integrate_sections(self, other_textbooks: list[TextbookWithSectionVectors]):
+        """Integrates similar sections from other_textbooks into the base textbook."""
         for textbook in other_textbooks:
-            for section in textbook.textbook.sections.values():
-                self._integrate_sections(section)
-
-
-def assign_section_numbers(textbook, sections_dict):
-    """Assigns section numbers to top-level sections and their subsections"""
-    section_number = 1
-    for section_id in textbook.sections:
-        if section_id in sections_dict:
-            sections_dict[section_id].assign_section_number((section_number,))
-            section_number += 1
-
-
-def build_textbook_hierarchy(sections_dict, data):
-    """Use subsection data to populate the subsections attributes"""
-    for section_id, section_data in data.items():
-        section = sections_dict[section_id]
-        section.subsections = [
-            sections_dict[sub_id]
-            for sub_id in section_data.get("subsections", [])
-            if sub_id in sections_dict
-        ]
+            for section in textbook.subsections:
+                self._integrate_sections(textbook, section)
 
 
 def parse_json_to_textbook(json_file_path: Path) -> Textbook:
@@ -183,7 +195,7 @@ def parse_json_to_textbook(json_file_path: Path) -> Textbook:
         )
         sections_dict[section_id] = new_section
 
-    build_textbook_hierarchy(sections_dict, data)
+    textbook.build_hierarchy(sections_dict, data)
 
     # Add top-level sections to textbook
     for section_id, section in sections_dict.items():
@@ -193,6 +205,6 @@ def parse_json_to_textbook(json_file_path: Path) -> Textbook:
         ):
             textbook.add_section(section)
 
-    assign_section_numbers(textbook, sections_dict)
+    textbook.assign_section_numbers(sections_dict)
 
     return textbook
