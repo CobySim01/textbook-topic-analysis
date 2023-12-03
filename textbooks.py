@@ -42,9 +42,11 @@ class Textbook:
     def assign_section_numbers(self, sections_dict):
         """Assigns section numbers to top-level sections and their subsections"""
         section_number = 1
-        for section_id in self.subsections:
-            if section_id in sections_dict:
-                sections_dict[section_id].assign_section_number((section_number,))
+        for section in self.subsections:
+            if section.section_id in sections_dict:
+                sections_dict[section.section_id].assign_section_number(
+                    (section_number,)
+                )
                 section_number += 1
 
     def build_hierarchy(self, sections_dict, data):
@@ -180,6 +182,22 @@ class IntegratedTextbook:
         for textbook in other_textbooks:
             for section in textbook.flattened_sections:
                 self._integrate_sections(textbook, section)
+
+    def print_matches(self):
+        for section in self.base_textbook.subsections:
+            section.print_entry()
+            for match in self.section_mapping[section]:
+                print(f"-\t{match}")
+            section.print_subsections(indent="\t")
+
+        print("------------------------------------")
+        unmatched_sections = self.section_mapping[None]
+        if len(unmatched_sections) > 20:
+            print(len(self.section_mapping[None]), "unmatched sections")
+        else:
+            print("Unmatched Sections:")
+            for unmatched in self.section_mapping[None]:
+                print(f"-\t{unmatched}")
 
 
 def parse_json_to_textbook(json_file_path: Path) -> Textbook:
