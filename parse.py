@@ -81,8 +81,17 @@ def remove_subsection_content(content_xml, subsection_refs):
 
 
 def get_annotations(index, entry_id):
-    index_refs = index.find_all("ref", attrs={"xml:id": entry_id})
-    return [ref.parent for ref in index_refs] if index_refs else []
+    """Gets the annotations for a given entry."""
+    index_refs = index.find_all("ref", attrs={"target": entry_id})
+    if index_refs is None:
+        return []
+    index_items = " ".join(
+        gross
+        for ref in index_refs
+        for gross in set(ref.parent.find_all("gross"))
+        if ref.parent.get("domain-specificity") in {"core-domain", "in-domain"}
+    )
+    return index_items
 
 
 def parse_xml(soup: BeautifulSoup) -> dict:
@@ -132,7 +141,7 @@ def process_single_file(file_pair):
         source_xml = BeautifulSoup(f, features="xml")
     parsed_file = parse_xml(source_xml)
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(parsed_file, f, cls=SoupJSONEncoder)
+        json.dump(parsed_file, f, cls=SoupJSONEncoder, indent=2)
 
 
 def process_files(file_mapping: dict[Path, Path]):
