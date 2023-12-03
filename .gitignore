@@ -161,6 +161,7 @@ cython_debug/
 
 # textbook data files
 textbooks/**
+parsed_textbooks/**
 
 # MacOS binary files
 **/.DS_Store
