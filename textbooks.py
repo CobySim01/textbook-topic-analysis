@@ -13,31 +13,32 @@ class Textbook:
 
     name: str
     subsections: list["Section"] = field(default_factory=list, repr=False, init=False)
+    compute_vector: Callable[["Section"], Any] = field(default=None, repr=False)
+    aggregate_subsection_vectors: bool = field(default=False, repr=False)
+    section_vectors: dict["Section", Any] = field(
+        default_factory=dict, repr=False, init=False
+    )
 
-    def add_section(self, section):
-        """Adds a section to this textbooks sections"""
+    def add_section(self, section: "Section"):
+        """Adds a section to this textbook's sections"""
         self.subsections.append(section)
         section.textbook = self
 
-    def print_toc(self):
+    def print_toc(self, matches=None):
         """Prints a textual representation of the Textbook's table of contents."""
         for section in self.subsections:
             section.print_entry()
-            section.print_subsections(indent="\t")
+            if matches is not None:
+                for match in matches[section]:
+                    print(f"-\t{match}")
+            section.print_subsections(matches=matches, indent="\t")
 
     @property
-    def flattened_sections(self) -> list["Section"]:
-        """Returns all the sections in a textbook, flattened into a single list."""
-        attributes = []
-
-        def recurse(subsection):
-            attributes.append(subsection)
-            for subsub in subsection.subsections:
-                recurse(subsub)
-
-        for section in self.subsections:
-            recurse(section)
-        return attributes
+    def all_subsections(self) -> list["Section"]:
+        """Flattens all sections into a single list."""
+        return [
+            sub for section in self.subsections for sub in section.all_subsections()
+        ]
 
     def assign_section_numbers(self, sections_dict):
         """Assigns section numbers to top-level sections and their subsections"""
@@ -64,6 +65,35 @@ class Textbook:
     def __hash__(self) -> int:
         return hash(self.name)
 
+    def compute_section_vectors(self):
+        """Computes and aggregates section vectors."""
+        for section in self.subsections:
+            self._compute_section_vectors(section)
+
+    def _compute_section_vectors(self, section: "Section"):
+        """Computes and aggregates section vectors."""
+        weights = []
+        for subsection in section.subsections:
+            self._compute_section_vectors(subsection)
+            weights.append(subsection.word_count)
+        if not self.aggregate_subsection_vectors:
+            self.section_vectors |= {section: self.compute_vector(section)}
+            return
+        vectors = [
+            self.section_vectors[subsection] for subsection in section.subsections
+        ]
+        this_section_vector = self.compute_vector(section)
+        vectors.append(this_section_vector)
+        this_section_weight = section.word_count
+        weights.append(this_section_weight)
+        vectors_without_nulls = [v if v is not None else 0 for v in vectors]
+        if sum(weights) > 0:
+            aggregated_vector = np.average(vectors_without_nulls, weights=weights)
+        else:
+            aggregated_vector = None
+        self.section_vectors |= {section: aggregated_vector}
+        return
+
 
 @dataclass()
 class Section:  # pylint: disable=too-many-instance-attributes
@@ -79,6 +109,12 @@ class Section:  # pylint: disable=too-many-instance-attributes
     section_number: Optional[tuple[int, ...]] = field(default=None, repr=True)
     textbook: Optional[Textbook] = field(default=None)
 
+    def all_subsections(self) -> list["Section"]:
+        """Returns a list of all subsections."""
+        return [self] + [
+            sub for sec in self.subsections for sub in sec.all_subsections()
+        ]
+
     def assign_section_number(self, number):
         """Assigns a section number based on position in the textbook hierachy."""
         self.section_number = number
@@ -90,74 +126,31 @@ class Section:  # pylint: disable=too-many-instance-attributes
         section_number_string = ".".join(str(s) for s in self.section_number)
         print(f"{indent}{section_number_string}: {self.header}")
 
-    def print_subsections(self, indent=""):
+    def print_subsections(self, matches=None, indent=""):
         """Prints the subsections for a textbook"""
         for section in self.subsections:
             section.print_entry(indent)
-            section.print_subsections(indent + "\t")
+            if matches is not None:
+                for match in matches[self]:
+                    print(f"{indent}-\t{match}")
+            section.print_subsections(matches, indent + "\t")
 
     def __hash__(self) -> int:
         return hash((self.textbook, self.section_id, self.header, self.content_string))
 
 
 @dataclass
-class TextbookWithSectionVectors:
-    """Represents a Textbook with section vectors computed using some method."""
-
-    textbook: Textbook
-    compute_vector: Callable[[Section], Any]
-    section_vectors: dict[Section, Any] = field(
-        default_factory=dict, repr=False, init=False
-    )
-
-    def __post_init__(self):
-        for section in self.subsections:
-            self._compute_section_vectors(section)
-
-    @property
-    def subsections(self):
-        """Shortcut to the subsections of the nested textbook."""
-        return self.textbook.subsections
-
-    @property
-    def flattened_sections(self):
-        """Shortcut to the flattened_sections of the nested textbook."""
-        return self.textbook.flattened_sections
-
-    def _compute_section_vectors(self, section: Section):
-        weights = []
-        for subsection in section.subsections:
-            self._compute_section_vectors(subsection)
-            weights.append(subsection.word_count)
-        vectors = [
-            self.section_vectors[subsection] for subsection in section.subsections
-        ]
-        this_section_vector = self.compute_vector(section)
-        vectors.append(this_section_vector)
-        this_section_weight = section.word_count
-        weights.append(this_section_weight)
-        vectors_without_nulls = [v if v is not None else 0 for v in vectors]
-        if sum(weights) > 0:
-            aggregated_vector = np.average(vectors_without_nulls, weights=weights)
-        else:
-            aggregated_vector = None
-        self.section_vectors |= {section: aggregated_vector}
-
-
-@dataclass
 class IntegratedTextbook:
     """Represents a Textbook integrated with sections from other textbooks."""
 
-    base_textbook: TextbookWithSectionVectors
+    base_textbook: Textbook
     similarity_function: Callable[[str, str], float]
     similarity_threshold: float
     section_mapping: DefaultDict[Optional[Section], set[Section]] = field(
         default_factory=lambda: defaultdict(set), repr=False, init=False
     )
 
-    def _integrate_sections(
-        self, other_textbook: TextbookWithSectionVectors, other_section: Section
-    ):
+    def _integrate_sections(self, other_textbook: Textbook, other_section: Section):
         potential_similar_sections = [
             {
                 "section": section,
@@ -166,7 +159,7 @@ class IntegratedTextbook:
                     other_textbook.section_vectors[other_section],
                 ),
             }
-            for section in self.base_textbook.flattened_sections
+            for section in self.base_textbook.all_subsections
         ]
         best_potential_similar_section = max(
             potential_similar_sections, key=lambda s: s["similarity"]
@@ -177,19 +170,14 @@ class IntegratedTextbook:
             section_from_this_textbook = None
         self.section_mapping[section_from_this_textbook].add(other_section)
 
-    def integrate_sections(self, other_textbooks: list[TextbookWithSectionVectors]):
+    def integrate_sections(self, other_textbooks: list[Textbook]):
         """Integrates similar sections from other_textbooks into the base textbook."""
         for textbook in other_textbooks:
-            for section in textbook.flattened_sections:
+            for section in textbook.all_subsections:
                 self._integrate_sections(textbook, section)
 
     def print_matches(self):
-        for section in self.base_textbook.subsections:
-            section.print_entry()
-            for match in self.section_mapping[section]:
-                print(f"-\t{match}")
-            section.print_subsections(indent="\t")
-
+        self.base_textbook.print_toc(self.section_mapping)
         print("------------------------------------")
         unmatched_sections = self.section_mapping[None]
         if len(unmatched_sections) > 20:
