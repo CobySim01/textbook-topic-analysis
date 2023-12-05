@@ -196,15 +196,16 @@ class IntegratedTextbook:
     def _integrate_section(self, section):
         """Integrates a section from `other_textbooks`"""
         new_match = self._find_best_matching_section(section)
-        old_match = self.other_to_base_map.get(section, {"score": -1, "section": None})
 
-        if old_match["section"] is not None and new_match["score"] < old_match["score"]:
-            return
+        if section in self.other_to_base_map:
+            old_match = self.other_to_base_map[section]
+            if old_match["score"] > new_match["score"]:
+                return
+            if old_match["section"] is None and new_match["section"] is None:
+                return
+            self.base_to_other_map[old_match["section"]].remove(section)
 
         self.base_to_other_map[new_match["section"]].add(section)
-        old_match_group = self.base_to_other_map[old_match["section"]]
-        if section in old_match_group:
-            old_match_group.remove(section)
         self.other_to_base_map[section] = new_match
 
     def print_matches(self):
