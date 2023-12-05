@@ -214,12 +214,7 @@ class IntegratedTextbook:
         print_toc(self.base_textbook, self.base_to_other_map)
         print("------------------------------------")
         unmatched_sections = self.base_to_other_map[None]
-        if len(unmatched_sections) > 20:
-            print(len(unmatched_sections), "unmatched sections")
-        else:
-            print("Unmatched Sections:")
-            for unmatched in unmatched_sections:
-                print(f"-\t{unmatched}")
+        print(len(unmatched_sections), "unmatched sections")
 
 
 def print_toc(section: Section | Textbook, matches: dict = None, indent: str = ""):
