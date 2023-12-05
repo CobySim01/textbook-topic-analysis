@@ -89,8 +89,6 @@ def get_annotations(index, entry_id):
         if ref.parent.get("domain-specificity") in {"core-domain", "in-domain"}
     )
     annotation_text = re.sub(r"\s+", " ", annotation_text)
-    if not annotation_text:
-        return None
     return annotation_text
 
 
