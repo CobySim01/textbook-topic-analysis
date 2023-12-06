@@ -41,7 +41,7 @@ class Textbook:
             new_section = Section(
                 section_id=section_id,
                 header=section_data["header"],
-                content_string=section_data["content_string"],
+                content=section_data["content"],
                 word_count=section_data["word_count"],
                 subsections=section_data["subsections"],
                 concepts=section_data["concepts"],
@@ -108,7 +108,7 @@ class Section:  # pylint: disable=too-many-instance-attributes
 
     section_id: str = field(compare=False, repr=True)
     header: str = field(compare=False, repr=True)
-    content_string: str = field(compare=False, repr=False)
+    content: str = field(compare=False, repr=False)
     word_count: int = field(compare=False, repr=False)
     subsections: list["Section"] = field(compare=False, repr=False)
     concepts: dict[str, dict[str, str]] = field(compare=False, repr=False)
@@ -133,7 +133,7 @@ class Section:  # pylint: disable=too-many-instance-attributes
         print(f"{indent}{section_number_string}: {self.header}")
 
     def __hash__(self) -> int:
-        return hash((self.textbook, self.section_id, self.header, self.content_string))
+        return hash((self.textbook, self.section_id, self.header, self.content))
 
 
 @dataclass

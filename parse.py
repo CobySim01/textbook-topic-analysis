@@ -130,12 +130,12 @@ def parse_xml(soup: BeautifulSoup) -> dict:
         subsection_refs = get_subsection_refs(entry.find_next_sibling())
         if content_xml:
             remove_subsection_content(content_xml, subsection_refs)
-            content_string = convert_xml_content_to_string(content_xml)
+            content = convert_xml_content_to_string(content_xml)
             word_count = len(content_xml.find_all("w"))
             concepts = get_concepts(index, entry_id)
             toc_entries[entry_id] = {
                 "header": header,
-                "content_string": content_string,
+                "content": content,
                 "word_count": word_count,
                 "subsections": subsection_refs,
                 "concepts": concepts,
