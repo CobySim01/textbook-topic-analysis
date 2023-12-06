@@ -18,6 +18,14 @@ def join_hyphenated_words(words: list[str]):
     return words
 
 
+def get_top_level_text(tag):
+    """Extracts the top-level text from the tag."""
+    extracted_string = "".join(
+        child.string for child in tag.children if isinstance(child, NavigableString)
+    )
+    return re.sub(r"\s+", " ", extracted_string).strip()
+
+
 def convert_xml_content_to_string(raw_content: Tag):
     """Converts the XML content of textbook section to a string"""
     content = []
@@ -77,19 +85,31 @@ def remove_subsection_content(content_xml, subsection_refs):
             sub_content.decompose()
 
 
-def get_annotations(index, entry_id):
-    """Gets the annotations for a given entry."""
+def get_concepts(index, entry_id):
+    """Gets the concepts for a given entry."""
     index_refs = index.find_all("ref", attrs={"target": entry_id})
     if index_refs is None:
-        return []
-    annotation_text = " ".join(
-        gross.text
-        for ref in index_refs
-        for gross in set(ref.parent.find_all("gross"))
-        if ref.parent.get("domain-specificity") in {"core-domain", "in-domain"}
-    )
-    annotation_text = re.sub(r"\s+", " ", annotation_text)
-    return annotation_text
+        return {}
+    concepts = {}
+    for index_ref in index_refs:
+        concept_data = index_ref.parent
+        if concept_data.get("domain-specificity") not in {"core-domain", "in-domain"}:
+            continue
+        concept_id = concept_data.attrs["xml:id"]
+        if concept_id.startswith("example") or concept_id.endswith("example"):
+            continue
+        concepts[concept_id] = {"name": get_top_level_text(concept_data)}
+        concept = concept_data.find("seg")
+        if concept is None:
+            continue
+        subject = concept.find("ref", attrs={"property": "terms:subject"})
+        definition = concept.find("gross", attrs={"property": "skos:definition"})
+        if definition is not None:
+            concepts[concept_id]["definition"] = definition.text
+        if subject is not None:
+            concepts[concept_id]["subject"] = subject.attrs["resource"]
+
+    return concepts
 
 
 def parse_xml(soup: BeautifulSoup) -> dict:
@@ -112,13 +132,12 @@ def parse_xml(soup: BeautifulSoup) -> dict:
             remove_subsection_content(content_xml, subsection_refs)
             content_string = convert_xml_content_to_string(content_xml)
             word_count = len(content_xml.find_all("w"))
-            annotations = get_annotations(index, entry_id)
+            concepts = get_concepts(index, entry_id)
             toc_entries[entry_id] = {
                 "header": header,
-                # "content_xml": content_xml,
                 "content_string": content_string,
                 "word_count": word_count,
                 "subsections": subsection_refs,
-                "annotations": annotations,
+                "concepts": concepts,
             }
     return toc_entries

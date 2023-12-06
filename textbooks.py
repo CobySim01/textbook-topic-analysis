@@ -4,6 +4,15 @@ from pathlib import Path
 from typing import Any, Callable, DefaultDict, Iterable, Optional
 import json
 
+DISALLOWED_SECTION_HEADERS = {
+    "exercises",
+    "solutions",
+    "index",
+    "glossary",
+    "references",
+    "appendix",
+}
+
 
 @dataclass
 class Textbook:
@@ -24,17 +33,27 @@ class Textbook:
         textbook = cls(path.stem)
 
         sections_dict = {}
+        excluded_sections = []
         for section_id, section_data in data.items():
+            if any(h in section_data["header"] for h in DISALLOWED_SECTION_HEADERS):
+                excluded_sections.append(section_id)
+                continue
             new_section = Section(
                 section_id=section_id,
                 header=section_data["header"],
-                # content_xml=section_data["content_xml"],
                 content_string=section_data["content_string"],
                 word_count=section_data["word_count"],
                 subsections=section_data["subsections"],
-                annotations=section_data["annotations"],
+                concepts=section_data["concepts"],
             )
             sections_dict[section_id] = new_section
+
+        for section_id, section in sections_dict.items():
+            section.subsections = [
+                s for s in section.subsections if s not in excluded_sections
+            ]
+        for section in excluded_sections:
+            data.pop(section)
 
         textbook.build_hierarchy(sections_dict, data)
         # Add top-level sections to textbook
@@ -89,11 +108,10 @@ class Section:  # pylint: disable=too-many-instance-attributes
 
     section_id: str = field(compare=False, repr=True)
     header: str = field(compare=False, repr=True)
-    # content_xml: str = field(compare=False, repr=False)
     content_string: str = field(compare=False, repr=False)
     word_count: int = field(compare=False, repr=False)
     subsections: list["Section"] = field(compare=False, repr=False)
-    annotations: list[str] = field(compare=False, repr=False)
+    concepts: dict[str, dict[str, str]] = field(compare=False, repr=False)
     section_number: Optional[tuple[int, ...]] = field(default=None, repr=True)
     textbook: Optional[Textbook] = field(default=None)
 
@@ -125,7 +143,7 @@ class IntegratedTextbook:
     base_textbook: Textbook
     other_textbooks: list[Textbook]
 
-    similarity_function: Callable[[str, str], float] = field(repr=False)
+    similarity_function: Callable[[Any, Any], float] = field(repr=False)
     similarity_threshold: float = field(repr=False)
     vectors: dict[Section, Any] = field(default_factory=dict, repr=False, init=False)
 
@@ -153,9 +171,7 @@ class IntegratedTextbook:
         """Add section vectors to this Textbook"""
         self.vectors |= section_vectors_map
 
-    def _find_best_matching_section(
-        self, other_section
-    ) -> tuple[Section | None, float]:
+    def _find_best_matching_section(self, other_section: Section):
         """Finds the best matching section in the base textbook for a given vector."""
         other_section_vector = self.vectors[other_section]
         best_match = max(
