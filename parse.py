@@ -58,6 +58,7 @@ def find_all_with_limit(soup, tag, max_depth, current_depth=0):
 
 
 def get_section_header(entry):
+    """Gets the section header for a given TOC entry."""
     entry_text = "".join(
         child for child in entry.contents if isinstance(child, NavigableString)
     ).strip()
@@ -68,7 +69,9 @@ def get_section_header(entry):
     return entry_text.replace(section_number, "").strip()
 
 
-def get_subsection_refs(next_sibling):
+def get_subsection_refs(entry):
+    """Gets the subsections associated with a TOC entry."""
+    next_sibling = entry.find_next_sibling()
     if not next_sibling or next_sibling.name != "list":
         return []
     return [
@@ -79,6 +82,7 @@ def get_subsection_refs(next_sibling):
 
 
 def remove_subsection_content(content_xml, subsection_refs):
+    """Removes content that belongs to subsections."""
     for sub_ref in subsection_refs:
         sub_contents = content_xml.find_all("div", {"xml:id": sub_ref})
         for sub_content in sub_contents:
@@ -127,7 +131,7 @@ def parse_xml(soup: BeautifulSoup) -> dict:
         header = get_section_header(entry)
         entry_id = ref.attrs["target"]
         content_xml = copy(body.find("div", attrs={"xml:id": entry_id}))
-        subsection_refs = get_subsection_refs(entry.find_next_sibling())
+        subsection_refs = get_subsection_refs(entry)
         if content_xml:
             remove_subsection_content(content_xml, subsection_refs)
             content = convert_xml_content_to_string(content_xml)

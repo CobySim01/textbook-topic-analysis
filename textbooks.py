@@ -4,6 +4,8 @@ from pathlib import Path
 from typing import Any, Callable, DefaultDict, Iterable, Optional
 import json
 
+from utils import num_arguments
+
 DISALLOWED_SECTION_HEADERS = {
     "exercises",
     "solutions",
@@ -133,7 +135,10 @@ class Section:  # pylint: disable=too-many-instance-attributes
         print(f"{indent}{section_number_string}: {self.header}")
 
     def __hash__(self) -> int:
-        return hash((self.textbook, self.section_id, self.header, self.content))
+        return hash((self.textbook, self.section_id))
+
+    def __eq__(self, other) -> bool:
+        return (self.textbook, self.section_id) == (other.textbook, other.section_id)
 
 
 @dataclass
@@ -143,7 +148,7 @@ class IntegratedTextbook:
     base_textbook: Textbook
     other_textbooks: list[Textbook]
 
-    similarity_function: Callable[[Any, Any], float] = field(repr=False)
+    similarity_fn: Callable[..., float] = field(repr=False)
     similarity_threshold: float = field(repr=False)
     vectors: dict[Section, Any] = field(default_factory=dict, repr=False, init=False)
 
@@ -173,15 +178,37 @@ class IntegratedTextbook:
 
     def _find_best_matching_section(self, other_section: Section):
         """Finds the best matching section in the base textbook for a given vector."""
+        if not self.vectors and num_arguments(self.similarity_fn) == 1:
+            result = self.similarity_fn(other_section)
+            if result["score"] > self.similarity_threshold:
+                section = result["section"]
+            else:
+                section = None
+            return {"score": result["score"], "section": section}
+
+        if not self.vectors and num_arguments(self.similarity_fn) == 2:
+            best_match = max(
+                self.base_textbook.all_subsections(),
+                key=lambda section: self.similarity_fn(section, other_section),
+                default=None,
+            )
+            similarity = self.similarity_fn(best_match, other_section)
+            return {
+                "score": similarity,
+                "section": best_match
+                if similarity > self.similarity_threshold
+                else None,
+            }
+
         other_section_vector = self.vectors[other_section]
         best_match = max(
             self.base_textbook.all_subsections(),
-            key=lambda section: self.similarity_function(
+            key=lambda section: self.similarity_fn(
                 self.vectors[section], other_section_vector
             ),
             default=None,
         )
-        similarity = self.similarity_function(
+        similarity = self.similarity_fn(
             self.vectors.get(best_match, 0), other_section_vector
         )
         return {
