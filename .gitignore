@@ -160,8 +160,8 @@ cython_debug/
 #.idea/
 
 # textbook data files
-textbooks/**
-parsed_textbooks/**
+textbooks-data/**
+textbooks-parsed/**
 
 # MacOS binary files
 **/.DS_Store
