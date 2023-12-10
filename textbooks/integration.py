@@ -9,6 +9,7 @@ MatchingSection = TypedDict(
     "MatchingSection", {"score": float, "section": Optional[Section]}
 )
 SimilarityFunction = Callable[[Section, Section], float]
+QueryFunction = Callable[[Section], float]
 
 
 @dataclass(kw_only=True)
@@ -17,6 +18,11 @@ class TextbookIntegration(ABC):
 
     base_textbook: Textbook
     other_textbooks: list[Textbook]
+
+    scoring_fn: Optional[SimilarityFunction | QueryFunction] = field(
+        default=None, repr=False
+    )
+    threshold: Optional[float] = field(default=None, repr=False)
 
     base_to_other_map: DefaultDict[Optional[Section], set[Section]] = field(
         default_factory=lambda: defaultdict(set), repr=False, init=False
@@ -89,8 +95,6 @@ class TextbookIntegration(ABC):
 class SimilarityBasedTextbookIntegration(TextbookIntegration):
     """Represents a Textbook integrated using similarity-based methods."""
 
-    similarity_fn: Optional[SimilarityFunction] = field(default=None, repr=False)
-    threshold: Optional[float] = field(default=None, repr=False)
     vectors: dict[Section, Any] = field(default_factory=dict, repr=False, init=False)
 
     def add_section_vectors(self, section_vectors_map: dict[Section, Any]):
@@ -104,14 +108,12 @@ class SimilarityBasedTextbookIntegration(TextbookIntegration):
         similar_sections_iterable = (
             (
                 section,
-                self.similarity_fn(
-                    self.vectors[section] if self.vectors else section,
-                    other_section,
+                self.scoring_fn(
+                    self.vectors[section] if self.vectors else section, other_section
                 ),
             )
             for section in self.base_textbook.all_subsections()
         )
-
         best_match, best_match_score = max(
             similar_sections_iterable, key=lambda x: x[1], default=(None, None)
         )
@@ -128,11 +130,8 @@ class SimilarityBasedTextbookIntegration(TextbookIntegration):
 class QueryBasedTextbookIntegration(TextbookIntegration):
     """Represents a Textbook integrated using query-based methods."""
 
-    query_fn: Callable[[Section], float] = field(repr=False)
-    threshold: float = field(repr=False)
-
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
-        result = self.query_fn(other_section)
+        result = self.scoring_fn(other_section)
         if result["score"] > self.threshold:
             section = result["section"]
         else:
