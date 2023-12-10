@@ -8,6 +8,7 @@ from .data import Section, Textbook
 MatchingSection = TypedDict(
     "MatchingSection", {"score": float, "section": Optional[Section]}
 )
+SimilarityFunction = Callable[[Section, Section], float]
 
 
 @dataclass(kw_only=True)
@@ -86,13 +87,13 @@ class TextbookIntegration(ABC):
 
 @dataclass(kw_only=True)
 class SimilarityBasedTextbookIntegration(TextbookIntegration):
-    """Represents a Textbook integrated with sections from other textbooks."""
+    """Represents a Textbook integrated using similarity-based methods."""
 
-    similarity_fn: Callable[[Section, Section], float] = field(repr=False)
-    similarity_threshold: float = field(repr=False)
+    similarity_fn: Optional[SimilarityFunction] = field(default=None, repr=False)
+    threshold: Optional[float] = field(default=None, repr=False)
     vectors: dict[Section, Any] = field(default_factory=dict, repr=False, init=False)
 
-    def add_section_vectors(self, section_vectors_map: dict["Section", Any]):
+    def add_section_vectors(self, section_vectors_map: dict[Section, Any]):
         """Add section vectors to this Textbook"""
         self.vectors |= section_vectors_map
 
@@ -115,7 +116,7 @@ class SimilarityBasedTextbookIntegration(TextbookIntegration):
             similar_sections_iterable, key=lambda x: x[1], default=(None, None)
         )
 
-        if best_match_score > self.similarity_threshold:
+        if best_match_score > self.threshold:
             returned_best_match = best_match
         else:
             returned_best_match = None
@@ -125,35 +126,23 @@ class SimilarityBasedTextbookIntegration(TextbookIntegration):
 
 @dataclass(kw_only=True)
 class QueryBasedTextbookIntegration(TextbookIntegration):
-    """Represents a Textbook integrated with sections from other textbooks."""
-
-    base_textbook: Textbook
-    other_textbooks: list[Textbook]
+    """Represents a Textbook integrated using query-based methods."""
 
     query_fn: Callable[[Section], float] = field(repr=False)
-    query_score_threshold: float = field(repr=False)
-
-    base_to_other_map: DefaultDict[Optional[Section], set[Section]] = field(
-        default_factory=lambda: defaultdict(set), repr=False, init=False
-    )
-    other_to_base_map: dict[Section, dict[Section, float]] = field(
-        default_factory=dict, repr=False, init=False
-    )
-
-    sections_to_integrate: Optional[Iterable[Section]] = field(
-        default=None, repr=False, init=False
-    )
+    threshold: float = field(repr=False)
 
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
         result = self.query_fn(other_section)
-        if result["score"] > self.query_score_threshold:
+        if result["score"] > self.threshold:
             section = result["section"]
         else:
             section = None
         return {"score": result["score"], "section": section}
 
 
-def print_toc(section: Section | Textbook, matches: dict = None, indent: str = ""):
+def print_toc(
+    section: Section | Textbook, matches: Optional[dict] = None, indent: str = ""
+):
     """Prints a textual representation of a section's table of contents."""
     if isinstance(section, Section):
         section.print_entry(indent)
