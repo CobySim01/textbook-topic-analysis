@@ -43,8 +43,7 @@ def tfidf_cosine_similarity_integration(text_extraction_fns, threshold, weights=
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
-        # scoring_fn=lambda a, b: sklearn_cos(a, b)[0][0],
-        scoring_fn=test_cos,
+        scoring_fn=lambda a, b: sklearn_cos(a, b)[0][0],
         threshold=threshold,
     )
     corpus = integrated_textbook.corpus
@@ -55,12 +54,3 @@ def tfidf_cosine_similarity_integration(text_extraction_fns, threshold, weights=
     integrated_textbook.add_section_vectors(section_vectors)
     integrated_textbook.integrate_sections()
     integrated_textbook.print_matches()
-
-
-def test_cos(a, b):
-    try:
-        return sklearn_cos(a, b)[0][0]
-    except Exception as e:
-        print(f"{a = }")
-        print(f"{b = }")
-        raise e
