@@ -3,7 +3,6 @@ import numpy as np
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from nltk.tokenize import word_tokenize
 
-from textbooks.data import initialise_textbooks
 from textbooks.integration import SimilarityBasedTextbookIntegration
 
 nltk.download("punkt")
@@ -39,8 +38,9 @@ def doc2vec_vector_computation(
     }
 
 
-def doc2vec_integration(text_extraction_fn, similarity_threshold):
-    base_textbook, other_textbooks = initialise_textbooks()
+def doc2vec_integration(
+    base_textbook, other_textbooks, text_extraction_fn, similarity_threshold
+):
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,

@@ -1,10 +1,11 @@
 from computations.doc2vec import cos, doc2vec_vector_computation
 from computations.tfidf import sklearn_cos, tfidf_vector_computation
-from textbooks.data import initialise_textbooks
 from textbooks.integration import SimilarityBasedTextbookIntegration
 
 
 def tfidf_doc2vec_integration(
+    base_textbook,
+    other_textbooks,
     tfidf_text_extraction_fns,
     doc2vec_text_extraction_fn,
     upper_threshold,
@@ -14,12 +15,10 @@ def tfidf_doc2vec_integration(
     if weights is None:
         weights = [1] * len(tfidf_text_extraction_fns)
 
-    base_textbook, other_textbooks = initialise_textbooks()
     integrated_textbook_tfidf = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
         scoring_fn=lambda a, b: sklearn_cos(a, b)[0][0],
-        scoring_fn=cos,
         threshold=upper_threshold,
     )
     corpus = integrated_textbook_tfidf.corpus

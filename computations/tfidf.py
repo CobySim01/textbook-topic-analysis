@@ -2,7 +2,6 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity as sklearn_cos
 
-from textbooks.data import initialise_textbooks
 from textbooks.integration import SimilarityBasedTextbookIntegration
 
 
@@ -35,11 +34,12 @@ def tfidf_vector_computation(corpus, text_extraction_fns, weights):
     return section_vectors
 
 
-def tfidf_cosine_similarity_integration(text_extraction_fns, threshold, weights=None):
+def tfidf_cosine_similarity_integration(
+    base_textbook, other_textbooks, text_extraction_fns, threshold, weights=None
+):
     if weights is None:
         weights = [1] * len(text_extraction_fns)
 
-    base_textbook, other_textbooks = initialise_textbooks()
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,

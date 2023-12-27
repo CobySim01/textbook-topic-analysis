@@ -3,8 +3,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-PARSED_TEXTBOOKS_DIRECTORY = Path("textbooks-parsed")
-BASE_TEXTBOOK_NAME = "2012_Book_ModernMathematicalStatisticsWi"
 
 DISALLOWED_SECTION_HEADERS = {
     "exercises",
@@ -14,18 +12,6 @@ DISALLOWED_SECTION_HEADERS = {
     "references",
     "appendix",
 }
-
-
-def initialise_textbooks():
-    base_textbook = Textbook.from_json(
-        (PARSED_TEXTBOOKS_DIRECTORY / BASE_TEXTBOOK_NAME).with_suffix(".json")
-    )
-    other_textbooks = [
-        Textbook.from_json(path)
-        for path in Path(PARSED_TEXTBOOKS_DIRECTORY).glob("*.json")
-        if path.stem != BASE_TEXTBOOK_NAME
-    ]
-    return base_textbook, other_textbooks
 
 
 @dataclass
