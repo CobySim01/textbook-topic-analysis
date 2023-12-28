@@ -77,6 +77,7 @@ def clustering_integration(
 
     integrated_textbook.integrate_sections()
     integrated_textbook.print_matches()
+    integrated_textbook.evaluate()
 
 
 concept_subject_clustering = partial(

@@ -3,6 +3,8 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any, Callable, DefaultDict, Iterable, Optional, TypedDict
 
+from evaluation.data import get_expert_mapping
+
 from .data import Section, Textbook
 
 MatchingSection = TypedDict(
@@ -42,6 +44,15 @@ class TextbookIntegration(ABC):
             for textbook in [self.base_textbook] + self.other_textbooks
             for section in textbook.all_subsections()
         ]
+
+    def search_corpus(self, name: str) -> Textbook:
+        """Searches the corpus for a textbook with the given name."""
+        matches = [
+            t for t in [self.base_textbook] + self.other_textbooks if t.name == name
+        ]
+        if len(matches) != 1:
+            raise ValueError(f"There are not exactly one match for name {name!r}")
+        return matches[0]
 
     @abstractmethod
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
@@ -89,6 +100,70 @@ class TextbookIntegration(ABC):
         print("------------------------------------")
         unmatched_sections = self.base_to_other_map[None]
         print(len(unmatched_sections), "unmatched sections")
+
+    def evaluate(
+        self,
+        base_textbook_file="textbooks-data/evaluation/1_book1_sections.csv",
+        other_textbook_file="textbooks-data/evaluation/1_book2_sections.csv",
+        print_results=True,
+    ):
+        """Returns summary statistics for the integrated textbok."""
+        if len(self.other_textbooks) != 1:
+            raise ValueError("Cannot evaluate for more than one other textbooks.")
+        expert_mapping = get_expert_mapping(
+            self.base_textbook,
+            base_textbook_file,
+            self.other_textbooks[0],
+            other_textbook_file,
+        )
+
+        # Where algorithm correctly identifies similar sections (agreement with experts).
+        true_positives = 0
+        # When algorithm incorrectly identifies sections as similar (disagreement with experts).
+        false_positives = 0
+        # Sections that your algorithm fails to identify as similar, but experts identify as similar.
+        false_negatives = 0
+
+        for base_section in self.base_textbook.all_subsections():
+            expert_mapped = set(expert_mapping.get(base_section, {}))
+            algorithm_mapped = self.base_to_other_map[base_section]
+            true_positives += len(expert_mapped & algorithm_mapped)
+            false_positives += len(algorithm_mapped - expert_mapped)
+            false_negatives += len(expert_mapped - algorithm_mapped)
+
+        precision = true_positives / (true_positives + false_positives)
+        recall = true_positives / (true_positives + false_negatives)
+
+        def extract_all_mappings(mapping):
+            return set(
+                (base_section, other_section)
+                for base_section, other_sections in mapping.items()
+                for other_section in other_sections
+            )
+
+        all_expert_mappings = extract_all_mappings(expert_mapping)
+        all_algorithm_mappings = extract_all_mappings(self.base_to_other_map)
+
+        # |A ∩ B| / |A ∪ B|
+        jaccard_index = len(all_expert_mappings & all_algorithm_mappings) / len(
+            all_expert_mappings | all_algorithm_mappings
+        )
+
+        results = {
+            "precision": precision,
+            "recall": recall,
+            "f1": 2 / ((1 / precision) + (1 / recall)) if true_positives > 0 else None,
+            "jaccard": jaccard_index,
+        }
+
+        if print_results:
+            for metric, score in results.items():
+                if score is not None:
+                    print(f"{metric.title()}:\t{score:.4}")
+                else:
+                    print(f"{metric.title()}:\tundefined")
+
+        return results
 
 
 @dataclass(kw_only=True)

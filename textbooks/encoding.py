@@ -25,7 +25,7 @@ def encode_single_file(source_file, output_file):
     parsed_file = parse_xml(source_xml)
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(parsed_file, f, cls=SoupJSONEncoder, indent=2)
-    print(f"Encoded {output_file}.")
+    print(f"Encoded {output_file}")
 
 
 def encode_files(source_to_output_file: dict[Path, Path]):
@@ -47,8 +47,8 @@ def encode_files(source_to_output_file: dict[Path, Path]):
 
 
 if __name__ == "__main__":
-    TEXTBOOKS_DIRECTORY = Path("textbooks")
-    PARSED_TEXTBOOKS_DIRECTORY = Path("parsed_textbooks")
+    TEXTBOOKS_DIRECTORY = Path("textbooks-data")
+    PARSED_TEXTBOOKS_DIRECTORY = Path("textbooks-parsed")
     if not PARSED_TEXTBOOKS_DIRECTORY.exists():
         PARSED_TEXTBOOKS_DIRECTORY.mkdir()
 

@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Optional
 
 
-DISALLOWED_SECTION_HEADERS = {
+SECTION_HEADER_CANNOT_CONTAIN = {
     "exercises",
     "solutions",
     "index",
@@ -12,6 +12,7 @@ DISALLOWED_SECTION_HEADERS = {
     "references",
     "appendix",
 }
+SECTION_HEADER_CANNOT_EQUAL = {"introduction"}
 
 
 @dataclass
@@ -35,7 +36,10 @@ class Textbook:
         sections_dict = {}
         excluded_sections = []
         for section_id, section_data in data.items():
-            if any(h in section_data["header"] for h in DISALLOWED_SECTION_HEADERS):
+            disallow = section_data["header"] in SECTION_HEADER_CANNOT_EQUAL or any(
+                h in section_data["header"] for h in SECTION_HEADER_CANNOT_CONTAIN
+            )
+            if disallow:
                 excluded_sections.append(section_id)
                 continue
             new_section = Section(
