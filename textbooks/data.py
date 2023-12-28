@@ -140,4 +140,6 @@ class Section:  # pylint: disable=too-many-instance-attributes
         return hash((self.textbook, self.section_id))
 
     def __eq__(self, other) -> bool:
+        if not isinstance(other, Section):
+            return False
         return (self.textbook, self.section_id) == (other.textbook, other.section_id)

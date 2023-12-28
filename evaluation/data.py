@@ -1,21 +1,23 @@
 from pathlib import Path
 from statistics import mean
+from typing import Optional
 
 import pandas as pd
 
-from textbooks.data import Textbook
+from textbooks.data import Section, Textbook
 
 BOOK_COLUMNS = ["section_id", "title"]
 
 
-def find_section(header: str, textbook: Textbook = None):
+def find_section(header: str, textbook: Textbook = None) -> Optional[Section]:
     """Finds a section in Textbook by the full text representation of its header."""
     if textbook is None:
         raise ValueError
     for section in textbook.all_subsections():
-        section_number_string = ".".join(str(i) for i in section.section_number)
+        section_number_string = ".".join(str(i) for i in section.section_number) + " "
         if header.startswith(section_number_string) or section.header == header:
             return section
+    return None
 
 
 def parse_mapping_file():
