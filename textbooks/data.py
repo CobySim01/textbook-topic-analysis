@@ -1,18 +1,56 @@
 import json
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
 
-SECTION_HEADER_CANNOT_CONTAIN = {
-    "exercises",
-    "solutions",
-    "index",
-    "glossary",
-    "references",
-    "appendix",
-}
-SECTION_HEADER_CANNOT_EQUAL = {"introduction"}
+def extract_section_number(entry):
+    """Extracts the section header for a given TOC entry."""
+    section_number_match = re.search(r"\b(\w|\d+)(\.\d+)*\b", entry)
+    if section_number_match is not None:
+        return section_number_match.group()
+    return None
+
+
+def section_number_string_to_tuple(string):
+    if string is None:
+        return None
+    section_number_list = []
+    for part in string.split("."):
+        try:
+            section_number_list.append(int(part))
+        except ValueError:
+            section_number_list.append(part)
+    return tuple(section_number_list)
+
+
+def remove_section_number(entry):
+    section_number = extract_section_number(entry)
+    if section_number is None:
+        return entry
+    return entry.replace(section_number, "").strip()
+
+
+def is_valid_entry(entry: str) -> bool:
+    """Determines whether a section entry is removed from processing."""
+    if extract_section_number(entry) is None:
+        return False
+    HEADER_CANNOT_CONTAIN = [
+        "exercises",
+        "solutions",
+        "index",
+        "glossary",
+        "references",
+        "appendix",
+    ]
+    HEADER_CANNOT_START_WITH = ["a."]
+    HEADER_CANNOT_EQUAL = {"introduction"}
+    return not (
+        entry in HEADER_CANNOT_EQUAL
+        or any(substring in entry for substring in HEADER_CANNOT_CONTAIN)
+        or any(entry.startswith(prefix) for prefix in HEADER_CANNOT_START_WITH)
+    )
 
 
 @dataclass
@@ -34,17 +72,16 @@ class Textbook:
         textbook = cls(path.stem)
 
         sections_dict = {}
-        excluded_sections = []
         for section_id, section_data in data.items():
-            disallow = section_data["header"] in SECTION_HEADER_CANNOT_EQUAL or any(
-                h in section_data["header"] for h in SECTION_HEADER_CANNOT_CONTAIN
-            )
-            if disallow:
-                excluded_sections.append(section_id)
-                continue
             new_section = Section(
                 section_id=section_id,
-                header=section_data["header"],
+                entry=section_data["entry"],
+                header=remove_section_number(section_data["entry"]),
+                number=section_number_string_to_tuple(
+                    extract_section_number(section_data["entry"])
+                ),
+                level=section_data["level"],
+                is_valid=is_valid_entry(section_data["entry"]),
                 content=section_data["content"],
                 word_count=section_data["word_count"],
                 subsections=section_data["subsections"],
@@ -52,20 +89,12 @@ class Textbook:
             )
             sections_dict[section_id] = new_section
 
-        for section_id, section in sections_dict.items():
-            section.subsections = [
-                s for s in section.subsections if s not in excluded_sections
-            ]
-        for section in excluded_sections:
-            data.pop(section)
-
         textbook.build_hierarchy(sections_dict, data)
         # Add top-level sections to textbook
         for section_id, section in sections_dict.items():
             # Assuming top-level sections are those not listed as a subsection of any other section
             if not any(section_id in s_data["subsections"] for s_data in data.values()):
                 textbook.add_section(section)
-        textbook.assign_section_numbers(sections_dict)
 
         return textbook
 
@@ -77,18 +106,11 @@ class Textbook:
     def all_subsections(self) -> list["Section"]:
         """Flattens all sections into a single list."""
         return [
-            sub for section in self.subsections for sub in section.all_subsections()
+            sub
+            for section in self.subsections
+            for sub in section.all_subsections()
+            if sub.is_valid
         ]
-
-    def assign_section_numbers(self, sections_dict):
-        """Assigns section numbers to top-level sections and their subsections"""
-        section_number = 1
-        for section in self.subsections:
-            if section.section_id in sections_dict:
-                sections_dict[section.section_id].assign_section_number(
-                    (section_number,)
-                )
-                section_number += 1
 
     def build_hierarchy(self, sections_dict, data):
         """Use subsection data to populate the subsections attributes"""
@@ -110,13 +132,16 @@ class Textbook:
 class Section:  # pylint: disable=too-many-instance-attributes
     """Represents a section in a textbook."""
 
-    section_id: str = field(compare=False, repr=True)
-    header: str = field(compare=False, repr=True)
+    section_id: str = field(compare=False)
+    entry: str = field(compare=False)
+    header: str = field(compare=False, repr=False)
+    number: Optional[tuple[int | str, ...]] = field(repr=False)
+    level: int = field(compare=False)
+    is_valid: bool = field(compare=False, repr=False)
     content: str = field(compare=False, repr=False)
     word_count: int = field(compare=False, repr=False)
     subsections: list["Section"] = field(compare=False, repr=False)
     concepts: dict[str, dict[str, str]] = field(compare=False, repr=False)
-    section_number: Optional[tuple[int, ...]] = field(default=None, repr=True)
     textbook: Optional[Textbook] = field(default=None)
 
     def all_subsections(self) -> list["Section"]:
@@ -127,14 +152,18 @@ class Section:  # pylint: disable=too-many-instance-attributes
 
     def assign_section_number(self, number):
         """Assigns a section number based on position in the textbook hierachy."""
-        self.section_number = number
+        self.number = number
         for i, subsection in enumerate(self.subsections, start=1):
             subsection.assign_section_number(tuple(list(number) + [i]))
 
     def print_entry(self, indent=""):
         """Prints a textual representation for a section's TOC entry"""
-        section_number_string = ".".join(str(s) for s in self.section_number)
-        print(f"{indent}{section_number_string}: {self.header}")
+        if self.number is not None:
+            section_number_string = ".".join(str(s) for s in self.number)
+        else:
+            section_number_string = "---"
+        print(f"{indent}{section_number_string}:", end=" ")
+        print("" if self.is_valid else "[excluded]", self.header)
 
     def __hash__(self) -> int:
         return hash((self.textbook, self.section_id))

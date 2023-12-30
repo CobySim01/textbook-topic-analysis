@@ -32,9 +32,6 @@ class TextbookIntegration(ABC):
     other_to_base_map: dict[Section, dict[Section, float]] = field(
         default_factory=dict, repr=False, init=False
     )
-    sections_to_integrate: Optional[Iterable[Section]] = field(
-        default=None, repr=False, init=False
-    )
 
     @property
     def corpus(self):
@@ -45,40 +42,17 @@ class TextbookIntegration(ABC):
             for section in textbook.all_subsections()
         ]
 
-    def search_corpus(self, name: str) -> Textbook:
-        """Searches the corpus for a textbook with the given name."""
-        matches = [
-            t for t in [self.base_textbook] + self.other_textbooks if t.name == name
-        ]
-        if len(matches) != 1:
-            raise ValueError(f"There are not exactly one match for name {name!r}")
-        return matches[0]
-
     @abstractmethod
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
         """Finds the best matching section in the base textbook for a given vector."""
 
     def integrate_sections(self):
         """Attempts to integrate all sections from other_textbooks into the base textbook."""
-        if self.sections_to_integrate is not None:
-            raise ValueError("Cannot use (non-)/iterative approaches together")
         for other_textbook in self.other_textbooks:
             for other_section in other_textbook.all_subsections():
-                self._integrate_section(other_section)
+                self._integrate(other_section)
 
-    def integrate_section(self):
-        """Attempts to integrate a single section from other_textbooks into the base
-        textbook, taking the next section from `self.sections_to_integrate`."""
-        if self.sections_to_integrate is None:
-            self.sections_to_integrate = (
-                other_section
-                for other_textbook in self.other_textbooks
-                for other_section in other_textbook.all_subsections()
-            )
-        section = next(self.sections_to_integrate)
-        self._integrate_section(section)
-
-    def _integrate_section(self, section):
+    def _integrate(self, section):
         """Integrates a section from `other_textbooks`"""
         new_match = self.find_best_matching_section(section)
 
@@ -101,21 +75,12 @@ class TextbookIntegration(ABC):
         unmatched_sections = self.base_to_other_map[None]
         print(len(unmatched_sections), "unmatched sections")
 
-    def evaluate(
-        self,
-        base_textbook_file="textbooks-data/evaluation/1_book1_sections.csv",
-        other_textbook_file="textbooks-data/evaluation/1_book2_sections.csv",
-        print_results=True,
-    ):
+    def evaluate(self, print_results=True):
         """Returns summary statistics for the integrated textbok."""
         if len(self.other_textbooks) != 1:
             raise ValueError("Cannot evaluate for more than one other textbooks.")
-        expert_mapping = get_expert_mapping(
-            self.base_textbook,
-            base_textbook_file,
-            self.other_textbooks[0],
-            other_textbook_file,
-        )
+        expert_mapping = get_expert_mapping(self.base_textbook, self.other_textbooks[0])
+        print(f"{expert_mapping = }")
 
         # Where algorithm correctly identifies similar sections (agreement with experts).
         true_positives = 0
@@ -126,6 +91,8 @@ class TextbookIntegration(ABC):
 
         for base_section in self.base_textbook.all_subsections():
             expert_mapped = set(expert_mapping.get(base_section, {}))
+            if base_section.header == "populations and samples":
+                print(f"{expert_mapped = }")
             algorithm_mapped = self.base_to_other_map[base_section]
             true_positives += len(expert_mapped & algorithm_mapped)
             false_positives += len(algorithm_mapped - expert_mapped)
@@ -133,6 +100,7 @@ class TextbookIntegration(ABC):
 
         precision = true_positives / (true_positives + false_positives)
         recall = true_positives / (true_positives + false_negatives)
+        f1 = 2 / ((1 / precision) + (1 / recall)) if true_positives > 0 else None
 
         def extract_all_mappings(mapping):
             return set(
@@ -144,26 +112,25 @@ class TextbookIntegration(ABC):
         all_expert_mappings = extract_all_mappings(expert_mapping)
         all_algorithm_mappings = extract_all_mappings(self.base_to_other_map)
 
-        # |A ∩ B| / |A ∪ B|
+        # cardinality of intersection divided by cardinality of union
         jaccard_index = len(all_expert_mappings & all_algorithm_mappings) / len(
             all_expert_mappings | all_algorithm_mappings
         )
 
-        results = {
+        print(f"{true_positives = }")
+        print(f"{false_positives = }")
+        print(f"{false_negatives = }")
+        print(f"{precision = :.4}")
+        print(f"{recall = :.4}")
+        print(f"{f1 = :.4}")
+        print(f"{jaccard_index = :.4}")
+
+        return {
             "precision": precision,
             "recall": recall,
-            "f1": 2 / ((1 / precision) + (1 / recall)) if true_positives > 0 else None,
-            "jaccard": jaccard_index,
+            "f1": f1,
+            "jaccard_index": jaccard_index,
         }
-
-        if print_results:
-            for metric, score in results.items():
-                if score is not None:
-                    print(f"{metric.title()}:\t{score:.4}")
-                else:
-                    print(f"{metric.title()}:\tundefined")
-
-        return results
 
 
 @dataclass(kw_only=True)
@@ -180,17 +147,15 @@ class SimilarityBasedTextbookIntegration(TextbookIntegration):
         if self.vectors:
             other_section = self.vectors[other_section]
 
-        similar_sections_iterable = (
-            (
-                section,
-                self.scoring_fn(
-                    self.vectors[section] if self.vectors else section, other_section
-                ),
-            )
+        def get_section_vector(section):
+            return self.vectors[section] if self.vectors else section
+
+        section_similarity_scores_iterable = (
+            (section, self.scoring_fn(get_section_vector(section), other_section))
             for section in self.base_textbook.all_subsections()
         )
         best_match, best_match_score = max(
-            similar_sections_iterable, key=lambda x: x[1], default=(None, None)
+            section_similarity_scores_iterable, key=lambda x: x[1], default=(None, None)
         )
 
         if best_match_score > self.threshold:

@@ -161,6 +161,7 @@ cython_debug/
 
 # textbook data files
 textbooks-data/**
+evaluation-data/**
 textbooks-parsed/**
 
 # MacOS binary files

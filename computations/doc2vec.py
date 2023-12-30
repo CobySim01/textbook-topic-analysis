@@ -5,7 +5,7 @@ from nltk.tokenize import word_tokenize
 
 from textbooks.integration import SimilarityBasedTextbookIntegration
 
-nltk.download("punkt")
+nltk.download("punkt", quiet=True)
 
 
 def preprocess(doc):

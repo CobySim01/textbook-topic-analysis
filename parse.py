@@ -57,18 +57,6 @@ def find_all_with_limit(soup, tag, max_depth, current_depth=0):
     return found_items
 
 
-def get_section_header(entry):
-    """Gets the section header for a given TOC entry."""
-    entry_text = "".join(
-        child for child in entry.contents if isinstance(child, NavigableString)
-    ).strip()
-    section_number_match = re.search(r"\b\d+(\.\d+)*\b", entry_text)
-    if section_number_match is None:
-        return entry_text
-    section_number = section_number_match.group()
-    return entry_text.replace(section_number, "").strip()
-
-
 def get_subsection_refs(entry):
     """Gets the subsections associated with a TOC entry."""
     next_sibling = entry.find_next_sibling()
@@ -128,17 +116,19 @@ def parse_xml(soup: BeautifulSoup) -> dict:
         ref = entry.find("ref")
         if not ref or not ref.has_attr("target"):
             continue
-        header = get_section_header(entry)
+        section_entry = get_top_level_text(entry)
         entry_id = ref.attrs["target"]
         content_xml = copy(body.find("div", attrs={"xml:id": entry_id}))
         subsection_refs = get_subsection_refs(entry)
         if content_xml:
+            level = int(content_xml.attrs["n"])
             remove_subsection_content(content_xml, subsection_refs)
             content = convert_xml_content_to_string(content_xml)
             word_count = len(content_xml.find_all("w"))
             concepts = get_concepts(index, entry_id)
             toc_entries[entry_id] = {
-                "header": header,
+                "entry": section_entry,
+                "level": level,
                 "content": content,
                 "word_count": word_count,
                 "subsections": subsection_refs,
