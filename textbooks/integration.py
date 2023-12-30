@@ -1,7 +1,8 @@
+import json
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Any, Callable, DefaultDict, Iterable, Optional, TypedDict
+from typing import Any, Callable, DefaultDict, Optional, TypedDict
 
 from evaluation.data import get_expert_mapping
 
@@ -26,10 +27,13 @@ class TextbookIntegration(ABC):
     )
     threshold: Optional[float] = field(default=None, repr=False)
 
+    # The set of sections that map to each base section
     base_to_other_map: DefaultDict[Optional[Section], set[Section]] = field(
         default_factory=lambda: defaultdict(set), repr=False, init=False
     )
-    other_to_base_map: dict[Section, dict[Section, float]] = field(
+    # Ensure that each other section can only map to one base section
+    many_to_many: bool = field(default=True)
+    _other_to_base_map: dict[Section, MatchingSection] = field(
         default_factory=dict, repr=False, init=False
     )
 
@@ -56,8 +60,8 @@ class TextbookIntegration(ABC):
         """Integrates a section from `other_textbooks`"""
         new_match = self.find_best_matching_section(section)
 
-        if section in self.other_to_base_map:
-            old_match = self.other_to_base_map[section]
+        if not self.many_to_many and section in self._other_to_base_map:
+            old_match = self._other_to_base_map[section]
             if old_match["score"] > new_match["score"]:
                 return
             if old_match["section"] is None and new_match["section"] is None:
@@ -65,7 +69,8 @@ class TextbookIntegration(ABC):
             self.base_to_other_map[old_match["section"]].remove(section)
 
         self.base_to_other_map[new_match["section"]].add(section)
-        self.other_to_base_map[section] = new_match
+        if not self.many_to_many:
+            self._other_to_base_map[section] = new_match
 
     def print_matches(self):
         """Prints a textual representation of the base textbook
@@ -75,12 +80,11 @@ class TextbookIntegration(ABC):
         unmatched_sections = self.base_to_other_map[None]
         print(len(unmatched_sections), "unmatched sections")
 
-    def evaluate(self, print_results=True):
+    def evaluate(self):
         """Returns summary statistics for the integrated textbok."""
         if len(self.other_textbooks) != 1:
             raise ValueError("Cannot evaluate for more than one other textbooks.")
         expert_mapping = get_expert_mapping(self.base_textbook, self.other_textbooks[0])
-        print(f"{expert_mapping = }")
 
         # Where algorithm correctly identifies similar sections (agreement with experts).
         true_positives = 0
@@ -91,16 +95,25 @@ class TextbookIntegration(ABC):
 
         for base_section in self.base_textbook.all_subsections():
             expert_mapped = set(expert_mapping.get(base_section, {}))
-            if base_section.header == "populations and samples":
-                print(f"{expert_mapped = }")
             algorithm_mapped = self.base_to_other_map[base_section]
             true_positives += len(expert_mapped & algorithm_mapped)
             false_positives += len(algorithm_mapped - expert_mapped)
             false_negatives += len(expert_mapped - algorithm_mapped)
 
-        precision = true_positives / (true_positives + false_positives)
-        recall = true_positives / (true_positives + false_negatives)
-        f1 = 2 / ((1 / precision) + (1 / recall)) if true_positives > 0 else None
+        if (true_positives + false_positives) > 0:
+            precision = true_positives / (true_positives + false_positives)
+        else:
+            precision = None
+
+        if (true_positives + false_negatives) > 0:
+            recall = true_positives / (true_positives + false_negatives)
+        else:
+            recall = None
+
+        if true_positives > 0 and precision is not None and recall is not None:
+            f1 = 2 / ((1 / precision) + (1 / recall))
+        else:
+            f1 = None
 
         def extract_all_mappings(mapping):
             return set(
@@ -117,15 +130,10 @@ class TextbookIntegration(ABC):
             all_expert_mappings | all_algorithm_mappings
         )
 
-        print(f"{true_positives = }")
-        print(f"{false_positives = }")
-        print(f"{false_negatives = }")
-        print(f"{precision = :.4}")
-        print(f"{recall = :.4}")
-        print(f"{f1 = :.4}")
-        print(f"{jaccard_index = :.4}")
-
         return {
+            "true_positives": true_positives,
+            "false_positives": false_positives,
+            "false_negatives": false_negatives,
             "precision": precision,
             "recall": recall,
             "f1": f1,

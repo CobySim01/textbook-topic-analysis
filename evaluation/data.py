@@ -10,7 +10,6 @@ def find_section(entry: str, textbook: Textbook = None) -> Optional[Section]:
     """Finds a section in Textbook by the full text representation of its header."""
     if textbook is None:
         raise ValueError
-    print(textbook.all_subsections())
     for section in textbook.all_subsections():
         if entry == section.entry and section.is_valid:
             return section

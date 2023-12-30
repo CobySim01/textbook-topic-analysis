@@ -54,4 +54,4 @@ def doc2vec_integration(
     integrated_textbook.add_section_vectors(vectors)
     integrated_textbook.integrate_sections()
     integrated_textbook.print_matches()
-    integrated_textbook.evaluate()
+    return integrated_textbook.evaluate()

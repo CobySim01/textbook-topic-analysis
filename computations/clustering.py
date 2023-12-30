@@ -1,5 +1,3 @@
-from functools import partial
-
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import MultiLabelBinarizer
@@ -21,7 +19,7 @@ def clustering(integrated_textbook, category_extraction_fn, n_clusters):
     one_hot_encoding = mlb.fit_transform(category_sets)
 
     # Clustering
-    km_model = KMeans(n_clusters=n_clusters)
+    km_model = KMeans(n_clusters=n_clusters, n_init="auto")
     clusters = km_model.fit_predict(one_hot_encoding)
 
     return dict(zip(section_categories, clusters))
@@ -30,13 +28,69 @@ def clustering(integrated_textbook, category_extraction_fn, n_clusters):
 def clustering_integration(
     base_textbook,
     other_textbooks,
-    clustering_fns,
+    category_extraction_fns,
+    n_clusters_options,
+    similarity_threshold,
+    weights=None,
+):
+    if weights is None:
+        weights = [1] * len(category_extraction_fns)
+    if isinstance(n_clusters_options, list) and len(n_clusters_options) != len(
+        category_extraction_fns
+    ):
+        raise ValueError
+    if not isinstance(n_clusters_options, list):
+        n_clusters_options = [n_clusters_options] * len(category_extraction_fns)
+
+    integrated_textbook = SimilarityBasedTextbookIntegration(
+        base_textbook=base_textbook,
+        other_textbooks=other_textbooks,
+        threshold=similarity_threshold,
+    )
+
+    cluster_dicts = [
+        clustering(
+            integrated_textbook,
+            category_extraction_fn=category_extraction_fn,
+            n_clusters=n_clusters,
+        )
+        for category_extraction_fn, n_clusters in zip(
+            category_extraction_fns, n_clusters_options
+        )
+    ]
+
+    def ensemble_similarity_fn(section, other_section):
+        cluster_similarity = [
+            cluster_dict[section] == cluster_dict[other_section]
+            for cluster_dict in cluster_dicts
+        ]
+
+        return np.average(cluster_similarity, weights=weights)
+
+    integrated_textbook.scoring_fn = ensemble_similarity_fn
+
+    integrated_textbook.integrate_sections()
+    integrated_textbook.print_matches()
+    return integrated_textbook.evaluate()
+
+
+def tfidf_clustering_ensemble_integration(
+    base_textbook,
+    other_textbooks,
+    category_extraction_fns,
+    n_clusters_options,
     text_extraction_fns,
     similarity_threshold,
     weights,
 ):
-    if len(clustering_fns) + len(text_extraction_fns) != len(weights):
+    if len(category_extraction_fns) + len(text_extraction_fns) != len(weights):
         raise ValueError
+    if isinstance(n_clusters_options, list) and len(n_clusters_options) != len(
+        category_extraction_fns
+    ):
+        raise ValueError
+    if not isinstance(n_clusters_options, list):
+        n_clusters_options = [n_clusters_options] * len(category_extraction_fns)
 
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
@@ -45,15 +99,22 @@ def clustering_integration(
     )
     corpus = integrated_textbook.corpus
 
-    tfidf_weights = weights[len(clustering_fns) :]
+    tfidf_weights = weights[len(category_extraction_fns) :]
     tfidf_total_weight = sum(tfidf_weights)
     tfidf_section_vectors = tfidf_vector_computation(
         corpus, text_extraction_fns, tfidf_weights
     )
 
-    cluster_weights = weights[: len(clustering_fns)]
+    cluster_weights = weights[: len(category_extraction_fns)]
     cluster_dicts = [
-        clustering_fn(integrated_textbook) for clustering_fn in clustering_fns
+        clustering(
+            integrated_textbook,
+            category_extraction_fn=category_extraction_fn,
+            n_clusters=n_clusters,
+        )
+        for category_extraction_fn, n_clusters in zip(
+            category_extraction_fns, n_clusters_options
+        )
     ]
 
     def ensemble_similarity_fn(section, other_section):
@@ -77,20 +138,4 @@ def clustering_integration(
 
     integrated_textbook.integrate_sections()
     integrated_textbook.print_matches()
-    integrated_textbook.evaluate()
-
-
-concept_subject_clustering = partial(
-    clustering,
-    category_extraction_fn=lambda section: [
-        c["subject"] for c in section.concepts.values() if "subject" in c
-    ],
-    n_clusters=100,
-)
-concept_name_clustering = partial(
-    clustering,
-    category_extraction_fn=lambda section: " ".join(
-        c["name"] for c in section.concepts.values()
-    ),
-    n_clusters=100,
-)
+    return integrated_textbook.evaluate()

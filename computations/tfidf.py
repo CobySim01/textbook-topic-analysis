@@ -54,4 +54,4 @@ def tfidf_cosine_similarity_integration(
     integrated_textbook.add_section_vectors(section_vectors)
     integrated_textbook.integrate_sections()
     integrated_textbook.print_matches()
-    integrated_textbook.evaluate()
+    return integrated_textbook.evaluate()

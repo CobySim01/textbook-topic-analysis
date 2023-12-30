@@ -21,8 +21,9 @@ def tfidf_doc2vec_integration(
         scoring_fn=lambda a, b: sklearn_cos(a, b)[0][0],
         threshold=upper_threshold,
     )
-    corpus = integrated_textbook_tfidf.corpus
-    tfidf_vectors = tfidf_vector_computation(corpus, tfidf_text_extraction_fns, weights)
+    tfidf_vectors = tfidf_vector_computation(
+        integrated_textbook_tfidf.corpus, tfidf_text_extraction_fns, weights
+    )
     integrated_textbook_tfidf.add_section_vectors(tfidf_vectors)
     integrated_textbook_tfidf.integrate_sections()
 
@@ -39,4 +40,10 @@ def tfidf_doc2vec_integration(
     integrated_textbook_doc2vec.add_section_vectors(doc2vec_vectors)
     integrated_textbook_doc2vec.integrate_sections()
 
-    integrated_textbook_doc2vec.print_matches()
+    for base, other in integrated_textbook_doc2vec.base_to_other_map.items():
+        if base in integrated_textbook_tfidf.base_to_other_map:
+            continue
+        integrated_textbook_tfidf.base_to_other_map[base] |= other
+
+    integrated_textbook_tfidf.print_matches()
+    return integrated_textbook_tfidf.evaluate()
