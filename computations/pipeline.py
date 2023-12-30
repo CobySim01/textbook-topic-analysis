@@ -36,7 +36,7 @@ def tfidf_doc2vec_integration(
     doc2vec_vectors = doc2vec_vector_computation(
         integrated_textbook_doc2vec.corpus, doc2vec_text_extraction_fn
     )
-    integrated_textbook_tfidf.add_section_vectors(doc2vec_vectors)
-    integrated_textbook_tfidf.integrate_sections()
+    integrated_textbook_doc2vec.add_section_vectors(doc2vec_vectors)
+    integrated_textbook_doc2vec.integrate_sections()
 
-    integrated_textbook_tfidf.print_matches()
+    integrated_textbook_doc2vec.print_matches()
