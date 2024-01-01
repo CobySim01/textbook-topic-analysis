@@ -39,13 +39,13 @@ def doc2vec_vector_computation(
 
 
 def doc2vec_integration(
-    base_textbook, other_textbooks, text_extraction_fn, similarity_threshold
+    base_textbook, other_textbooks, text_extraction_fn, threshold, evaluate=True
 ):
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
         scoring_fn=cos,
-        threshold=similarity_threshold,
+        threshold=threshold,
     )
 
     vectors = doc2vec_vector_computation(integrated_textbook.corpus, text_extraction_fn)
@@ -53,5 +53,7 @@ def doc2vec_integration(
     # Integrate the sections with the computed vectors
     integrated_textbook.add_section_vectors(vectors)
     integrated_textbook.integrate_sections()
+    if not evaluate:
+        return integrated_textbook
     integrated_textbook.print_matches()
     return integrated_textbook.evaluate()

@@ -1,4 +1,3 @@
-import json
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
@@ -13,6 +12,15 @@ MatchingSection = TypedDict(
 )
 SimilarityFunction = Callable[[Section, Section], float]
 QueryFunction = Callable[[Section], float]
+
+
+def filter_by_section(scores, section: Section):
+    """Filters the matrix to only return entries relevant to a given Section."""
+    return [
+        ([s for s in key if s != section][0], value)
+        for key, value in scores.items()
+        if section in key
+    ]
 
 
 @dataclass(kw_only=True)
@@ -34,6 +42,10 @@ class TextbookIntegration(ABC):
     # Ensure that each other section can only map to one base section
     many_to_many: bool = field(default=True)
     _other_to_base_map: dict[Section, MatchingSection] = field(
+        default_factory=dict, repr=False, init=False
+    )
+
+    scores: dict[tuple[Section, Section], float] = field(
         default_factory=dict, repr=False, init=False
     )
 
@@ -90,7 +102,7 @@ class TextbookIntegration(ABC):
         true_positives = 0
         # When algorithm incorrectly identifies sections as similar (disagreement with experts).
         false_positives = 0
-        # Sections that your algorithm fails to identify as similar, but experts identify as similar.
+        # Sections that algorithm fails to identify as similar, but experts identify as similar.
         false_negatives = 0
 
         for base_section in self.base_textbook.all_subsections():
@@ -152,24 +164,19 @@ class SimilarityBasedTextbookIntegration(TextbookIntegration):
         self.vectors |= section_vectors_map
 
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
-        if self.vectors:
-            other_section = self.vectors[other_section]
+        for base_section in self.base_textbook.all_subsections():
+            self.scores[(base_section, other_section)] = self.scoring_fn(
+                self.vectors[base_section] if self.vectors else base_section,
+                self.vectors[other_section] if self.vectors else other_section,
+            )
 
-        def get_section_vector(section):
-            return self.vectors[section] if self.vectors else section
-
-        section_similarity_scores_iterable = (
-            (section, self.scoring_fn(get_section_vector(section), other_section))
-            for section in self.base_textbook.all_subsections()
-        )
         best_match, best_match_score = max(
-            section_similarity_scores_iterable, key=lambda x: x[1], default=(None, None)
+            filter_by_section(self.scores, other_section),
+            key=lambda x: x[1],
+            default=(None, None),
         )
 
-        if best_match_score > self.threshold:
-            returned_best_match = best_match
-        else:
-            returned_best_match = None
+        returned_best_match = best_match if best_match_score > self.threshold else None
 
         return {"score": best_match_score, "section": returned_best_match}
 
@@ -180,10 +187,8 @@ class QueryBasedTextbookIntegration(TextbookIntegration):
 
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
         result = self.scoring_fn(other_section)
-        if result["score"] > self.threshold:
-            section = result["section"]
-        else:
-            section = None
+        self.scores[(result["section"], other_section)] = result["score"]
+        section = result["section"] if result["score"] > self.threshold else None
         return {"score": result["score"], "section": section}
 
 

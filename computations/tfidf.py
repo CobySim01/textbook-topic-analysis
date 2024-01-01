@@ -35,7 +35,12 @@ def tfidf_vector_computation(corpus, text_extraction_fns, weights):
 
 
 def tfidf_cosine_similarity_integration(
-    base_textbook, other_textbooks, text_extraction_fns, threshold, weights=None
+    base_textbook,
+    other_textbooks,
+    text_extraction_fns,
+    threshold,
+    weights=None,
+    evaluate=True,
 ):
     if weights is None:
         weights = [1] * len(text_extraction_fns)
@@ -53,5 +58,7 @@ def tfidf_cosine_similarity_integration(
     # Integrate the sections with the computed vectors
     integrated_textbook.add_section_vectors(section_vectors)
     integrated_textbook.integrate_sections()
+    if not evaluate:
+        return integrated_textbook
     integrated_textbook.print_matches()
     return integrated_textbook.evaluate()

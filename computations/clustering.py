@@ -30,7 +30,7 @@ def clustering_integration(
     other_textbooks,
     category_extraction_fns,
     n_clusters_options,
-    similarity_threshold,
+    threshold,
     weights=None,
 ):
     if weights is None:
@@ -45,7 +45,7 @@ def clustering_integration(
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
-        threshold=similarity_threshold,
+        threshold=threshold,
     )
 
     cluster_dicts = [
@@ -80,7 +80,7 @@ def tfidf_clustering_ensemble_integration(
     category_extraction_fns,
     n_clusters_options,
     text_extraction_fns,
-    similarity_threshold,
+    threshold,
     weights,
 ):
     if len(category_extraction_fns) + len(text_extraction_fns) != len(weights):
@@ -95,7 +95,7 @@ def tfidf_clustering_ensemble_integration(
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
-        threshold=similarity_threshold,
+        threshold=threshold,
     )
     corpus = integrated_textbook.corpus
 

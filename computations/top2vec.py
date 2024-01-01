@@ -3,9 +3,7 @@ from top2vec import Top2Vec
 from textbooks.integration import QueryBasedTextbookIntegration
 
 
-def top2vec_integration(
-    base_textbook, other_textbooks, text_extraction_fn, similarity_threshold
-):
+def top2vec_integration(base_textbook, other_textbooks, text_extraction_fn, threshold):
     corpus = base_textbook.all_subsections()
     preprocessed_corpus = [text_extraction_fn(section) for section in corpus]
 
@@ -21,7 +19,7 @@ def top2vec_integration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
         scoring_fn=top2vec_similarity_function,
-        threshold=similarity_threshold,
+        threshold=threshold,
     )
 
     integrated_textbook.integrate_sections()
