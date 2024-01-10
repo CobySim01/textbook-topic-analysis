@@ -131,3 +131,9 @@ class Section:  # pylint: disable=too-many-instance-attributes
         if not isinstance(other, Section):
             return False
         return (self.textbook, self.section_id) == (other.textbook, other.section_id)
+
+    def extend(self, other: "Section"):
+        """Extends a Section with data from another Section."""
+        self.header += " " + other.header
+        self.content += " " + other.content
+        self.concepts |= other.concepts

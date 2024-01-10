@@ -1,3 +1,4 @@
+import random
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
@@ -6,6 +7,9 @@ from typing import Any, Callable, DefaultDict, Optional, TypedDict
 from evaluation.data import get_expert_mapping
 
 from .data import Section, Textbook
+
+random.seed(2024)
+
 
 MatchingSection = TypedDict(
     "MatchingSection", {"score": float, "section": Optional[Section]}
@@ -21,6 +25,12 @@ def filter_by_section(scores, section: Section):
         for key, value in scores.items()
         if section in key
     ]
+
+
+def random_shuffle(lst):
+    new_list = list(lst)
+    random.shuffle(new_list)
+    return new_list
 
 
 @dataclass(kw_only=True)
@@ -49,6 +59,8 @@ class TextbookIntegration(ABC):
         default_factory=dict, repr=False, init=False
     )
 
+    iterative: bool = field(default=False, repr=False)
+
     @property
     def corpus(self):
         """Returns the corpus associated with this IntegratedTextbook"""
@@ -64,9 +76,16 @@ class TextbookIntegration(ABC):
 
     def integrate_sections(self):
         """Attempts to integrate all sections from other_textbooks into the base textbook."""
+        if self.iterative:
+            return (
+                self._integrate(other_section)
+                for other_textbook in random_shuffle(self.other_textbooks)
+                for other_section in random_shuffle(other_textbook.all_subsections())
+            )
         for other_textbook in self.other_textbooks:
             for other_section in other_textbook.all_subsections():
                 self._integrate(other_section)
+        return None
 
     def _integrate(self, section):
         """Integrates a section from `other_textbooks`"""
@@ -75,14 +94,18 @@ class TextbookIntegration(ABC):
         if not self.many_to_many and section in self._other_to_base_map:
             old_match = self._other_to_base_map[section]
             if old_match["score"] > new_match["score"]:
-                return
+                return None
             if old_match["section"] is None and new_match["section"] is None:
-                return
+                return None
             self.base_to_other_map[old_match["section"]].remove(section)
 
         self.base_to_other_map[new_match["section"]].add(section)
         if not self.many_to_many:
             self._other_to_base_map[section] = new_match
+
+        if new_match["section"] is None:
+            return None
+        return new_match["section"], section
 
     def print_matches(self):
         """Prints a textual representation of the base textbook

@@ -1,5 +1,5 @@
 from computations.doc2vec import doc2vec_integration
-from computations.tfidf import tfidf_cosine_similarity_integration
+from computations.tfidf import tfidf_integration
 
 
 def pipeline_integration(base_textbook, other_textbooks, models):
@@ -36,9 +36,14 @@ def tfidf_doc2vec_pipeline(
     other_textbooks,
     tfidf_text_extraction_fns,
     tfidf_threshold,
+    tfidf_iterative,
     tfidf_uncertain_threshold,
     doc2vec_text_extraction_fn,
     doc2vec_threshold,
+    doc2vec_iterative,
+    doc2vec_vector_size,
+    doc2vec_min_count,
+    doc2vec_epochs,
 ):
     if tfidf_uncertain_threshold[1] > tfidf_threshold:
         raise ValueError("Uncertain threshold cannot overlap main threshold")
@@ -47,10 +52,11 @@ def tfidf_doc2vec_pipeline(
         other_textbooks=other_textbooks,
         models=[
             {
-                "fn": tfidf_cosine_similarity_integration,
+                "fn": tfidf_integration,
                 "kwargs": {
                     "text_extraction_fns": tfidf_text_extraction_fns,
                     "threshold": tfidf_threshold,
+                    "iterative": tfidf_iterative,
                 },
                 "uncertain_threshold": tfidf_uncertain_threshold,
             },
@@ -59,6 +65,10 @@ def tfidf_doc2vec_pipeline(
                 "kwargs": {
                     "text_extraction_fn": doc2vec_text_extraction_fn,
                     "threshold": doc2vec_threshold,
+                    "iterative": doc2vec_iterative,
+                    "vector_size": doc2vec_vector_size,
+                    "min_count": doc2vec_min_count,
+                    "epochs": doc2vec_epochs,
                 },
             },
         ],

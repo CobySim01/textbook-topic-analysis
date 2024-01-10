@@ -19,7 +19,7 @@ def clustering(integrated_textbook, category_extraction_fn, n_clusters):
     one_hot_encoding = mlb.fit_transform(category_sets)
 
     # Clustering
-    km_model = KMeans(n_clusters=n_clusters, n_init="auto")
+    km_model = KMeans(n_clusters=n_clusters, n_init="auto", random_state=2024)
     clusters = km_model.fit_predict(one_hot_encoding)
 
     return dict(zip(section_categories, clusters))
@@ -30,17 +30,13 @@ def clustering_integration(
     other_textbooks,
     category_extraction_fns,
     n_clusters_options,
-    threshold,
+    threshold=0.99,
     weights=None,
 ):
     if weights is None:
         weights = [1] * len(category_extraction_fns)
-    if isinstance(n_clusters_options, list) and len(n_clusters_options) != len(
-        category_extraction_fns
-    ):
+    if len(n_clusters_options) != len(category_extraction_fns):
         raise ValueError
-    if not isinstance(n_clusters_options, list):
-        n_clusters_options = [n_clusters_options] * len(category_extraction_fns)
 
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
@@ -82,15 +78,12 @@ def tfidf_clustering_ensemble_integration(
     text_extraction_fns,
     threshold,
     weights,
+    evaluate=True,
 ):
     if len(category_extraction_fns) + len(text_extraction_fns) != len(weights):
         raise ValueError
-    if isinstance(n_clusters_options, list) and len(n_clusters_options) != len(
-        category_extraction_fns
-    ):
+    if len(n_clusters_options) != len(category_extraction_fns):
         raise ValueError
-    if not isinstance(n_clusters_options, list):
-        n_clusters_options = [n_clusters_options] * len(category_extraction_fns)
 
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,
@@ -137,5 +130,7 @@ def tfidf_clustering_ensemble_integration(
     integrated_textbook.scoring_fn = ensemble_similarity_fn
 
     integrated_textbook.integrate_sections()
+    if not evaluate:
+        return integrated_textbook
     integrated_textbook.print_matches()
     return integrated_textbook.evaluate()
