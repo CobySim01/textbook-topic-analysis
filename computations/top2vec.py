@@ -3,13 +3,22 @@ from top2vec import Top2Vec
 from textbooks.integration import QueryBasedTextbookIntegration
 
 
-def top2vec_integration(base_textbook, other_textbooks, text_extraction_fn, threshold):
+def top2vec_integration(
+    base_textbook, other_textbooks, text_extraction_fn, threshold, embedding_model
+):
     corpus = base_textbook.all_subsections()
     preprocessed_corpus = [text_extraction_fn(section) for section in corpus]
 
-    model = Top2Vec(documents=preprocessed_corpus, speed="fast-learn", workers=8)
+    # pylint: disable-next=unexpected-keyword-arg
+    model = Top2Vec(
+        documents=preprocessed_corpus,
+        speed="learn",
+        embedding_model=embedding_model,
+        workers=32,
+    )
 
     def top2vec_similarity_function(section):
+        # pylint: disable-next=no-member
         doc_scores, doc_ids = model.query_documents(
             query=text_extraction_fn(section), num_docs=1, return_documents=False
         )

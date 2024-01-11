@@ -70,6 +70,29 @@ class TextbookIntegration(ABC):
             for section in textbook.all_subsections()
         ]
 
+    @property
+    def dataset(self):
+        """Returns the dataset created by integrating textbooks."""
+
+        def get_section_data(section: Section):
+            return {
+                "topic": section.header,
+                "content": section.content,
+                "concepts": [concept["name"] for concept in section.concepts.values()],
+            }
+
+        base_sections = [
+            get_section_data(section)
+            for section in self.base_to_other_map
+            if section is not None
+        ]
+        other_sections = [
+            get_section_data(section)
+            for section_group in self.base_to_other_map.values()
+            for section in section_group
+        ]
+        return base_sections + other_sections
+
     @abstractmethod
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
         """Finds the best matching section in the base textbook for a given vector."""
