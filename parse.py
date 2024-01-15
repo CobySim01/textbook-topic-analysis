@@ -94,12 +94,16 @@ def get_concepts(index, entry_id):
         concept = concept_data.find("seg")
         if concept is None:
             continue
-        subject = concept.find("ref", attrs={"property": "terms:subject"})
         definition = concept.find("gross", attrs={"property": "skos:definition"})
         if definition is not None:
             concepts[concept_id]["definition"] = definition.text
+        subject = concept.find("ref", attrs={"property": "terms:subject"})
         if subject is not None:
-            concepts[concept_id]["subject"] = subject.attrs["resource"]
+            concepts[concept_id]["subject"] = (
+                subject.attrs["resource"]
+                .removeprefix("http://dbpedia.org/resource/Category:")
+                .replace("_", " ")
+            )
 
     return concepts
 

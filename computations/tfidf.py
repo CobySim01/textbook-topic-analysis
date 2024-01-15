@@ -1,8 +1,18 @@
+import functools
+
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity as sklearn_cos
 
+from nlp import lemmatize
 from textbooks.integration import SimilarityBasedTextbookIntegration
+
+
+def compose(*fs):
+    def _compose(f, g):
+        return lambda *a, **kw: f(g(*a, **kw))
+
+    return functools.reduce(_compose, fs)
 
 
 def tfidf_vector_computation(corpus, text_extraction_fns, weights):
@@ -37,6 +47,7 @@ def tfidf_vector_computation(corpus, text_extraction_fns, weights):
 def tfidf_integration(
     base_textbook,
     other_textbooks,
+    preprocessing,
     iterative,
     text_extraction_fns,
     threshold,
@@ -45,6 +56,11 @@ def tfidf_integration(
 ):
     if weights is None:
         weights = [1] * len(text_extraction_fns)
+
+    if preprocessing == "lemmatize":
+        text_extraction_fns = [
+            compose(" ".join, lemmatize, fn) for fn in text_extraction_fns
+        ]
 
     integrated_textbook = SimilarityBasedTextbookIntegration(
         base_textbook=base_textbook,

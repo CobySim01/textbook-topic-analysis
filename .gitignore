@@ -166,3 +166,9 @@ textbooks-parsed/**
 
 # MacOS binary files
 **/.DS_Store
+
+# To Do lists
+*.md
+
+# Cached vectors
+bert-vectors/**
