@@ -64,9 +64,9 @@ class TextbookIntegration(ABC):
     @property
     def corpus(self):
         """Returns the corpus associated with this IntegratedTextbook"""
-        return [
+        return self.base_textbook.all_subsections() + [
             section
-            for textbook in [self.base_textbook] + self.other_textbooks
+            for textbook in self.other_textbooks
             for section in textbook.all_subsections()
         ]
 

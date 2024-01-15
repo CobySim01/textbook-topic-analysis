@@ -1,4 +1,4 @@
-import functools
+from functools import lru_cache, reduce
 
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -8,11 +8,9 @@ from nlp import lemmatize
 from textbooks.integration import SimilarityBasedTextbookIntegration
 
 
-def compose(*fs):
-    def _compose(f, g):
-        return lambda *a, **kw: f(g(*a, **kw))
-
-    return functools.reduce(_compose, fs)
+def compose(*functions):
+    """Composes the passed functions (with the first function provided applied last)."""
+    return reduce(lambda f, g: lambda *args, **kwargs: f(g(*args, **kwargs)), functions)
 
 
 def tfidf_vector_computation(corpus, text_extraction_fns, weights):
@@ -44,13 +42,14 @@ def tfidf_vector_computation(corpus, text_extraction_fns, weights):
     return section_vectors
 
 
+@lru_cache(maxsize=None)
 def tfidf_integration(
     base_textbook,
     other_textbooks,
-    preprocessing,
     iterative,
     text_extraction_fns,
     threshold,
+    preprocessing=None,
     weights=None,
     evaluate=True,
 ):

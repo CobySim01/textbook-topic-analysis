@@ -1,8 +1,10 @@
+from functools import lru_cache
+
 import nltk
 import numpy as np
-from numpy.linalg import norm
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from nltk.tokenize import word_tokenize
+from numpy.linalg import norm
 
 from textbooks.integration import SimilarityBasedTextbookIntegration
 
@@ -30,6 +32,7 @@ def tag_corpus(preprocessed_corpus):
     ]
 
 
+@lru_cache(maxsize=None)
 def doc2vec_integration(
     base_textbook,
     other_textbooks,
