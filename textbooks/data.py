@@ -137,3 +137,18 @@ class Section:  # pylint: disable=too-many-instance-attributes
         self.header += " " + other.header
         self.content += " " + other.content
         self.concepts |= other.concepts
+
+    def find_ancestor(self, root, parent=None):
+        """Finds the top-level section associated with this section."""
+        if root == self:
+            return parent
+
+        for child in root.subsections:
+            parent_section = self.find_ancestor(child, root)
+            if parent_section and not isinstance(parent_section, Textbook):
+                return parent_section
+
+        if parent is None:
+            return self
+
+        return None

@@ -74,20 +74,21 @@ class TextbookIntegration(ABC):
     def dataset(self):
         """Returns the dataset created by integrating textbooks."""
 
-        def get_section_data(section: Section):
+        def get_section_data(section: Section, textbook: Textbook):
             return {
-                "topic": section.header,
+                "topic": section.find_ancestor(textbook).header,
+                "subtopic": section.header,
                 "content": section.content,
                 "concepts": [concept["name"] for concept in section.concepts.values()],
             }
 
         base_sections = [
-            get_section_data(section)
+            get_section_data(section, self.base_textbook)
             for section in self.base_to_other_map
             if section is not None
         ]
         other_sections = [
-            get_section_data(section)
+            get_section_data(section, self.other_textbooks[0])
             for section_group in self.base_to_other_map.values()
             for section in section_group
         ]
