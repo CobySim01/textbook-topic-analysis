@@ -80,6 +80,7 @@ class TextbookIntegration(ABC):
                 "subtopic": section.header,
                 "content": section.content,
                 "concepts": [concept["name"] for concept in section.concepts.values()],
+                "textbook": textbook.name,
             }
 
         base_sections = [

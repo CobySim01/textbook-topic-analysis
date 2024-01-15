@@ -30,8 +30,6 @@ def remove_section_number(entry):
 
 def is_valid_entry(entry: str) -> bool:
     """Determines whether a section entry is removed from processing."""
-    if extract_section_number(entry) is None:
-        return False
     HEADER_CANNOT_CONTAIN = [
         "exercises",
         "solutions",

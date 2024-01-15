@@ -1,9 +1,8 @@
-import json
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
-from transformers import DistilBertModel, DistilBertTokenizer
-
+import tensorflow as tf
 import torch
+from transformers import DistilBertModel, DistilBertTokenizer
 
 model_name = "distilbert-base-uncased"
 tokenizer = DistilBertTokenizer.from_pretrained(model_name)
@@ -28,20 +27,19 @@ def process_section(data):
     embeddings = outputs.last_hidden_state.mean(1).to("cpu")
     embeddings_reshaped = torch.reshape(embeddings, (-1,)).tolist()
 
-    return {"x": embeddings_reshaped, "y": data["topic"]}
+    return {"x": embeddings_reshaped, "y": data["topic"], "textbook": data["textbook"]}
 
 
-def run_bert(integrated_textbook, file=None):
+def run_bert(dataset):
     """Generate all BERT embeddings for an integrated textbook."""
     vectors = []
-    with ThreadPoolExecutor() as executor:
-        futures = [
-            executor.submit(process_section, data)
-            for data in integrated_textbook.dataset
-        ]
+    with ProcessPoolExecutor() as executor:
+        futures = (executor.submit(process_section, data) for data in dataset)
         for future in as_completed(futures):
             vectors.append(future.result())
 
-    if file is not None:
-        with open(file, "w", encoding="utf-8") as f:
-            json.dump(vectors, f)
+    X = tf.convert_to_tensor([v["x"] for v in vectors])
+    y = tf.convert_to_tensor([v["y"] for v in vectors])
+    textbooks = tf.convert_to_tensor([v["textbook"] for v in vectors])
+
+    return X, y, textbooks
