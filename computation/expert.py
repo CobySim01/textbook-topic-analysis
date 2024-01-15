@@ -1,5 +1,5 @@
 import nltk
-from evaluation.data import get_expert_mapping
+from evaluation.expert import get_expert_mapping
 
 
 from textbooks.integration import QueryBasedTextbookIntegration

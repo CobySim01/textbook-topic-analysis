@@ -1,5 +1,5 @@
-from computations.doc2vec import doc2vec_integration
-from computations.tfidf import tfidf_integration
+from computation.doc2vec import doc2vec_integration
+from computation.tfidf import tfidf_integration
 
 
 def pipeline_integration(

@@ -4,7 +4,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any, Callable, DefaultDict, Optional, TypedDict
 
-from evaluation.data import get_expert_mapping
+from evaluation.expert import get_expert_mapping
 
 from .data import Section, Textbook
 
