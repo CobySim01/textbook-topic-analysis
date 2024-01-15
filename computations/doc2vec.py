@@ -38,7 +38,7 @@ def doc2vec_integration(
     threshold,
     vector_size,
     min_count,
-    epochs,
+    epochs=40,
     evaluate=True,
 ):
     integrated_textbook = SimilarityBasedTextbookIntegration(
