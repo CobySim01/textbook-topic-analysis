@@ -6,6 +6,8 @@ import json
 from time import time
 import traceback
 
+from utils import write_results
+
 
 def weight_combinations(n, step):
     """Generates all combinations of `n` floats summing to 1 with `step`."""
@@ -75,11 +77,7 @@ def evaluate_models(base_textbook, other_textbooks, param_grid):
 
 def tune_parameters(base_textbook, other_textbooks, param_grid, results_file):
     start = time()
-    with open(results_file, "w", encoding="utf-8"):
-        pass
-    results_iterable = evaluate_models(base_textbook, other_textbooks, param_grid)
-    with open(results_file, "a", encoding="utf-8") as f:
-        for result in results_iterable:
-            f.write(json.dumps(result) + "\n")
+    results = evaluate_models(base_textbook, other_textbooks, param_grid)
+    write_results(results, results_file)
     end = time()
     print(f"Completed in {end-start:.2f} seconds.")

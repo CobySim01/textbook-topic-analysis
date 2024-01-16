@@ -4,6 +4,8 @@ import tensorflow as tf
 import torch
 from transformers import DistilBertModel, DistilBertTokenizer
 
+tf.experimental.numpy.experimental_enable_numpy_behavior()
+
 model_name = "distilbert-base-uncased"
 tokenizer = DistilBertTokenizer.from_pretrained(model_name)
 model = DistilBertModel.from_pretrained(model_name)
