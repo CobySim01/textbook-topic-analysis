@@ -172,3 +172,6 @@ textbooks-parsed/**
 
 # Cached vectors
 bert-vectors/**
+
+# Results analysis
+results.ipynb
