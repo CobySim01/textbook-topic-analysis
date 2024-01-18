@@ -1,10 +1,8 @@
-import json
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 import numpy as np
 
-from classification.bert import run_bert
 from classification.nn import (
     create_single_model,
     performance_metrics,
@@ -20,13 +18,16 @@ def classification_pipeline(X, y, textbooks, leave_out_textbook, params):
     num_classes, X_train, X_test, y_train, y_test = preprocess_data(
         X, y, textbooks, leave_out_textbook
     )
+
+    batch_size = params["batch_size"]
     params = {
         k.removeprefix("model__"): v
         for k, v in params.items()
         if k.startswith("model__")
     }
+
     model = create_single_model(num_classes, reshape(X_train), **params)
-    model.fit(reshape(X_train), y_train, batch_size=params["batch_size"])
+    model.fit(reshape(X_train), y_train, batch_size=batch_size)
 
     y_pred_probabilities = model.predict(reshape(X_test))
     y_pred = np.argmax(y_pred_probabilities, axis=1)
