@@ -8,6 +8,8 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
+tf.experimental.numpy.experimental_enable_numpy_behavior()
+
 
 def reshape(array):
     """Reshapes the given array from 3D to 2D."""
