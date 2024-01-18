@@ -12,6 +12,7 @@ def pipeline_integration(
     d2v_threshold,
     d2v_vector_size,
     d2v_min_count,
+    evaluate=True,
 ):
     tfidf_it = tfidf_integration(
         base_textbook,
@@ -42,5 +43,7 @@ def pipeline_integration(
             ):
                 tfidf_it.base_to_other_map[base_section].add(other_section)
 
+    if not evaluate:
+        return tfidf_it
     tfidf_it.print_matches()
     return tfidf_it.evaluate()
