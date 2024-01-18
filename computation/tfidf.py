@@ -1,4 +1,4 @@
-from functools import lru_cache, reduce
+from functools import reduce
 
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -42,7 +42,6 @@ def tfidf_vector_computation(corpus, text_extraction_fns, weights):
     return section_vectors
 
 
-@lru_cache(maxsize=None)
 def tfidf_integration(
     base_textbook,
     other_textbooks,

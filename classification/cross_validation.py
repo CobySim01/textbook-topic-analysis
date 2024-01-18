@@ -14,10 +14,9 @@ from classification.nn import (
 from utils import write_results
 
 
-def classification_pipeline(dataset, leave_out_textbook, params):
+def classification_pipeline(X, y, textbooks, leave_out_textbook, params):
     """Run the classification pipeline by leaving out one textbook for test data."""
     print(f"Running pipeline for leave-out-textbook {leave_out_textbook}...")
-    X, y, textbooks = run_bert(dataset)
     num_classes, X_train, X_test, y_train, y_test = preprocess_data(
         X, y, textbooks, leave_out_textbook
     )
@@ -39,16 +38,14 @@ def classification_pipeline(dataset, leave_out_textbook, params):
     return {"leave_out_textbook": leave_out_textbook} | results
 
 
-def cross_validate(base_textbook, params):
+def cross_validate(X, y, textbooks, base_textbook, params):
     """Cross-validate the classification pipeline by leaving out one textbook each time."""
-    with open("datasets.json", encoding="utf-8") as f:
-        datasets = json.load(f)
-    dataset = datasets[base_textbook]
+
     all_textbooks = (p.stem for p in Path("textbooks-parsed").glob("*"))
     with ProcessPoolExecutor(max_workers=4) as executor:
         futures = (
             executor.submit(
-                classification_pipeline, dataset, leave_out_textbook, params
+                classification_pipeline, X, y, textbooks, leave_out_textbook, params
             )
             for leave_out_textbook in all_textbooks
             if leave_out_textbook != base_textbook
