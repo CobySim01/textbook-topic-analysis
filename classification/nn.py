@@ -20,9 +20,11 @@ def performance_metrics(y_true, y_pred):
     """Calculates performance metrics for predictions given true values."""
     return {
         "accuracy": accuracy_score(y_true, y_pred),
-        "precision": precision_score(y_true, y_pred, average="macro"),
-        "recall": recall_score(y_true, y_pred, average="macro"),
-        "f1": f1_score(y_true, y_pred, average="macro"),
+        "precision": precision_score(
+            y_true, y_pred, average="macro", zero_division=np.nan
+        ),
+        "recall": recall_score(y_true, y_pred, average="macro", zero_division=np.nan),
+        "f1": f1_score(y_true, y_pred, average="macro", zero_division=np.nan),
     }
 
 
@@ -40,10 +42,10 @@ def preprocess_data(X, y, textbooks=None, leave_out=None):
     # Train-test split
     if textbooks is not None and leave_out is not None:
         mask = tf.equal(textbooks, leave_out)
-        X_train = tf.boolean_mask(X_scaled, mask)
-        y_train = tf.boolean_mask(y_encoded, mask)
-        X_test = tf.boolean_mask(X_scaled, tf.logical_not(mask))
-        y_test = tf.boolean_mask(y_encoded, tf.logical_not(mask))
+        X_train = tf.boolean_mask(X_scaled, tf.logical_not(mask))
+        y_train = tf.boolean_mask(y_encoded, tf.logical_not(mask))
+        X_test = tf.boolean_mask(X_scaled, mask)
+        y_test = tf.boolean_mask(y_encoded, mask)
         return num_classes, X_train, X_test, y_train, y_test
 
     X_train, X_test, y_train, y_test = train_test_split(

@@ -45,17 +45,12 @@ class TextbookIntegration(ABC):
     threshold: Optional[float] = field(default=None, repr=False)
     iterative: bool = field(default=False, repr=False)
 
-    # The set of sections that map to each base section
     base_to_other_map: DefaultDict[Optional[Section], set[Section]] = field(
         default_factory=lambda: defaultdict(set), repr=False, init=False
-    )
-    _other_to_base_map: dict[Section, MatchingSection] = field(
-        default_factory=dict, repr=False, init=False
     )
     scores: dict[tuple[Section, Section], float] = field(
         default_factory=dict, repr=False, init=False
     )
-
 
     @property
     def corpus(self):
@@ -70,24 +65,26 @@ class TextbookIntegration(ABC):
     def dataset(self):
         """Returns the dataset created by integrating textbooks."""
 
-        def get_section_data(section: Section, textbook: Textbook):
+        def get_section_data(section: Section, base_section: Optional[Section] = None):
+            label_section = section if base_section is None else base_section
             return {
-                "topic": section.find_ancestor(textbook).header,
+                "topic": label_section.find_ancestor(label_section.textbook).header,
                 "subtopic": section.header,
                 "content": section.content,
                 "concepts": [concept["name"] for concept in section.concepts.values()],
-                "textbook": textbook.name,
+                "textbook": section.textbook.name,
             }
 
         base_sections = [
-            get_section_data(section, self.base_textbook)
+            get_section_data(section)
             for section in self.base_to_other_map
-            if section is not None
+            if section is not None and section.is_valid
         ]
         other_sections = [
-            get_section_data(section, self.other_textbooks[0])
-            for section_group in self.base_to_other_map.values()
-            for section in section_group
+            get_section_data(other_section, base_section)
+            for base_section, other_sections in self.base_to_other_map.items()
+            for other_section in other_sections
+            if other_section.is_valid
         ]
         return base_sections + other_sections
 
