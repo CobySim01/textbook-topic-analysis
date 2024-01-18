@@ -11,9 +11,7 @@ from .data import Section, Textbook
 random.seed(2024)
 
 
-MatchingSection = TypedDict(
-    "MatchingSection", {"score": float, "section": Optional[Section]}
-)
+MatchingSection = TypedDict("MatchingSection", {"score": float, "section": Section})
 SimilarityFunction = Callable[[Section, Section], float]
 QueryFunction = Callable[[Section], float]
 
@@ -49,8 +47,6 @@ class TextbookIntegration(ABC):
     base_to_other_map: DefaultDict[Optional[Section], set[Section]] = field(
         default_factory=lambda: defaultdict(set), repr=False, init=False
     )
-    # Ensure that each other section can only map to one base section
-    many_to_many: bool = field(default=True)
     _other_to_base_map: dict[Section, MatchingSection] = field(
         default_factory=dict, repr=False, init=False
     )
@@ -115,22 +111,9 @@ class TextbookIntegration(ABC):
     def _integrate(self, section):
         """Integrates a section from `other_textbooks`"""
         new_match = self.find_best_matching_section(section)
-
-        if not self.many_to_many and section in self._other_to_base_map:
-            old_match = self._other_to_base_map[section]
-            if old_match["score"] > new_match["score"]:
-                return None
-            if old_match["section"] is None and new_match["section"] is None:
-                return None
-            self.base_to_other_map[old_match["section"]].remove(section)
-
+        if new_match["score"] < self.threshold:
+            new_match["section"] = None
         self.base_to_other_map[new_match["section"]].add(section)
-        if not self.many_to_many:
-            self._other_to_base_map[section] = new_match
-
-        if new_match["section"] is None:
-            return None
-        return new_match["section"], section
 
     def print_matches(self):
         """Prints a textual representation of the base textbook
@@ -217,16 +200,12 @@ class SimilarityBasedTextbookIntegration(TextbookIntegration):
                 self.vectors[base_section] if self.vectors else base_section,
                 self.vectors[other_section] if self.vectors else other_section,
             )
-
         best_match, best_match_score = max(
             filter_by_section(self.scores, other_section),
             key=lambda x: x[1],
             default=(None, None),
         )
-
-        returned_best_match = best_match if best_match_score > self.threshold else None
-
-        return {"score": best_match_score, "section": returned_best_match}
+        return {"score": best_match_score, "section": best_match}
 
 
 @dataclass(kw_only=True)
@@ -236,8 +215,7 @@ class QueryBasedTextbookIntegration(TextbookIntegration):
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
         result = self.scoring_fn(other_section)
         self.scores[(result["section"], other_section)] = result["score"]
-        section = result["section"] if result["score"] > self.threshold else None
-        return {"score": result["score"], "section": section}
+        return result
 
 
 def print_toc(
