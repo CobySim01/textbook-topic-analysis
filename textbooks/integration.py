@@ -26,6 +26,7 @@ def filter_by_section(scores, section: Section):
 
 
 def random_shuffle(lst):
+    """Creates a new list by randomly shuffling an existing list."""
     new_list = list(lst)
     random.shuffle(new_list)
     return new_list
@@ -42,6 +43,7 @@ class TextbookIntegration(ABC):
         default=None, repr=False
     )
     threshold: Optional[float] = field(default=None, repr=False)
+    iterative: bool = field(default=False, repr=False)
 
     # The set of sections that map to each base section
     base_to_other_map: DefaultDict[Optional[Section], set[Section]] = field(
@@ -50,12 +52,10 @@ class TextbookIntegration(ABC):
     _other_to_base_map: dict[Section, MatchingSection] = field(
         default_factory=dict, repr=False, init=False
     )
-
     scores: dict[tuple[Section, Section], float] = field(
         default_factory=dict, repr=False, init=False
     )
 
-    iterative: bool = field(default=False, repr=False)
 
     @property
     def corpus(self):
