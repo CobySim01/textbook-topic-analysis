@@ -175,3 +175,6 @@ bert-vectors/**
 
 # Results analysis
 results.ipynb
+
+# Large dataset file
+dataset.json

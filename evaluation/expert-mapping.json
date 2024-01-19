@@ -1,0 +1,1692 @@
+[
+  {
+    "base_section_id": 2,
+    "base_title": "1 overview and descriptive statistics",
+    "other_section_id": 2,
+    "other_title": "1 introduction to statistics and data analysis",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 6,
+    "base_title": "1.1 populations and samples",
+    "other_section_id": 4,
+    "other_title": "1.1 overview: statistical inference, samples, populations, and the role of probability",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 6,
+    "base_title": "1.1 populations and samples",
+    "other_section_id": 6,
+    "other_title": "1.2 sampling procedures; collection of data",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 1, "relevance": 3, "score": 3 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 10,
+    "base_title": "1.3 measures of location",
+    "other_section_id": 8,
+    "other_title": "1.3 measures of location: the sample mean and median",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 12,
+    "base_title": "1.4 measures of variability",
+    "other_section_id": 12,
+    "other_title": "1.4 measures of variability",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 30,
+    "base_title": "introduction",
+    "other_section_id": 16,
+    "other_title": "1.5 discrete and continuous data.",
+    "data": [
+      { "expert": "uExpert4", "confidence": 1, "relevance": 3, "score": 3 }
+    ]
+  },
+  {
+    "base_section_id": 32,
+    "base_title": "3.1 random variables",
+    "other_section_id": 16,
+    "other_title": "1.5 discrete and continuous data.",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 48,
+    "base_title": "introduction",
+    "other_section_id": 16,
+    "other_title": "1.5 discrete and continuous data.",
+    "data": [
+      { "expert": "uExpert4", "confidence": 1, "relevance": 3, "score": 3 }
+    ]
+  },
+  {
+    "base_section_id": 8,
+    "base_title": "1.2 pictorial and tabular methods in descriptive statistics",
+    "other_section_id": 18,
+    "other_title": "1.6 statistical modeling, scientific inspection, and graphical diag- nostics",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 14,
+    "base_title": "2 probability",
+    "other_section_id": 24,
+    "other_title": "2 probability",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 18,
+    "base_title": "2.1 sample spaces and events",
+    "other_section_id": 26,
+    "other_title": "2.1 sample space",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 18,
+    "base_title": "2.1 sample spaces and events",
+    "other_section_id": 28,
+    "other_title": "2.2 events",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 22,
+    "base_title": "2.3 counting techniques",
+    "other_section_id": 32,
+    "other_title": "2.3 counting sample points",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 20,
+    "base_title": "2.2 axioms, interpretations, and properties of probability",
+    "other_section_id": 36,
+    "other_title": "2.4 probability of an event",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 20,
+    "base_title": "2.2 axioms, interpretations, and properties of probability",
+    "other_section_id": 38,
+    "other_title": "2.5 additive rules",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 24,
+    "base_title": "2.4 conditional probability",
+    "other_section_id": 42,
+    "other_title": "2.6 conditional probability, independence, and the product rule",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 26,
+    "base_title": "2.5 independence",
+    "other_section_id": 42,
+    "other_title": "2.6 conditional probability, independence, and the product rule",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 24,
+    "base_title": "2.4 conditional probability",
+    "other_section_id": 46,
+    "other_title": "2.7 bayes\u2019 rule",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 28,
+    "base_title": "3 discrete random variables and probability distributions",
+    "other_section_id": 54,
+    "other_title": "3 random variables and probability distributions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 46,
+    "base_title": "4 continuous random variables and probability distributions",
+    "other_section_id": 54,
+    "other_title": "3 random variables and probability distributions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 32,
+    "base_title": "3.1 random variables",
+    "other_section_id": 56,
+    "other_title": "3.1 concept of a random variable",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 34,
+    "base_title": "3.2 probability distributions for discrete random variables",
+    "other_section_id": 58,
+    "other_title": "3.2 discrete probability distributions",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 50,
+    "base_title": "4.1 probability density functions and cumulative distribution functions",
+    "other_section_id": 60,
+    "other_title": "3.3 continuous probability distributions",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 64,
+    "base_title": "5 joint probability distributions",
+    "other_section_id": 64,
+    "other_title": "3.4 joint probability distributions",
+    "data": [
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 68,
+    "base_title": "5.1 jointly distributed random variables",
+    "other_section_id": 64,
+    "other_title": "3.4 joint probability distributions",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 72,
+    "base_title": "5.3 conditional distributions",
+    "other_section_id": 64,
+    "other_title": "3.4 joint probability distributions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 36,
+    "base_title": "3.3 expected values of discrete random variables",
+    "other_section_id": 72,
+    "other_title": "4 mathematical expectation",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 52,
+    "base_title": "4.2 expected values and moment generating functions",
+    "other_section_id": 72,
+    "other_title": "4 mathematical expectation",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 36,
+    "base_title": "3.3 expected values of discrete random variables",
+    "other_section_id": 74,
+    "other_title": "4.1 mean of a random variable",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 52,
+    "base_title": "4.2 expected values and moment generating functions",
+    "other_section_id": 74,
+    "other_title": "4.1 mean of a random variable",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 36,
+    "base_title": "3.3 expected values of discrete random variables",
+    "other_section_id": 78,
+    "other_title": "4.2 variance and covariance of random variables.",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 38,
+    "base_title": "3.4 moments and moment generating functions",
+    "other_section_id": 78,
+    "other_title": "4.2 variance and covariance of random variables.",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 52,
+    "base_title": "4.2 expected values and moment generating functions",
+    "other_section_id": 78,
+    "other_title": "4.2 variance and covariance of random variables.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 70,
+    "base_title": "5.2 expected values, covariance, and correlation",
+    "other_section_id": 78,
+    "other_title": "4.2 variance and covariance of random variables.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 }
+    ]
+  },
+  {
+    "base_section_id": 36,
+    "base_title": "3.3 expected values of discrete random variables",
+    "other_section_id": 82,
+    "other_title": "4.3 means and variances of linear combinations of random variables",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 52,
+    "base_title": "4.2 expected values and moment generating functions",
+    "other_section_id": 82,
+    "other_title": "4.3 means and variances of linear combinations of random variables",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 70,
+    "base_title": "5.2 expected values, covariance, and correlation",
+    "other_section_id": 82,
+    "other_title": "4.3 means and variances of linear combinations of random variables",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 86,
+    "base_title": "6.3 the mean, variance, and mgf for several variables",
+    "other_section_id": 82,
+    "other_title": "4.3 means and variances of linear combinations of random variables",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 36,
+    "base_title": "3.3 expected values of discrete random variables",
+    "other_section_id": 84,
+    "other_title": "4.4 chebyshev\u2019s theorem",
+    "data": [
+      { "expert": "uExpert4", "confidence": 1, "relevance": 2, "score": 2 }
+    ]
+  },
+  {
+    "base_section_id": 28,
+    "base_title": "3 discrete random variables and probability distributions",
+    "other_section_id": 92,
+    "other_title": "5 some discrete probability distributions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 40,
+    "base_title": "3.5 the binomial probability distribution",
+    "other_section_id": 96,
+    "other_title": "5.2 binomial and multinomial distributions",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 42,
+    "base_title": "3.6 hypergeometric and negative binomial distributions",
+    "other_section_id": 100,
+    "other_title": "5.3 hypergeometric distribution",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 42,
+    "base_title": "3.6 hypergeometric and negative binomial distributions",
+    "other_section_id": 104,
+    "other_title": "5.4 negative binomial and geometric distributions",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 44,
+    "base_title": "3.7 the poisson probability distribution",
+    "other_section_id": 106,
+    "other_title": "5.5 poisson distribution and the poisson process",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 46,
+    "base_title": "4 continuous random variables and probability distributions",
+    "other_section_id": 114,
+    "other_title": "6 some continuous probability distributions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 50,
+    "base_title": "4.1 probability density functions and cumulative distribution functions",
+    "other_section_id": 116,
+    "other_title": "6.1 continuous uniform distribution",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 54,
+    "base_title": "4.3 the normal distribution",
+    "other_section_id": 118,
+    "other_title": "6.2 normal distribution",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 54,
+    "base_title": "4.3 the normal distribution",
+    "other_section_id": 120,
+    "other_title": "6.3 areas under the normal curve",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 54,
+    "base_title": "4.3 the normal distribution",
+    "other_section_id": 122,
+    "other_title": "6.4 applications of the normal distribution",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 54,
+    "base_title": "4.3 the normal distribution",
+    "other_section_id": 126,
+    "other_title": "6.5 normal approximation to the binomial",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 56,
+    "base_title": "4.4 the gamma distribution and its relatives",
+    "other_section_id": 130,
+    "other_title": "6.6 gamma and exponential distributions",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 56,
+    "base_title": "4.4 the gamma distribution and its relatives",
+    "other_section_id": 132,
+    "other_title": "6.7 chi-squared distribution.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 88,
+    "base_title": "6.4 distributions based on a normal random sample",
+    "other_section_id": 132,
+    "other_title": "6.7 chi-squared distribution.",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 58,
+    "base_title": "4.5 other continuous distributions",
+    "other_section_id": 134,
+    "other_title": "6.8 beta distribution",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 58,
+    "base_title": "4.5 other continuous distributions",
+    "other_section_id": 136,
+    "other_title": "6.9 lognormal distribution",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 58,
+    "base_title": "4.5 other continuous distributions",
+    "other_section_id": 138,
+    "other_title": "6.10 weibull distribution (optional)",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 38,
+    "base_title": "3.4 moments and moment generating functions",
+    "other_section_id": 146,
+    "other_title": "7 functions of random variables (optional).",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 52,
+    "base_title": "4.2 expected values and moment generating functions",
+    "other_section_id": 146,
+    "other_title": "7 functions of random variables (optional).",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 62,
+    "base_title": "4.7 transformations of a random variable",
+    "other_section_id": 146,
+    "other_title": "7 functions of random variables (optional).",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 74,
+    "base_title": "5.4 transformations of random variables",
+    "other_section_id": 146,
+    "other_title": "7 functions of random variables (optional).",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 62,
+    "base_title": "4.7 transformations of a random variable",
+    "other_section_id": 150,
+    "other_title": "7.2 transformations of variables",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 74,
+    "base_title": "5.4 transformations of random variables",
+    "other_section_id": 150,
+    "other_title": "7.2 transformations of variables",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 38,
+    "base_title": "3.4 moments and moment generating functions",
+    "other_section_id": 152,
+    "other_title": "7.3 moments and moment-generating functions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 52,
+    "base_title": "4.2 expected values and moment generating functions",
+    "other_section_id": 152,
+    "other_title": "7.3 moments and moment-generating functions",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 78,
+    "base_title": "6 statistics and sampling distributions",
+    "other_section_id": 156,
+    "other_title": "8 fundamental sampling distributions and data descriptions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 82,
+    "base_title": "6.1 statistics and their distributions",
+    "other_section_id": 158,
+    "other_title": "8.1 random sampling",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 10,
+    "base_title": "1.3 measures of location",
+    "other_section_id": 160,
+    "other_title": "8.2 some important statistics",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 12,
+    "base_title": "1.4 measures of variability",
+    "other_section_id": 160,
+    "other_title": "8.2 some important statistics",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 86,
+    "base_title": "6.3 the mean, variance, and mgf for several variables",
+    "other_section_id": 160,
+    "other_title": "8.2 some important statistics",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 82,
+    "base_title": "6.1 statistics and their distributions",
+    "other_section_id": 164,
+    "other_title": "8.3 sampling distributions",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 84,
+    "base_title": "6.2 the distribution of the sample mean",
+    "other_section_id": 164,
+    "other_title": "8.3 sampling distributions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 84,
+    "base_title": "6.2 the distribution of the sample mean",
+    "other_section_id": 166,
+    "other_title": "8.4 sampling distribution of means and the central limit theorem.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 88,
+    "base_title": "6.4 distributions based on a normal random sample",
+    "other_section_id": 170,
+    "other_title": "8.5 sampling distribution of s2",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 }
+    ]
+  },
+  {
+    "base_section_id": 88,
+    "base_title": "6.4 distributions based on a normal random sample",
+    "other_section_id": 172,
+    "other_title": "8.6 t-distribution",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 88,
+    "base_title": "6.4 distributions based on a normal random sample",
+    "other_section_id": 174,
+    "other_title": "8.7 f -distribution",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 60,
+    "base_title": "4.6 probability plots",
+    "other_section_id": 176,
+    "other_title": "8.8 quantile and probability plots",
+    "data": [
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 92,
+    "base_title": "7 point estimation",
+    "other_section_id": 184,
+    "other_title": "9 one- and two-sample estimation problems",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 104,
+    "base_title": "8 statistical intervals based on a single sample",
+    "other_section_id": 184,
+    "other_title": "9 one- and two-sample estimation problems",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 94,
+    "base_title": "introduction",
+    "other_section_id": 188,
+    "other_title": "9.2 statistical inference",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 96,
+    "base_title": "7.1 general concepts and criteria",
+    "other_section_id": 190,
+    "other_title": "9.3 classical methods of estimation.",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 98,
+    "base_title": "7.2 methods of point estimation",
+    "other_section_id": 190,
+    "other_title": "9.3 classical methods of estimation.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 2, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 108,
+    "base_title": "8.1 basic properties of confidence intervals",
+    "other_section_id": 190,
+    "other_title": "9.3 classical methods of estimation.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 }
+    ]
+  },
+  {
+    "base_section_id": 98,
+    "base_title": "7.2 methods of point estimation",
+    "other_section_id": 192,
+    "other_title": "9.4 single sample: estimating the mean",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 }
+    ]
+  },
+  {
+    "base_section_id": 108,
+    "base_title": "8.1 basic properties of confidence intervals",
+    "other_section_id": 192,
+    "other_title": "9.4 single sample: estimating the mean",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 110,
+    "base_title": "8.2 large-sample confidence intervals for a population mean and proportion",
+    "other_section_id": 192,
+    "other_title": "9.4 single sample: estimating the mean",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 112,
+    "base_title": "8.3 intervals based on a normal population distribution",
+    "other_section_id": 192,
+    "other_title": "9.4 single sample: estimating the mean",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 96,
+    "base_title": "7.1 general concepts and criteria",
+    "other_section_id": 194,
+    "other_title": "9.5 standard error of a point estimate",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 98,
+    "base_title": "7.2 methods of point estimation",
+    "other_section_id": 194,
+    "other_title": "9.5 standard error of a point estimate",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 }
+    ]
+  },
+  {
+    "base_section_id": 108,
+    "base_title": "8.1 basic properties of confidence intervals",
+    "other_section_id": 194,
+    "other_title": "9.5 standard error of a point estimate",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 }
+    ]
+  },
+  {
+    "base_section_id": 112,
+    "base_title": "8.3 intervals based on a normal population distribution",
+    "other_section_id": 194,
+    "other_title": "9.5 standard error of a point estimate",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 108,
+    "base_title": "8.1 basic properties of confidence intervals",
+    "other_section_id": 196,
+    "other_title": "9.6 prediction intervals",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 }
+    ]
+  },
+  {
+    "base_section_id": 112,
+    "base_title": "8.3 intervals based on a normal population distribution",
+    "other_section_id": 196,
+    "other_title": "9.6 prediction intervals",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 112,
+    "base_title": "8.3 intervals based on a normal population distribution",
+    "other_section_id": 198,
+    "other_title": "9.7 tolerance limits",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 136,
+    "base_title": "10.1 z tests and confidence intervals for a difference between two population means",
+    "other_section_id": 202,
+    "other_title": "9.8 two samples: estimating the difference between two means",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 138,
+    "base_title": "10.2 the two-sample t test and confidence interval",
+    "other_section_id": 202,
+    "other_title": "9.8 two samples: estimating the difference between two means",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 140,
+    "base_title": "10.3 analysis of paired data",
+    "other_section_id": 204,
+    "other_title": "9.9 paired observations",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 110,
+    "base_title": "8.2 large-sample confidence intervals for a population mean and proportion",
+    "other_section_id": 208,
+    "other_title": "9.10 single sample: estimating a proportion",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 142,
+    "base_title": "10.4 inferences about two population proportions",
+    "other_section_id": 210,
+    "other_title": "9.11 two samples: estimating the difference between two proportions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 114,
+    "base_title": "8.4 confidence intervals for the variance and standard deviation of a normal population",
+    "other_section_id": 214,
+    "other_title": "9.12 single sample: estimating the variance",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 144,
+    "base_title": "10.5 inferences about two population variances",
+    "other_section_id": 216,
+    "other_title": "9.13 two samples: estimating the ratio of two variances",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 98,
+    "base_title": "7.2 methods of point estimation",
+    "other_section_id": 220,
+    "other_title": "9.14 maximum likelihood estimation (optional)",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 118,
+    "base_title": "9 tests of hypotheses based on a single sample",
+    "other_section_id": 228,
+    "other_title": "10 one- and two-sample tests of hypotheses",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 132,
+    "base_title": "10 inferences based on two samples",
+    "other_section_id": 228,
+    "other_title": "10 one- and two-sample tests of hypotheses",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 122,
+    "base_title": "9.1 hypotheses and test procedures",
+    "other_section_id": 230,
+    "other_title": "10.1 statistical hypotheses: general concepts",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 122,
+    "base_title": "9.1 hypotheses and test procedures",
+    "other_section_id": 232,
+    "other_title": "10.2 testing a statistical hypothesis",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 128,
+    "base_title": "9.4 p-values",
+    "other_section_id": 234,
+    "other_title": "10.3 the use of p -values for decision making in testing hypotheses",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 124,
+    "base_title": "9.2 tests about a population mean",
+    "other_section_id": 238,
+    "other_title": "10.4 single sample: tests concerning a single mean",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 136,
+    "base_title": "10.1 z tests and confidence intervals for a difference between two population means",
+    "other_section_id": 240,
+    "other_title": "10.5 two samples: tests on two means",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 138,
+    "base_title": "10.2 the two-sample t test and confidence interval",
+    "other_section_id": 240,
+    "other_title": "10.5 two samples: tests on two means",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 140,
+    "base_title": "10.3 analysis of paired data",
+    "other_section_id": 240,
+    "other_title": "10.5 two samples: tests on two means",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 136,
+    "base_title": "10.1 z tests and confidence intervals for a difference between two population means",
+    "other_section_id": 242,
+    "other_title": "10.6 choice of sample size for testing means",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 126,
+    "base_title": "9.3 tests concerning a population proportion",
+    "other_section_id": 248,
+    "other_title": "10.8 one sample: test on a single proportion.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 142,
+    "base_title": "10.4 inferences about two population proportions",
+    "other_section_id": 250,
+    "other_title": "10.9 two samples: tests on two proportions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 144,
+    "base_title": "10.5 inferences about two population variances",
+    "other_section_id": 254,
+    "other_title": "10.10 one- and two-sample tests concerning variances",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 186,
+    "base_title": "13.1 goodness-of-fit tests when category probabilities are completely specified",
+    "other_section_id": 258,
+    "other_title": "10.11 goodness-of-fit test",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 186,
+    "base_title": "13.1 goodness-of-fit tests when category probabilities are completely specified",
+    "other_section_id": 260,
+    "other_title": "10.12 test for independence (categorical data)",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 190,
+    "base_title": "13.3 two-way contingency tables",
+    "other_section_id": 260,
+    "other_title": "10.12 test for independence (categorical data)",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 190,
+    "base_title": "13.3 two-way contingency tables",
+    "other_section_id": 262,
+    "other_title": "10.13 test for homogeneity",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 162,
+    "base_title": "12 regression and correlation",
+    "other_section_id": 272,
+    "other_title": "11 simple linear regression and correlation",
+    "data": [
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 164,
+    "base_title": "introduction",
+    "other_section_id": 274,
+    "other_title": "11.1 introduction to linear regression",
+    "data": [
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 166,
+    "base_title": "12.1 the simple linear and logistic regression models",
+    "other_section_id": 274,
+    "other_title": "11.1 introduction to linear regression",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 166,
+    "base_title": "12.1 the simple linear and logistic regression models",
+    "other_section_id": 276,
+    "other_title": "11.2 the simple linear regression model",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 168,
+    "base_title": "12.2 estimating model parameters",
+    "other_section_id": 278,
+    "other_title": "11.3 least squares and the fitted model",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 1, "score": 2 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 168,
+    "base_title": "12.2 estimating model parameters",
+    "other_section_id": 282,
+    "other_title": "11.4 properties of the least squares estimators",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 1, "score": 2 }
+    ]
+  },
+  {
+    "base_section_id": 170,
+    "base_title": "12.3 inferences about the regression coefficient b1",
+    "other_section_id": 282,
+    "other_title": "11.4 properties of the least squares estimators",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 2, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 170,
+    "base_title": "12.3 inferences about the regression coefficient b1",
+    "other_section_id": 284,
+    "other_title": "11.5 inferences concerning the regression coefficients.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 1, "score": 3 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 172,
+    "base_title": "12.4 inferences concerning my \u2600x\u2600 and the prediction of future y values",
+    "other_section_id": 286,
+    "other_title": "11.6 prediction",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 1, "score": 3 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 168,
+    "base_title": "12.2 estimating model parameters",
+    "other_section_id": 292,
+    "other_title": "11.8 analysis-of-variance approach",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 176,
+    "base_title": "12.6 assessing model adequacy",
+    "other_section_id": 294,
+    "other_title": "11.9 test for linearity of regression: data with repeated observations",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 176,
+    "base_title": "12.6 assessing model adequacy",
+    "other_section_id": 298,
+    "other_title": "11.10 data plots and transformations.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 174,
+    "base_title": "12.5 correlation",
+    "other_section_id": 302,
+    "other_title": "11.12 correlation",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 178,
+    "base_title": "12.7 multiple regression analysis",
+    "other_section_id": 310,
+    "other_title": "12 multiple linear regression and certain nonlinear regression models",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 178,
+    "base_title": "12.7 multiple regression analysis",
+    "other_section_id": 312,
+    "other_title": "12.1 introduction",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 178,
+    "base_title": "12.7 multiple regression analysis",
+    "other_section_id": 314,
+    "other_title": "12.2 estimating the coefficients",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 180,
+    "base_title": "12.8 regression with matrices",
+    "other_section_id": 316,
+    "other_title": "12.3 linear regression model using matrices",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 178,
+    "base_title": "12.7 multiple regression analysis",
+    "other_section_id": 320,
+    "other_title": "12.4 properties of the least squares estimators",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 178,
+    "base_title": "12.7 multiple regression analysis",
+    "other_section_id": 322,
+    "other_title": "12.5 inferences in multiple linear regression",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 178,
+    "base_title": "12.7 multiple regression analysis",
+    "other_section_id": 326,
+    "other_title": "12.6 choice of a fitted model through hypothesis testing",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 178,
+    "base_title": "12.7 multiple regression analysis",
+    "other_section_id": 332,
+    "other_title": "12.8 categorical or indicator variables",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 178,
+    "base_title": "12.7 multiple regression analysis",
+    "other_section_id": 338,
+    "other_title": "12.10 study of residuals and violation of assumptions (model check- ing)",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 166,
+    "base_title": "12.1 the simple linear and logistic regression models",
+    "other_section_id": 344,
+    "other_title": "12.12 special nonlinear models for nonideal conditions",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 152,
+    "base_title": "11.1 single-factor anova",
+    "other_section_id": 352,
+    "other_title": "13 one-factor experiments: general",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 150,
+    "base_title": "introduction",
+    "other_section_id": 354,
+    "other_title": "13.1 analysis-of-variance technique.",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 152,
+    "base_title": "11.1 single-factor anova",
+    "other_section_id": 354,
+    "other_title": "13.1 analysis-of-variance technique.",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 152,
+    "base_title": "11.1 single-factor anova",
+    "other_section_id": 358,
+    "other_title": "13.3 one-way analysis of variance: completely randomized design (one-way anova)",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 152,
+    "base_title": "11.1 single-factor anova",
+    "other_section_id": 360,
+    "other_title": "13.4 tests for the equality of several variances",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 154,
+    "base_title": "11.2 multiple comparisons in anova",
+    "other_section_id": 360,
+    "other_title": "13.4 tests for the equality of several variances",
+    "data": [
+      { "expert": "uExpert1", "confidence": 2, "relevance": 1, "score": 2 }
+    ]
+  },
+  {
+    "base_section_id": 154,
+    "base_title": "11.2 multiple comparisons in anova",
+    "other_section_id": 366,
+    "other_title": "13.6 multiple comparisons",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 158,
+    "base_title": "11.4 two-factor anova with kij 1",
+    "other_section_id": 370,
+    "other_title": "13.7 comparing a set of treatments in blocks",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 158,
+    "base_title": "11.4 two-factor anova with kij 1",
+    "other_section_id": 372,
+    "other_title": "13.8 randomized complete block designs.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 152,
+    "base_title": "11.1 single-factor anova",
+    "other_section_id": 374,
+    "other_title": "13.9 graphical methods and model checking",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 156,
+    "base_title": "11.3 more on single-factor anova",
+    "other_section_id": 376,
+    "other_title": "13.10 data transformations in analysis of variance",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 156,
+    "base_title": "11.3 more on single-factor anova",
+    "other_section_id": 380,
+    "other_title": "13.11 random effects models",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 158,
+    "base_title": "11.4 two-factor anova with kij 1",
+    "other_section_id": 380,
+    "other_title": "13.11 random effects models",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 }
+    ]
+  },
+  {
+    "base_section_id": 158,
+    "base_title": "11.4 two-factor anova with kij 1",
+    "other_section_id": 390,
+    "other_title": "14 factorial experiments (two or more factors)",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 160,
+    "base_title": "11.5 two-factor anova with kij 1",
+    "other_section_id": 390,
+    "other_title": "14 factorial experiments (two or more factors)",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 158,
+    "base_title": "11.4 two-factor anova with kij 1",
+    "other_section_id": 392,
+    "other_title": "14.1 introduction",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 160,
+    "base_title": "11.5 two-factor anova with kij 1",
+    "other_section_id": 392,
+    "other_title": "14.1 introduction",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 2, "score": 4 }
+    ]
+  },
+  {
+    "base_section_id": 158,
+    "base_title": "11.4 two-factor anova with kij 1",
+    "other_section_id": 394,
+    "other_title": "14.2 interaction in the two-factor experiment",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 158,
+    "base_title": "11.4 two-factor anova with kij 1",
+    "other_section_id": 396,
+    "other_title": "14.3 two-factor analysis of variance",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 1, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 2, "relevance": 1, "score": 2 }
+    ]
+  },
+  {
+    "base_section_id": 160,
+    "base_title": "11.5 two-factor anova with kij 1",
+    "other_section_id": 396,
+    "other_title": "14.3 two-factor analysis of variance",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 1, "score": 1 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 158,
+    "base_title": "11.4 two-factor anova with kij 1",
+    "other_section_id": 404,
+    "other_title": "14.5 factorial experiments for random effects and mixed models.",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 160,
+    "base_title": "11.5 two-factor anova with kij 1",
+    "other_section_id": 404,
+    "other_title": "14.5 factorial experiments for random effects and mixed models.",
+    "data": [
+      { "expert": "uExpert3", "confidence": 1, "relevance": 2, "score": 2 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 192,
+    "base_title": "14 alternative approaches to inference",
+    "other_section_id": 450,
+    "other_title": "16 nonparametric statistics",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 184,
+    "base_title": "introduction",
+    "other_section_id": 452,
+    "other_title": "16.1 nonparametric tests",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 194,
+    "base_title": "introduction",
+    "other_section_id": 452,
+    "other_title": "16.1 nonparametric tests",
+    "data": [
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 196,
+    "base_title": "14.1 the wilcoxon signed-rank test",
+    "other_section_id": 454,
+    "other_title": "16.2 signed-rank test",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 198,
+    "base_title": "14.2 the wilcoxon rank-sum test",
+    "other_section_id": 458,
+    "other_title": "16.3 wilcoxon rank-sum test",
+    "data": [
+      { "expert": "uExpert3", "confidence": 3, "relevance": 2, "score": 6 },
+      { "expert": "uExpert4", "confidence": 3, "relevance": 3, "score": 9 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 202,
+    "base_title": "14.4 bayesian methods",
+    "other_section_id": 490,
+    "other_title": "18 bayesian statistics",
+    "data": [
+      { "expert": "uExpert3", "confidence": 2, "relevance": 2, "score": 4 },
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 },
+      { "expert": "uExpert1", "confidence": 3, "relevance": 3, "score": 9 }
+    ]
+  },
+  {
+    "base_section_id": 202,
+    "base_title": "14.4 bayesian methods",
+    "other_section_id": 492,
+    "other_title": "18.1 bayesian concepts",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 202,
+    "base_title": "14.4 bayesian methods",
+    "other_section_id": 494,
+    "other_title": "18.2 bayesian inferences",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  },
+  {
+    "base_section_id": 202,
+    "base_title": "14.4 bayesian methods",
+    "other_section_id": 496,
+    "other_title": "18.3 bayes estimates using decision theory framework",
+    "data": [
+      { "expert": "uExpert4", "confidence": 2, "relevance": 3, "score": 6 }
+    ]
+  }
+]

@@ -17,7 +17,8 @@ def find_section(entry: str, textbook: Textbook = None) -> Optional[Section]:
 
 
 def get_expert_mapping(base_textbook, other_textbook):
-    with open("evaluation-data/expert-mapping.json", encoding="utf-8") as f:
+    """Returns a cleaned and transformed version of the expert mapping baseline data."""
+    with open("evaluation/expert-mapping.json", encoding="utf-8") as f:
         mappings = json.load(f)
     reoriented_mappings = {}
     for mapping in mappings:

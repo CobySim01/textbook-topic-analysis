@@ -4,7 +4,6 @@ import tensorflow as tf
 from keras.layers import Dense, Dropout
 from keras.models import Sequential
 
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
@@ -14,18 +13,6 @@ tf.experimental.numpy.experimental_enable_numpy_behavior()
 def reshape(array):
     """Reshapes the given array from 3D to 2D."""
     return array.reshape(-1, 1, array.shape[-1])
-
-
-def performance_metrics(y_true, y_pred):
-    """Calculates performance metrics for predictions given true values."""
-    return {
-        "accuracy": accuracy_score(y_true, y_pred),
-        "precision": precision_score(
-            y_true, y_pred, average="macro", zero_division=np.nan
-        ),
-        "recall": recall_score(y_true, y_pred, average="macro", zero_division=np.nan),
-        "f1": f1_score(y_true, y_pred, average="macro", zero_division=np.nan),
-    }
 
 
 def preprocess_data(X, y, textbooks=None, leave_out=None):
