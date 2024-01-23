@@ -1,0 +1,83 @@
+preprocessing,attributes,threshold,iterative
+,['header'],0.4,0.0
+,['header'],0.6000000000000001,0.0
+,['header'],0.2,0.0
+,['header'],0.8,0.0
+,['content'],0.8,0.0
+,['content'],0.2,0.0
+,['content'],0.6000000000000001,0.0
+,['content'],0.4,0.0
+lemmatize,['header'],0.2,0.0
+lemmatize,['header'],0.4,0.0
+lemmatize,['header'],0.6000000000000001,0.0
+lemmatize,['header'],0.8,0.0
+,"['header', 'concept name']",0.2,0.0
+,"['header', 'concept name']",0.4,0.0
+,"['header', 'concept name']",0.6000000000000001,0.0
+,"['header', 'concept name']",0.8,0.0
+lemmatize,"['header', 'concept name']",0.2,0.0
+lemmatize,"['header', 'concept name']",0.6000000000000001,0.0
+lemmatize,"['header', 'concept name']",0.4,0.0
+lemmatize,"['header', 'concept name']",0.8,0.0
+,"['header', 'concept name', 'concept definitions']",0.2,0.0
+,"['header', 'concept name', 'concept definitions']",0.4,0.0
+,"['header', 'concept name', 'concept definitions']",0.6000000000000001,0.0
+,"['header', 'concept name', 'concept definitions']",0.8,0.0
+,"['header', 'concept subject', 'concept definitions']",0.2,0.0
+,"['header', 'concept subject', 'concept definitions']",0.4,0.0
+,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,0.0
+,"['header', 'concept subject', 'concept definitions']",0.8,0.0
+,"['header', 'concept subject', 'concept name']",0.2,0.0
+,"['header', 'concept subject', 'concept name']",0.4,0.0
+,"['header', 'concept subject', 'concept name']",0.6000000000000001,0.0
+,"['header', 'concept subject', 'concept name']",0.8,0.0
+,"['concept definitions', 'concept subject', 'concept name']",0.2,0.0
+,"['concept definitions', 'concept subject', 'concept name']",0.4,0.0
+,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,0.0
+,"['concept definitions', 'concept subject', 'concept name']",0.8,0.0
+lemmatize,"['header', 'concept name', 'concept definitions']",0.6000000000000001,0.0
+lemmatize,"['header', 'concept name', 'concept definitions']",0.2,0.0
+lemmatize,"['header', 'concept name', 'concept definitions']",0.4,0.0
+lemmatize,"['header', 'concept name', 'concept definitions']",0.8,0.0
+lemmatize,['content'],0.2,0.0
+lemmatize,['content'],0.8,0.0
+lemmatize,['content'],0.4,0.0
+lemmatize,['content'],0.6000000000000001,0.0
+lemmatize,"['header', 'concept subject', 'concept name']",0.2,0.0
+lemmatize,"['header', 'concept subject', 'concept name']",0.4,0.0
+lemmatize,"['header', 'concept subject', 'concept name']",0.6000000000000001,0.0
+lemmatize,"['header', 'concept subject', 'concept name']",0.8,0.0
+lemmatize,"['header', 'concept subject', 'concept definitions']",0.2,0.0
+lemmatize,"['header', 'concept subject', 'concept definitions']",0.4,0.0
+lemmatize,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,0.0
+lemmatize,"['header', 'concept subject', 'concept definitions']",0.8,0.0
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,0.0
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,0.0
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.8,0.0
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,0.0
+lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.4,0.0
+lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.2,0.0
+lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,0.0
+lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.8,0.0
+lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,0.0
+lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,0.0
+lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,0.0
+lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.8,0.0
+,"['header', 'concept subject', 'concept definitions']",0.4,True
+,"['header', 'concept name', 'concept definitions']",0.2,True
+,"['header', 'concept name', 'concept definitions']",0.4,True
+,"['header', 'concept subject', 'concept definitions']",0.2,True
+,"['header', 'concept name', 'concept definitions']",0.6000000000000001,True
+,['content'],0.2,True
+,['content'],0.6000000000000001,True
+,['content'],0.4,True
+,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,True
+,"['header', 'concept subject', 'concept name']",0.4,True
+,"['header', 'concept subject', 'concept name']",0.2,True
+,"['header', 'concept subject', 'concept name']",0.6000000000000001,True
+,"['concept definitions', 'concept subject', 'concept name']",0.4,True
+,"['concept definitions', 'concept subject', 'concept name']",0.2,True
+,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,True
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,True
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,True
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,True

@@ -1,0 +1,193 @@
+attributes,threshold,vector_size,min_count,iterative
+['content'],0.2,50.0,1.0,0.0
+['content'],0.2,50.0,5.0,0.0
+['content'],0.2,50.0,20.0,0.0
+['content'],0.2,50.0,10.0,0.0
+['content'],0.2,50.0,50.0,0.0
+['content'],0.2,100.0,10.0,0.0
+['content'],0.2,100.0,5.0,0.0
+['content'],0.2,100.0,20.0,0.0
+['content'],0.2,100.0,1.0,0.0
+['content'],0.2,100.0,50.0,0.0
+['content'],0.2,200.0,10.0,0.0
+['content'],0.2,200.0,5.0,0.0
+['content'],0.2,200.0,1.0,0.0
+['content'],0.2,200.0,50.0,0.0
+['content'],0.2,200.0,20.0,0.0
+['content'],0.2,300.0,10.0,0.0
+['content'],0.2,300.0,5.0,0.0
+['content'],0.2,300.0,20.0,0.0
+['content'],0.2,300.0,1.0,0.0
+['content'],0.2,300.0,50.0,0.0
+['content'],0.4,50.0,5.0,0.0
+['content'],0.4,50.0,1.0,0.0
+['content'],0.4,50.0,10.0,0.0
+['content'],0.4,50.0,20.0,0.0
+['content'],0.4,50.0,50.0,0.0
+['content'],0.4,100.0,1.0,0.0
+['content'],0.4,100.0,10.0,0.0
+['content'],0.4,100.0,50.0,0.0
+['content'],0.4,100.0,20.0,0.0
+['content'],0.4,100.0,5.0,0.0
+['content'],0.4,200.0,10.0,0.0
+['content'],0.4,200.0,5.0,0.0
+['content'],0.4,200.0,1.0,0.0
+['content'],0.4,200.0,20.0,0.0
+['content'],0.4,200.0,50.0,0.0
+['content'],0.4,300.0,10.0,0.0
+['content'],0.4,300.0,5.0,0.0
+['content'],0.5,50.0,5.0,0.0
+['content'],0.4,300.0,50.0,0.0
+['content'],0.4,300.0,1.0,0.0
+['content'],0.5,50.0,10.0,0.0
+['content'],0.5,50.0,1.0,0.0
+['content'],0.4,300.0,20.0,0.0
+['content'],0.5,50.0,50.0,0.0
+['content'],0.5,50.0,20.0,0.0
+['content'],0.5,100.0,50.0,0.0
+['content'],0.5,100.0,20.0,0.0
+['content'],0.5,100.0,10.0,0.0
+['content'],0.5,100.0,1.0,0.0
+['content'],0.5,100.0,5.0,0.0
+['content'],0.5,200.0,1.0,0.0
+['content'],0.5,200.0,10.0,0.0
+['content'],0.5,200.0,20.0,0.0
+['content'],0.5,200.0,5.0,0.0
+['content'],0.5,200.0,50.0,0.0
+['concept definitions'],0.2,50.0,10.0,0.0
+['concept definitions'],0.2,50.0,5.0,0.0
+['concept definitions'],0.2,50.0,1.0,0.0
+['content'],0.5,300.0,5.0,0.0
+['content'],0.5,300.0,10.0,0.0
+['concept definitions'],0.2,50.0,50.0,0.0
+['concept definitions'],0.2,50.0,20.0,0.0
+['concept definitions'],0.2,100.0,1.0,0.0
+['concept definitions'],0.2,100.0,5.0,0.0
+['content'],0.5,300.0,1.0,0.0
+['concept definitions'],0.2,100.0,10.0,0.0
+['content'],0.5,300.0,50.0,0.0
+['content'],0.5,300.0,20.0,0.0
+['concept definitions'],0.2,100.0,50.0,0.0
+['concept definitions'],0.2,100.0,20.0,0.0
+['concept definitions'],0.2,200.0,5.0,0.0
+['concept definitions'],0.2,200.0,10.0,0.0
+['concept definitions'],0.2,200.0,1.0,0.0
+['concept definitions'],0.2,200.0,20.0,0.0
+['concept definitions'],0.2,200.0,50.0,0.0
+['concept definitions'],0.2,300.0,1.0,0.0
+['concept definitions'],0.2,300.0,10.0,0.0
+['concept definitions'],0.2,300.0,5.0,0.0
+['concept definitions'],0.2,300.0,20.0,0.0
+['concept definitions'],0.4,50.0,1.0,0.0
+['concept definitions'],0.2,300.0,50.0,0.0
+['concept definitions'],0.4,50.0,5.0,0.0
+['concept definitions'],0.4,50.0,10.0,0.0
+['concept definitions'],0.4,50.0,50.0,0.0
+['concept definitions'],0.4,50.0,20.0,0.0
+['concept definitions'],0.4,100.0,1.0,0.0
+['concept definitions'],0.4,100.0,5.0,0.0
+['concept definitions'],0.4,100.0,50.0,0.0
+['concept definitions'],0.4,100.0,20.0,0.0
+['concept definitions'],0.4,100.0,10.0,0.0
+['concept definitions'],0.4,200.0,1.0,0.0
+['concept definitions'],0.4,200.0,50.0,0.0
+['concept definitions'],0.4,200.0,5.0,0.0
+['concept definitions'],0.4,200.0,10.0,0.0
+['concept definitions'],0.4,200.0,20.0,0.0
+['concept definitions'],0.4,300.0,10.0,0.0
+['concept definitions'],0.4,300.0,5.0,0.0
+['concept definitions'],0.4,300.0,1.0,0.0
+['concept definitions'],0.5,50.0,1.0,0.0
+['concept definitions'],0.5,50.0,5.0,0.0
+['concept definitions'],0.5,50.0,10.0,0.0
+['concept definitions'],0.4,300.0,50.0,0.0
+['concept definitions'],0.4,300.0,20.0,0.0
+['concept definitions'],0.5,50.0,50.0,0.0
+['concept definitions'],0.5,50.0,20.0,0.0
+['concept definitions'],0.5,100.0,50.0,0.0
+['concept definitions'],0.5,100.0,1.0,0.0
+['concept definitions'],0.5,100.0,10.0,0.0
+['concept definitions'],0.5,100.0,20.0,0.0
+['concept definitions'],0.5,100.0,5.0,0.0
+['concept definitions'],0.5,200.0,1.0,0.0
+['concept definitions'],0.5,200.0,5.0,0.0
+['concept definitions'],0.5,200.0,20.0,0.0
+['concept definitions'],0.5,200.0,50.0,0.0
+['concept definitions'],0.5,200.0,10.0,0.0
+['concept definitions'],0.5,300.0,5.0,0.0
+['concept definitions'],0.5,300.0,10.0,0.0
+['concept definitions'],0.5,300.0,1.0,0.0
+['concept definitions'],0.5,300.0,20.0,0.0
+['concept definitions'],0.5,300.0,50.0,0.0
+['content'],0.4,50.0,20.0,True
+['content'],0.4,50.0,10.0,True
+['content'],0.4,100.0,5.0,True
+['content'],0.4,50.0,5.0,True
+['content'],0.4,50.0,1.0,True
+['content'],0.4,100.0,20.0,True
+['content'],0.4,100.0,10.0,True
+['content'],0.4,100.0,1.0,True
+['content'],0.4,200.0,10.0,True
+['content'],0.4,200.0,20.0,True
+['content'],0.5,50.0,5.0,True
+['content'],0.5,50.0,10.0,True
+['content'],0.5,50.0,20.0,True
+['content'],0.4,200.0,5.0,True
+['content'],0.5,50.0,1.0,True
+['content'],0.4,200.0,1.0,True
+['content'],0.5,100.0,20.0,True
+['content'],0.5,100.0,10.0,True
+['content'],0.5,100.0,1.0,True
+['content'],0.5,100.0,5.0,True
+['content'],0.5,200.0,10.0,True
+['content'],0.5,200.0,5.0,True
+['content'],0.5,200.0,20.0,True
+['content'],0.5,200.0,1.0,True
+['content'],0.6000000000000001,50.0,10.0,True
+['content'],0.6000000000000001,50.0,20.0,True
+['content'],0.6000000000000001,50.0,5.0,True
+['content'],0.6000000000000001,50.0,1.0,True
+['content'],0.6000000000000001,100.0,10.0,True
+['content'],0.6000000000000001,100.0,5.0,True
+['content'],0.6000000000000001,100.0,20.0,True
+['content'],0.6000000000000001,100.0,1.0,True
+['concept definitions'],0.4,50.0,1.0,True
+['concept definitions'],0.4,50.0,5.0,True
+['concept definitions'],0.4,50.0,10.0,True
+['concept definitions'],0.4,50.0,20.0,True
+['content'],0.6000000000000001,200.0,1.0,True
+['content'],0.6000000000000001,200.0,5.0,True
+['content'],0.6000000000000001,200.0,10.0,True
+['content'],0.6000000000000001,200.0,20.0,True
+['concept definitions'],0.4,100.0,1.0,True
+['concept definitions'],0.4,100.0,5.0,True
+['concept definitions'],0.4,100.0,10.0,True
+['concept definitions'],0.4,100.0,20.0,True
+['concept definitions'],0.4,200.0,1.0,True
+['concept definitions'],0.4,200.0,5.0,True
+['concept definitions'],0.4,200.0,20.0,True
+['concept definitions'],0.4,200.0,10.0,True
+['concept definitions'],0.5,50.0,1.0,True
+['concept definitions'],0.5,50.0,5.0,True
+['concept definitions'],0.5,50.0,20.0,True
+['concept definitions'],0.5,50.0,10.0,True
+['concept definitions'],0.5,100.0,1.0,True
+['concept definitions'],0.5,100.0,5.0,True
+['concept definitions'],0.5,100.0,10.0,True
+['concept definitions'],0.5,100.0,20.0,True
+['concept definitions'],0.5,200.0,1.0,True
+['concept definitions'],0.5,200.0,5.0,True
+['concept definitions'],0.5,200.0,20.0,True
+['concept definitions'],0.5,200.0,10.0,True
+['concept definitions'],0.6000000000000001,50.0,1.0,True
+['concept definitions'],0.6000000000000001,50.0,5.0,True
+['concept definitions'],0.6000000000000001,50.0,20.0,True
+['concept definitions'],0.6000000000000001,50.0,10.0,True
+['concept definitions'],0.6000000000000001,100.0,1.0,True
+['concept definitions'],0.6000000000000001,100.0,5.0,True
+['concept definitions'],0.6000000000000001,100.0,20.0,True
+['concept definitions'],0.6000000000000001,100.0,10.0,True
+['concept definitions'],0.6000000000000001,200.0,1.0,True
+['concept definitions'],0.6000000000000001,200.0,20.0,True
+['concept definitions'],0.6000000000000001,200.0,10.0,True
+['concept definitions'],0.6000000000000001,200.0,5.0,True

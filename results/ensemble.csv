@@ -1,0 +1,337 @@
+attributes,category_extraction_fns,threshold,weights,n_clusters_options
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[1, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[1, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[1, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[2, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[1, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[2, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[2, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[1, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[3, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[3, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[2, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[2, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[3, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[3, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[4, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[3, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[4, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[4, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[5, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[4, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[5, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[5, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[4, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[5, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[6, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[5, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[6, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[6, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[6, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.2,"[6, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[1, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[1, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[1, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[1, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[2, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[1, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[2, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[2, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[2, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[2, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[3, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[3, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[3, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[3, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[3, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[4, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[4, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[4, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[5, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[4, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[4, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[5, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[5, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[5, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[6, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[5, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[6, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[6, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[6, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.4,"[6, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[1, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[1, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[1, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[1, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[2, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[1, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[2, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[2, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[2, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[3, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[2, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[3, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[3, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[4, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[4, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[3, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[4, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[3, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[4, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[4, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[5, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[5, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[5, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[5, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[6, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[5, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[6, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[6, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[6, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.6000000000000001,"[6, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[1, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[1, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[1, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[2, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[1, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[1, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[2, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[2, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[2, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[3, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[2, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[3, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[3, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[3, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[3, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[4, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[4, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[4, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[4, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[5, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[4, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[5, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[5, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[5, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[5, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[6, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[6, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[6, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[6, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name,0.8,"[6, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[1, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[1, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[1, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[1, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[1, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[2, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[2, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[2, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[2, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[2, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[3, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[3, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[3, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[3, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[4, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[3, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[4, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[4, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[4, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[4, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[5, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[5, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[5, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[5, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[5, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[6, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[6, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[6, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[6, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.2,"[6, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[1, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[1, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[1, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[1, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[2, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[2, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[1, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[2, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[2, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[2, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[3, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[3, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[3, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[3, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[3, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[4, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[4, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[4, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[4, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[4, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[5, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[5, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[5, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[5, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[5, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[6, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[6, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[6, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[6, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.4,"[6, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[1, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[1, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[1, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[1, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[1, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[2, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[2, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[2, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[2, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[2, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[3, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[3, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[3, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[3, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[3, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[4, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[4, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[4, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[4, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[4, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[5, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[5, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[5, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[5, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[5, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[6, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[6, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[6, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[6, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.6000000000000001,"[6, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[1, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[1, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[1, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[1, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[1, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[2, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[2, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[2, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[2, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[2, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[3, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[3, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[3, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[3, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[3, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[4, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[4, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[4, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[4, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[4, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[5, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[5, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[5, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[5, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[5, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[6, 1, 1, 1, 1]",[40]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[6, 1, 1, 1, 1]",[60]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[6, 1, 1, 1, 1]",[80]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[6, 1, 1, 1, 1]",[100]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept subject,0.8,"[6, 1, 1, 1, 1]",[120]
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 3, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 3, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 3, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 3, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 3, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 3, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 5, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 5, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 5, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 5, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 5, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 5, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 7, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 7, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 7, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 7, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 7, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[1, 7, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[3, 5, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[3, 5, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[3, 5, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[3, 5, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[3, 5, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.2,"[3, 5, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 3, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 3, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 3, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 3, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 3, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 3, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 5, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 5, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 5, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 5, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 5, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 5, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 7, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 7, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 7, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 7, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 7, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[1, 7, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[3, 5, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[3, 5, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[3, 5, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[3, 5, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[3, 5, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.4,"[3, 5, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 3, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 3, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 3, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 3, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 3, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 5, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 3, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 5, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 5, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 5, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 5, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 5, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 7, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 7, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 7, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 7, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 7, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[1, 7, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[3, 5, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[3, 5, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[3, 5, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[3, 5, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[3, 5, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.6000000000000001,"[3, 5, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 3, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 3, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 3, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 3, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 3, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 3, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 5, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 5, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 5, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 5, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 5, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 5, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 7, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 7, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 7, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 7, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 7, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[1, 7, 1, 1, 1, 1]","[80, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[3, 5, 1, 1, 1, 1]","[60, 100]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[3, 5, 1, 1, 1, 1]","[60, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[3, 5, 1, 1, 1, 1]","[100, 80]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[3, 5, 1, 1, 1, 1]","[100, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[3, 5, 1, 1, 1, 1]","[80, 60]"
+"['header', 'concept_name', 'concept_definition', 'concept_subject']",concept name+subject,0.8,"[3, 5, 1, 1, 1, 1]","[80, 100]"
