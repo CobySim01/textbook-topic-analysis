@@ -170,9 +170,6 @@ textbooks-parsed/**
 # To Do lists
 *.md
 
-# Cached vectors
-bert-vectors/**
-
 # Results analysis
 results.ipynb
 

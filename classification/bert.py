@@ -29,7 +29,7 @@ def process_section(data):
     embeddings = outputs.last_hidden_state.mean(1).to("cpu")
     embeddings_reshaped = torch.reshape(embeddings, (-1,)).tolist()
 
-    return {"x": embeddings_reshaped, "y": data["topic"], "textbook": data["textbook"]}
+    return {"x": embeddings_reshaped, "y": data["topic"]}
 
 
 def run_bert(dataset):
@@ -42,6 +42,4 @@ def run_bert(dataset):
 
     X = tf.convert_to_tensor([v["x"] for v in vectors])
     y = tf.convert_to_tensor([v["y"] for v in vectors])
-    textbooks = tf.convert_to_tensor([v["textbook"] for v in vectors])
-
-    return X, y, textbooks
+    return X, y
