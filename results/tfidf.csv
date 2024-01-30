@@ -1,83 +1,83 @@
-preprocessing,attributes,threshold,iterative
-,['header'],0.4,0.0
-,['header'],0.6000000000000001,0.0
-,['header'],0.2,0.0
-,['header'],0.8,0.0
-,['content'],0.8,0.0
-,['content'],0.2,0.0
-,['content'],0.6000000000000001,0.0
-,['content'],0.4,0.0
-lemmatize,['header'],0.2,0.0
-lemmatize,['header'],0.4,0.0
-lemmatize,['header'],0.6000000000000001,0.0
-lemmatize,['header'],0.8,0.0
-,"['header', 'concept name']",0.2,0.0
-,"['header', 'concept name']",0.4,0.0
-,"['header', 'concept name']",0.6000000000000001,0.0
-,"['header', 'concept name']",0.8,0.0
-lemmatize,"['header', 'concept name']",0.2,0.0
-lemmatize,"['header', 'concept name']",0.6000000000000001,0.0
-lemmatize,"['header', 'concept name']",0.4,0.0
-lemmatize,"['header', 'concept name']",0.8,0.0
-,"['header', 'concept name', 'concept definitions']",0.2,0.0
-,"['header', 'concept name', 'concept definitions']",0.4,0.0
-,"['header', 'concept name', 'concept definitions']",0.6000000000000001,0.0
-,"['header', 'concept name', 'concept definitions']",0.8,0.0
-,"['header', 'concept subject', 'concept definitions']",0.2,0.0
-,"['header', 'concept subject', 'concept definitions']",0.4,0.0
-,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,0.0
-,"['header', 'concept subject', 'concept definitions']",0.8,0.0
-,"['header', 'concept subject', 'concept name']",0.2,0.0
-,"['header', 'concept subject', 'concept name']",0.4,0.0
-,"['header', 'concept subject', 'concept name']",0.6000000000000001,0.0
-,"['header', 'concept subject', 'concept name']",0.8,0.0
-,"['concept definitions', 'concept subject', 'concept name']",0.2,0.0
-,"['concept definitions', 'concept subject', 'concept name']",0.4,0.0
-,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,0.0
-,"['concept definitions', 'concept subject', 'concept name']",0.8,0.0
-lemmatize,"['header', 'concept name', 'concept definitions']",0.6000000000000001,0.0
-lemmatize,"['header', 'concept name', 'concept definitions']",0.2,0.0
-lemmatize,"['header', 'concept name', 'concept definitions']",0.4,0.0
-lemmatize,"['header', 'concept name', 'concept definitions']",0.8,0.0
-lemmatize,['content'],0.2,0.0
-lemmatize,['content'],0.8,0.0
-lemmatize,['content'],0.4,0.0
-lemmatize,['content'],0.6000000000000001,0.0
-lemmatize,"['header', 'concept subject', 'concept name']",0.2,0.0
-lemmatize,"['header', 'concept subject', 'concept name']",0.4,0.0
-lemmatize,"['header', 'concept subject', 'concept name']",0.6000000000000001,0.0
-lemmatize,"['header', 'concept subject', 'concept name']",0.8,0.0
-lemmatize,"['header', 'concept subject', 'concept definitions']",0.2,0.0
-lemmatize,"['header', 'concept subject', 'concept definitions']",0.4,0.0
-lemmatize,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,0.0
-lemmatize,"['header', 'concept subject', 'concept definitions']",0.8,0.0
-,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,0.0
-,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,0.0
-,"['header', 'concept name', 'concept definitions', 'concept subject']",0.8,0.0
-,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,0.0
-lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.4,0.0
-lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.2,0.0
-lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,0.0
-lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.8,0.0
-lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,0.0
-lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,0.0
-lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,0.0
-lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.8,0.0
-,"['header', 'concept subject', 'concept definitions']",0.4,True
-,"['header', 'concept name', 'concept definitions']",0.2,True
-,"['header', 'concept name', 'concept definitions']",0.4,True
-,"['header', 'concept subject', 'concept definitions']",0.2,True
-,"['header', 'concept name', 'concept definitions']",0.6000000000000001,True
-,['content'],0.2,True
-,['content'],0.6000000000000001,True
-,['content'],0.4,True
-,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,True
-,"['header', 'concept subject', 'concept name']",0.4,True
-,"['header', 'concept subject', 'concept name']",0.2,True
-,"['header', 'concept subject', 'concept name']",0.6000000000000001,True
-,"['concept definitions', 'concept subject', 'concept name']",0.4,True
-,"['concept definitions', 'concept subject', 'concept name']",0.2,True
-,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,True
-,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,True
-,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,True
-,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,True
+preprocessing,attributes,threshold,iterative,true_positives,false_positives,false_negatives,precision,recall,f1,jaccard_index,fbeta
+,['header'],0.4,0.0,36,32,106,0.529411764705882,0.25352112676056304,0.342857142857142,0.127208480565371,0.43478260869565216
+,['header'],0.6000000000000001,0.0,21,10,121,0.6774193548387091,0.147887323943661,0.242774566473988,0.070469798657718,0.39473684210526316
+,['header'],0.2,0.0,44,84,98,0.34375000000000006,0.309859154929577,0.325925925925925,0.16,0.3363914373088685
+,['header'],0.8,0.0,10,0,132,1.0,0.07042253521126701,0.13157894736842102,0.032362459546925,0.27472527472527475
+,['content'],0.8,0.0,0,0,142,,0.0,,0.0,0.0
+,['content'],0.2,0.0,66,91,76,0.42038216560509506,0.464788732394366,0.44147157190635405,0.260869565217391,0.42857142857142855
+,['content'],0.6000000000000001,0.0,48,33,94,0.592592592592592,0.338028169014084,0.43049327354260003,0.17712177121771203,0.5150214592274678
+,['content'],0.4,0.0,63,85,79,0.42567567567567505,0.44366197183098505,0.434482758620689,0.24609375,0.42915531335149865
+lemmatize,['header'],0.2,0.0,43,81,99,0.346774193548387,0.30281690140845,0.32330827067669105,0.155797101449275,0.33699059561128525
+lemmatize,['header'],0.4,0.0,41,41,101,0.5,0.288732394366197,0.36607142857142805,0.147482014388489,0.43617021276595747
+lemmatize,['header'],0.6000000000000001,0.0,26,14,116,0.65,0.183098591549295,0.28571428571428503,0.08873720136518701,0.4304635761589404
+lemmatize,['header'],0.8,0.0,12,4,130,0.75,0.084507042253521,0.151898734177215,0.039087947882736,0.2912621359223301
+,"['header', 'concept name']",0.2,0.0,58,85,84,0.405594405594405,0.408450704225352,0.40701754385964906,0.22222222222222202,0.4061624649859944
+,"['header', 'concept name']",0.4,0.0,41,31,101,0.5694444444444441,0.288732394366197,0.38317757009345704,0.147482014388489,0.47674418604651164
+,"['header', 'concept name']",0.6000000000000001,0.0,19,3,123,0.8636363636363631,0.13380281690140802,0.23170731707317002,0.063333333333333,0.41304347826086957
+,"['header', 'concept name']",0.8,0.0,5,1,137,0.833333333333333,0.035211267605633,0.067567567567567,0.01592356687898,0.15060240963855423
+lemmatize,"['header', 'concept name']",0.2,0.0,52,90,90,0.366197183098591,0.366197183098591,0.366197183098591,0.19475655430711603,0.36619718309859156
+lemmatize,"['header', 'concept name']",0.6000000000000001,0.0,26,8,116,0.764705882352941,0.183098591549295,0.295454545454545,0.08873720136518701,0.4676258992805755
+lemmatize,"['header', 'concept name']",0.4,0.0,40,40,102,0.5,0.28169014084507005,0.36036036036036,0.14336917562724,0.4329004329004329
+lemmatize,"['header', 'concept name']",0.8,0.0,8,1,134,0.8888888888888881,0.056338028169014,0.105960264900662,0.02572347266881,0.2247191011235955
+,"['header', 'concept name', 'concept definitions']",0.2,0.0,63,82,79,0.434482758620689,0.44366197183098505,0.43902439024390205,0.24609375,0.4362880886426593
+,"['header', 'concept name', 'concept definitions']",0.4,0.0,51,44,91,0.536842105263157,0.35915492957746403,0.43037974683544306,0.190298507462686,0.4885057471264368
+,"['header', 'concept name', 'concept definitions']",0.6000000000000001,0.0,29,8,113,0.7837837837837831,0.204225352112676,0.324022346368715,0.1,0.5
+,"['header', 'concept name', 'concept definitions']",0.8,0.0,7,1,135,0.875,0.049295774647887,0.093333333333333,0.022435897435897002,0.20114942528735633
+,"['header', 'concept subject', 'concept definitions']",0.2,0.0,50,82,92,0.378787878787878,0.352112676056338,0.36496350364963503,0.18587360594795502,0.373134328358209
+,"['header', 'concept subject', 'concept definitions']",0.4,0.0,45,59,97,0.43269230769230704,0.316901408450704,0.365853658536585,0.164233576642335,0.4032258064516129
+,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,0.0,29,21,113,0.58,0.204225352112676,0.30208333333333304,0.1,0.4239766081871345
+,"['header', 'concept subject', 'concept definitions']",0.8,0.0,7,2,135,0.777777777777777,0.049295774647887,0.09271523178807901,0.022435897435897002,0.19662921348314608
+,"['header', 'concept subject', 'concept name']",0.2,0.0,64,79,78,0.44755244755244705,0.450704225352112,0.44912280701754304,0.250980392156862,0.4481792717086835
+,"['header', 'concept subject', 'concept name']",0.4,0.0,48,37,94,0.5647058823529411,0.338028169014084,0.42290748898678404,0.17712177121771203,0.4979253112033195
+,"['header', 'concept subject', 'concept name']",0.6000000000000001,0.0,19,5,123,0.7916666666666661,0.13380281690140802,0.228915662650602,0.063333333333333,0.39915966386554624
+,"['header', 'concept subject', 'concept name']",0.8,0.0,4,0,138,1.0,0.028169014084507,0.054794520547945,0.012698412698412001,0.12658227848101267
+,"['concept definitions', 'concept subject', 'concept name']",0.2,0.0,31,73,111,0.298076923076923,0.218309859154929,0.252032520325203,0.107638888888888,0.2777777777777778
+,"['concept definitions', 'concept subject', 'concept name']",0.4,0.0,30,62,112,0.326086956521739,0.211267605633802,0.256410256410256,0.10380622837370201,0.29411764705882354
+,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,0.0,22,17,120,0.5641025641025641,0.154929577464788,0.24309392265193303,0.074074074074074,0.3691275167785235
+,"['concept definitions', 'concept subject', 'concept name']",0.8,0.0,3,3,139,0.5,0.02112676056338,0.04054054054054,0.009493670886075,0.09036144578313253
+lemmatize,"['header', 'concept name', 'concept definitions']",0.6000000000000001,0.0,26,12,116,0.684210526315789,0.183098591549295,0.28888888888888803,0.08873720136518701,0.4421768707482993
+lemmatize,"['header', 'concept name', 'concept definitions']",0.2,0.0,56,86,86,0.394366197183098,0.394366197183098,0.394366197183098,0.21292775665399202,0.39436619718309857
+lemmatize,"['header', 'concept name', 'concept definitions']",0.4,0.0,47,50,95,0.484536082474226,0.33098591549295703,0.393305439330543,0.17279411764705802,0.44339622641509435
+lemmatize,"['header', 'concept name', 'concept definitions']",0.8,0.0,10,2,132,0.833333333333333,0.07042253521126701,0.129870129870129,0.032362459546925,0.2631578947368421
+lemmatize,['content'],0.2,0.0,64,79,78,0.44755244755244705,0.450704225352112,0.44912280701754304,0.250980392156862,0.4481792717086835
+lemmatize,['content'],0.8,0.0,0,0,142,,0.0,,0.0,0.0
+lemmatize,['content'],0.4,0.0,37,28,105,0.5692307692307691,0.26056338028169,0.35748792270531404,0.13120567375886502,0.4601990049751244
+lemmatize,['content'],0.6000000000000001,0.0,8,1,134,0.8888888888888881,0.056338028169014,0.105960264900662,0.02572347266881,0.2247191011235955
+lemmatize,"['header', 'concept subject', 'concept name']",0.2,0.0,52,93,90,0.358620689655172,0.366197183098591,0.36236933797909404,0.19475655430711603,0.3601108033240997
+lemmatize,"['header', 'concept subject', 'concept name']",0.4,0.0,45,48,97,0.48387096774193505,0.316901408450704,0.38297872340425504,0.164233576642335,0.4377431906614786
+lemmatize,"['header', 'concept subject', 'concept name']",0.6000000000000001,0.0,22,12,120,0.647058823529411,0.154929577464788,0.25,0.074074074074074,0.39568345323741005
+lemmatize,"['header', 'concept subject', 'concept name']",0.8,0.0,6,2,136,0.75,0.04225352112676,0.08,0.019169329073482,0.1724137931034483
+lemmatize,"['header', 'concept subject', 'concept definitions']",0.2,0.0,50,83,92,0.37593984962406,0.352112676056338,0.36363636363636304,0.18587360594795502,0.37091988130563797
+lemmatize,"['header', 'concept subject', 'concept definitions']",0.4,0.0,48,55,94,0.46601941747572806,0.338028169014084,0.39183673469387703,0.17712177121771203,0.4332129963898917
+lemmatize,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,0.0,27,18,115,0.6000000000000001,0.190140845070422,0.28877005347593504,0.092465753424657,0.4192546583850932
+lemmatize,"['header', 'concept subject', 'concept definitions']",0.8,0.0,6,5,136,0.5454545454545451,0.04225352112676,0.07843137254901901,0.019169329073482,0.16129032258064516
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,0.0,60,87,82,0.408163265306122,0.422535211267605,0.41522491349480906,0.23166023166023103,0.410958904109589
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,0.0,52,50,90,0.5098039215686271,0.366197183098591,0.426229508196721,0.19475655430711603,0.4727272727272727
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.8,0.0,6,1,136,0.8571428571428571,0.04225352112676,0.080536912751677,0.019169329073482,0.17647058823529413
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,0.0,28,12,114,0.7000000000000001,0.197183098591549,0.30769230769230704,0.096219931271477,0.46357615894039733
+lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.4,0.0,27,60,115,0.310344827586206,0.190140845070422,0.235807860262008,0.092465753424657,0.2755102040816326
+lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.2,0.0,28,76,114,0.269230769230769,0.197183098591549,0.22764227642276402,0.096219931271477,0.25089605734767023
+lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,0.0,18,18,124,0.5,0.12676056338028102,0.202247191011235,0.059800664451827,0.3146853146853147
+lemmatize,"['concept definitions', 'concept subject', 'concept name']",0.8,0.0,3,2,139,0.6000000000000001,0.02112676056338,0.040816326530612006,0.009493670886075,0.09259259259259259
+lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,0.0,51,96,91,0.346938775510204,0.35915492957746403,0.35294117647058804,0.190298507462686,0.3493150684931507
+lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,0.0,27,16,115,0.627906976744186,0.190140845070422,0.291891891891891,0.092465753424657,0.4299363057324841
+lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,0.0,49,54,93,0.47572815533980506,0.34507042253521103,0.4,0.18148148148148102,0.44223826714801445
+lemmatize,"['header', 'concept name', 'concept definitions', 'concept subject']",0.8,0.0,10,3,132,0.769230769230769,0.07042253521126701,0.12903225806451601,0.032362459546925,0.25773195876288657
+,"['header', 'concept subject', 'concept definitions']",0.4,True,45,59,97,0.43269230769230704,0.316901408450704,0.365853658536585,0.164233576642335,0.4032258064516129
+,"['header', 'concept name', 'concept definitions']",0.2,True,63,82,79,0.434482758620689,0.44366197183098505,0.43902439024390205,0.24609375,0.4362880886426593
+,"['header', 'concept name', 'concept definitions']",0.4,True,51,44,91,0.536842105263157,0.35915492957746403,0.43037974683544306,0.190298507462686,0.4885057471264368
+,"['header', 'concept subject', 'concept definitions']",0.2,True,50,82,92,0.378787878787878,0.352112676056338,0.36496350364963503,0.18587360594795502,0.373134328358209
+,"['header', 'concept name', 'concept definitions']",0.6000000000000001,True,29,8,113,0.7837837837837831,0.204225352112676,0.324022346368715,0.1,0.5
+,['content'],0.2,True,66,91,76,0.42038216560509506,0.464788732394366,0.44147157190635405,0.260869565217391,0.42857142857142855
+,['content'],0.6000000000000001,True,48,33,94,0.592592592592592,0.338028169014084,0.43049327354260003,0.17712177121771203,0.5150214592274678
+,['content'],0.4,True,63,85,79,0.42567567567567505,0.44366197183098505,0.434482758620689,0.24609375,0.42915531335149865
+,"['header', 'concept subject', 'concept definitions']",0.6000000000000001,True,29,21,113,0.58,0.204225352112676,0.30208333333333304,0.1,0.4239766081871345
+,"['header', 'concept subject', 'concept name']",0.4,True,48,37,94,0.5647058823529411,0.338028169014084,0.42290748898678404,0.17712177121771203,0.4979253112033195
+,"['header', 'concept subject', 'concept name']",0.2,True,64,79,78,0.44755244755244705,0.450704225352112,0.44912280701754304,0.250980392156862,0.4481792717086835
+,"['header', 'concept subject', 'concept name']",0.6000000000000001,True,19,5,123,0.7916666666666661,0.13380281690140802,0.228915662650602,0.063333333333333,0.39915966386554624
+,"['concept definitions', 'concept subject', 'concept name']",0.4,True,30,62,112,0.326086956521739,0.211267605633802,0.256410256410256,0.10380622837370201,0.29411764705882354
+,"['concept definitions', 'concept subject', 'concept name']",0.2,True,31,73,111,0.298076923076923,0.218309859154929,0.252032520325203,0.107638888888888,0.2777777777777778
+,"['concept definitions', 'concept subject', 'concept name']",0.6000000000000001,True,22,17,120,0.5641025641025641,0.154929577464788,0.24309392265193303,0.074074074074074,0.3691275167785235
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.2,True,60,87,82,0.408163265306122,0.422535211267605,0.41522491349480906,0.23166023166023103,0.410958904109589
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.6000000000000001,True,28,12,114,0.7000000000000001,0.197183098591549,0.30769230769230704,0.096219931271477,0.46357615894039733
+,"['header', 'concept name', 'concept definitions', 'concept subject']",0.4,True,52,50,90,0.5098039215686271,0.366197183098591,0.426229508196721,0.19475655430711603,0.4727272727272727
