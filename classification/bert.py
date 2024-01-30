@@ -11,12 +11,15 @@ tokenizer = DistilBertTokenizer.from_pretrained(model_name)
 model = DistilBertModel.from_pretrained(model_name)
 
 
-def process_section(data):
+def process_section(data, with_concepts):
     """Function to get BERT embeddings for concatenated concepts and text."""
+    if with_concepts:
+        text = "[CLS] " + " ".join(data["concepts"]) + " [SEP] " + data["content"]
+    else:
+        text = "[CLS] " + data["content"]
 
-    combined_text = "[CLS] " + " ".join(data["concepts"]) + " [SEP] " + data["content"]
     inputs = tokenizer(
-        combined_text,
+        text,
         return_tensors="pt",
         max_length=512,
         truncation=True,
@@ -32,11 +35,13 @@ def process_section(data):
     return {"x": embeddings_reshaped, "y": data["topic"]}
 
 
-def run_bert(dataset):
+def run_bert(dataset, with_concepts):
     """Generate all BERT embeddings for an integrated textbook."""
     vectors = []
     with ProcessPoolExecutor() as executor:
-        futures = (executor.submit(process_section, data) for data in dataset)
+        futures = (
+            executor.submit(process_section, data, with_concepts) for data in dataset
+        )
         for future in as_completed(futures):
             vectors.append(future.result())
 

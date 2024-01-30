@@ -1,10 +1,9 @@
-from concurrent.futures import ProcessPoolExecutor, as_completed
 import contextlib
 import io
 import itertools
-import json
-from time import time
 import traceback
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from time import time
 
 from utils import write_results
 

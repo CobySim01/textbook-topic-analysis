@@ -24,8 +24,10 @@ class Textbook:
             raise ValueError("name atribute must be a string")
 
     @classmethod
-    def from_json(cls, path: Path) -> "Textbook":
+    def from_json(cls, path: Path | str) -> "Textbook":
         """Loads JSON serialized textbook as Textbook object"""
+        if not isinstance(path, Path) and isinstance(path, str):
+            path = Path(path)
         with open(path, encoding="utf-8") as file:
             data = json.load(file)
         textbook = cls(path.stem)
