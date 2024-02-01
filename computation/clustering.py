@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import MultiLabelBinarizer
 
-from textbooks.integration import SimilarityBasedTextbookIntegration
+from textbooks.integration import TextbookIntegration
 
 from .tfidf import sklearn_cos, tfidf_vector_computation
 
@@ -38,7 +38,7 @@ def clustering_integration(
     if len(n_clusters_options) != len(category_extraction_fns):
         raise ValueError
 
-    integrated_textbook = SimilarityBasedTextbookIntegration(
+    integrated_textbook = TextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
         threshold=threshold,
@@ -85,7 +85,7 @@ def tfidf_clustering_ensemble_integration(
     if len(n_clusters_options) != len(category_extraction_fns):
         raise ValueError
 
-    integrated_textbook = SimilarityBasedTextbookIntegration(
+    integrated_textbook = TextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
         threshold=threshold,

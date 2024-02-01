@@ -1,5 +1,4 @@
 import random
-from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any, Callable, DefaultDict, Optional, TypedDict
@@ -33,11 +32,13 @@ def random_shuffle(lst):
 
 
 @dataclass(kw_only=True)
-class TextbookIntegration(ABC):
+class TextbookIntegration:
     """Represents a Textbook integrated with sections from other textbooks."""
 
     base_textbook: Textbook
     other_textbooks: list[Textbook]
+
+    vectors: dict[Section, Any] = field(default_factory=dict, repr=False, init=False)
 
     scoring_fn: Optional[SimilarityFunction | QueryFunction] = field(
         default=None, repr=False
@@ -88,9 +89,19 @@ class TextbookIntegration(ABC):
         ]
         return base_sections + other_sections
 
-    @abstractmethod
     def find_best_matching_section(self, other_section: Section) -> MatchingSection:
         """Finds the best matching section in the base textbook for a given vector."""
+        for base_section in self.base_textbook.all_subsections():
+            self.scores[(base_section, other_section)] = self.scoring_fn(
+                self.vectors[base_section] if self.vectors else base_section,
+                self.vectors[other_section] if self.vectors else other_section,
+            )
+        best_match, best_match_score = max(
+            filter_by_section(self.scores, other_section),
+            key=lambda x: x[1],
+            default=(None, None),
+        )
+        return {"score": best_match_score, "section": best_match}
 
     def integrate_sections(self):
         """Attempts to integrate all sections from other_textbooks into the base textbook."""
@@ -180,39 +191,9 @@ class TextbookIntegration(ABC):
             "jaccard_index": jaccard_index,
         }
 
-
-@dataclass(kw_only=True)
-class SimilarityBasedTextbookIntegration(TextbookIntegration):
-    """Represents a Textbook integrated using similarity-based methods."""
-
-    vectors: dict[Section, Any] = field(default_factory=dict, repr=False, init=False)
-
     def add_section_vectors(self, section_vectors_map: dict[Section, Any]):
         """Add section vectors to this Textbook"""
         self.vectors |= section_vectors_map
-
-    def find_best_matching_section(self, other_section: Section) -> MatchingSection:
-        for base_section in self.base_textbook.all_subsections():
-            self.scores[(base_section, other_section)] = self.scoring_fn(
-                self.vectors[base_section] if self.vectors else base_section,
-                self.vectors[other_section] if self.vectors else other_section,
-            )
-        best_match, best_match_score = max(
-            filter_by_section(self.scores, other_section),
-            key=lambda x: x[1],
-            default=(None, None),
-        )
-        return {"score": best_match_score, "section": best_match}
-
-
-@dataclass(kw_only=True)
-class QueryBasedTextbookIntegration(TextbookIntegration):
-    """Represents a Textbook integrated using query-based methods."""
-
-    def find_best_matching_section(self, other_section: Section) -> MatchingSection:
-        result = self.scoring_fn(other_section)
-        self.scores[(result["section"], other_section)] = result["score"]
-        return result
 
 
 def print_toc(

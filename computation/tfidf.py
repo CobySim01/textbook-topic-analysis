@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity as sklearn_cos
 
 from nlp import lemmatize
-from textbooks.integration import SimilarityBasedTextbookIntegration
+from textbooks.integration import TextbookIntegration
 
 
 def compose(*functions):
@@ -60,7 +60,7 @@ def tfidf_integration(
             compose(" ".join, lemmatize, fn) for fn in text_extraction_fns
         ]
 
-    integrated_textbook = SimilarityBasedTextbookIntegration(
+    integrated_textbook = TextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
         scoring_fn=lambda a, b: sklearn_cos(a, b)[0][0],

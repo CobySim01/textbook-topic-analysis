@@ -4,7 +4,7 @@ from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from nltk.tokenize import word_tokenize
 from numpy.linalg import norm
 
-from textbooks.integration import SimilarityBasedTextbookIntegration
+from textbooks.integration import TextbookIntegration
 
 nltk.download("punkt", quiet=True)
 
@@ -41,7 +41,7 @@ def doc2vec_integration(
     epochs=40,
     evaluate=True,
 ):
-    integrated_textbook = SimilarityBasedTextbookIntegration(
+    integrated_textbook = TextbookIntegration(
         base_textbook=base_textbook,
         other_textbooks=other_textbooks,
         scoring_fn=lambda a, b: np.dot(a, b) / (norm(a) * norm(b)),
