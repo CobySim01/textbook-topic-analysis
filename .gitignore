@@ -173,5 +173,5 @@ textbooks-parsed/**
 # Results analysis
 results.ipynb
 
-# Large dataset file
-dataset.json
+# Dataset files
+*dataset.json
