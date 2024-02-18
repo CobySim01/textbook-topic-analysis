@@ -8,23 +8,6 @@ from time import time
 from utils import write_results
 
 
-def weight_combinations(n, step):
-    """Generates all combinations of `n` floats summing to 1 with `step`."""
-
-    def generate(current, depth):
-        if depth == n - 1:
-            remainder = round(1 - sum(current), 2)
-            if 0 < remainder < 1:
-                yield current + [remainder]
-        else:
-            for i in range(1, int(1 / step)):
-                value = round(i * step, 2)
-                if sum(current) + value < 1:
-                    yield from generate(current + [value], depth + 1)
-
-    return list(generate([], 0))
-
-
 def evaluate_model(
     base_textbook, other_textbooks, fn, param_comb_dict, param_label_dict, name
 ):
