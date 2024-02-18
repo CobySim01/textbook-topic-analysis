@@ -1,0 +1,6 @@
+{"accuracy": 0.12526427061310783, "precision": 0.07002525518257392, "recall": 0.12526427061310783, "f1": 0.07845464612906475, "model__model_type": "BERTopic", "dataset": "expert", "concepts": true}
+{"accuracy": 0.12536997885835097, "precision": 0.08637484432410436, "recall": 0.12536997885835097, "f1": 0.09110156936926321, "model__model_type": "BERTopic", "dataset": "expert", "concepts": false}
+{"accuracy": 0.0016913319238900635, "precision": 5.407632653932865e-05, "recall": 0.0016913319238900635, "f1": 0.00010428273994165468, "model__model_type": "BERTopic", "dataset": "large", "concepts": true}
+{"accuracy": 0.0025369978858350954, "precision": 9.010251343716067e-05, "recall": 0.0025369978858350954, "f1": 0.00017315837525393868, "model__model_type": "BERTopic", "dataset": "large", "concepts": false}
+{"accuracy": 0.03094679186228482, "precision": 0.011119545556165277, "recall": 0.03094679186228482, "f1": 0.015070847792066407, "model__model_type": "BERTopic", "dataset": "small", "concepts": true}
+{"accuracy": 0.03094679186228482, "precision": 0.011119545556165277, "recall": 0.03094679186228482, "f1": 0.015070847792066407, "model__model_type": "BERTopic", "dataset": "small", "concepts": false}
