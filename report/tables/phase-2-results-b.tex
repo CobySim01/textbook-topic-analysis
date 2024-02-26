@@ -1,0 +1,26 @@
+\begin{table*}[h]
+\centering
+\begin{threeparttable}
+\caption{Test performance of the optimal model for each dataset}
+\label{table:phase2-results-b}
+\begin{tabular}{lccccccccc}
+\toprule
+\multirow{2}{*}{dataset} & \multirow{2}{*}{concepts} & \multicolumn{2}{c}{accuracy} & \multicolumn{2}{c}{precision} & \multicolumn{2}{c}{$F_1$} \\
+ &  & model & baseline & model & baseline & model & baseline \\
+\midrule
+expert & true & \textbf{0.59} & 0.13 & \textbf{0.67} & 0.07 & 0.61 & 0.08 \\
+expert & false & 0.41 & 0.13 & 0.50 & 0.09 & 0.44 & 0.09 \\
+small & true & 0.35 & 0.03 & 0.48 & 0.01 & 0.53 & 0.02 \\
+small & false & 0.45 & 0.03 & 0.64 & 0.01 & \textbf{0.62} & 0.02 \\
+large & true & 0.26 & 0.00 & 0.56 & 0.00 & 0.40 & 0.00 \\
+large & false & 0.24 & 0.00 & 0.57 & 0.00 & 0.37 & 0.00 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes} \footnotesize\centering
+\nonumitem Recall is excluded because weighted-average recall is equivalent to accuracy for multiclass classification. Weighted-average precision is used.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}
+
+
+
