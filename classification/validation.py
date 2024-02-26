@@ -26,7 +26,6 @@ scoring = {
 
 def grid_search_neural_networks(num_classes, X_train, y_train, param_grid, n_splits=5):
     """Performs a grid search on neural networks."""
-
     # Wrap the model using KerasClassifier
     model = KerasClassifier(
         model=create_model,
