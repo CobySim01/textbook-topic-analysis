@@ -167,11 +167,5 @@ textbooks-parsed/**
 # MacOS binary files
 **/.DS_Store
 
-# To Do lists
-*.md
-
-# Results analysis
-results.ipynb
-
 # Dataset files
 *dataset.json
